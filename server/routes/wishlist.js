@@ -7,7 +7,7 @@ import * as db from '../db/functions/wishlist.js'
 const router = express.Router()
 
 router.get('/', (req, res) => {
-  db.getWishList()
+  db.getWishlist()
     .then((result) => {
       res.json(result)
     })
