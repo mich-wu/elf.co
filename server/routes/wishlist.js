@@ -28,4 +28,22 @@ router.post('/', (req, res) => {
     })
     .catch((err) => console.error(err.message))
 })
+
+router.patch('/:id', (req, res) => {
+  const id = req.params.id
+  const wish = req.body
+  db.updatedWishlist(id, wish)
+    .then(() => {
+      return db.getWishlist()
+    })
+    .then((wishlist) => {
+      res.json(wishlist)
+    })
+    .catch((err) => {
+      console.error(err.message)
+      res
+        .status(500)
+        .json({ message: 'Something went wrong with the patch route' })
+    })
+})
 export default router
