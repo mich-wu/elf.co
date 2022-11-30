@@ -3,6 +3,11 @@ import 'dotenv/config'
 import express from 'express'
 import path from 'path'
 
+import eventRoute from './routes/event.js'
+import guestRoute from './routes/guest.js'
+import hostRoute from './routes/host.js'
+import inviteRoute from './routes/invite.js'
+
 const server = express()
 
 server.use(express.urlencoded({ extended: true }))
@@ -12,6 +17,11 @@ server.use(express.json())
 server.get('/api/hello-world', (req, res) => {
   res.json({ message: 'Hello World' })
 })
+
+server.use('/api/event', eventRoute)
+server.use('/api/guest', guestRoute)
+server.use('/api/invite', inviteRoute)
+server.use('/api/dashboard', hostRoute)
 
 // example:
 // server.use('/api/dracula', draculaRoutes)
