@@ -17,9 +17,9 @@ server.get('/api/hello-world', (req, res) => {
   res.json({ message: 'Hello World' })
 })
 
-server.use('/api/event', eventRoute)
-server.use('/api/wishlist', wishlistRoute)
-server.use('/api/invite', inviteRoute)
+server.use('/api/v1/event', eventRoute)
+server.use('/api/v1/wishlist', wishlistRoute)
+server.use('/api/v1/invite', inviteRoute)
 
 // example:
 // server.use('/api/dracula', draculaRoutes)
