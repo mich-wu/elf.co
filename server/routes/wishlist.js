@@ -17,6 +17,19 @@ router.get('/', (req, res) => {
     })
 })
 
+router.get('/:id', (req, res) => {
+  const id = req.params.id
+
+  db.getWishlistById(id)
+    .then((wishlist) => {
+      res.json(wishlist)
+    })
+    .catch((err) => {
+      console.log(err)
+      res.sendStatus(500)
+    })
+})
+
 router.post('/', (req, res) => {
   const wish = req.body
   db.createWishlist(wish)
@@ -34,7 +47,7 @@ router.patch('/:id', (req, res) => {
   const wish = req.body
   db.updatedWishlist(id, wish)
     .then(() => {
-      return db.getWishlist()
+      return db.getWishlistById(id)
     })
     .then((wishlist) => {
       res.json(wishlist)
