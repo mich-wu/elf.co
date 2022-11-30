@@ -6,7 +6,7 @@ export const up = async (knex) => {
     t.string('event_name')
     t.integer('budget')
     t.date('date')
-    t.boolean('status')
+    t.boolean('status').defaultTo(false)
   })
 }
 

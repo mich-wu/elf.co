@@ -1,15 +1,16 @@
+import { Route, Routes } from 'react-router-dom'
+
+import CreateEvent from './pages/CreateEvent'
+import Dashboard from './pages/Dashboard'
+import EventDetail from './pages/EventDetail'
+
 function App() {
   return (
-    <div
-      style={{
-        maxWidth: '1024px',
-        margin: '2rem auto',
-        textAlign: 'center',
-        fontSize: '2rem',
-      }}
-    >
-      Santa is a drunk?
-    </div>
+    <Routes>
+      <Route path='/event' element={<CreateEvent />} />
+      <Route path='/dashboard' element={<Dashboard />} />
+      <Route path='/dashboard/:event_id' element={<EventDetail />} />
+    </Routes>
   )
 }
 
