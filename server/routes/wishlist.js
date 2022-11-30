@@ -17,4 +17,15 @@ router.get('/', (req, res) => {
     })
 })
 
+router.post('/', (req, res) => {
+  const wish = req.body
+  db.createWishlist(wish)
+    .then(() => {
+      return db.getWishlist()
+    })
+    .then((updatedWishlist) => {
+      res.json(updatedWishlist)
+    })
+    .catch((err) => console.error(err.message))
+})
 export default router
