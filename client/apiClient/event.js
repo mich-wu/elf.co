@@ -18,3 +18,8 @@ export async function getEvents() {
   const res = await request.get(`${baseUrl}/event/dashboard`)
   return res.body
 }
+export function getAllParticipants() {
+  return request.get('/api/v1/wishlist').then((res) => {
+    return res.body
+  })
+}
