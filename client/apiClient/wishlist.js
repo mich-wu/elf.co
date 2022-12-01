@@ -12,3 +12,13 @@ export function getWishlistByIdApi(id) {
     return res.body
   })
 }
+
+export function createWishlistApi(wish) {
+  return request
+    .post(wishlistURL)
+    .send(wish)
+    .then((res) => {
+      return res.body
+    })
+    .catch(console.error)
+}
