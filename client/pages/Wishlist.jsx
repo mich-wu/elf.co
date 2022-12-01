@@ -12,20 +12,15 @@
 //conditional later
 //Get status - countdown?
 
-//TODO:
-
-// import useParams from react-router-dom
-// get guest_code from useParams
-// add guest_code to updatedWishlistApi(guest_code, newWish)
-// add guest_code to getWishlistByIdApi, return current wishlist to show name ect on page
-
 import { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
 
 import { getWishlistByIdApi, updatedWishlistApi } from '../apiClient/guest'
 
 export default function AddWishlist() {
   const initialState = { wishlist: '' }
   const [newWish, setNewWish] = useState(initialState)
+  const { guest_code } = useParams()
 
   const dummy = {
     guest_code: 123,
@@ -59,7 +54,9 @@ export default function AddWishlist() {
 
   function handleSubmit(event) {
     event.preventDefault()
-    return updatedWishlistApi(newWish).then(setNewWish(initialState))
+    return updatedWishlistApi(guest_code, newWish).then(
+      setNewWish(initialState)
+    )
   }
 
   return (

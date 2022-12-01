@@ -19,3 +19,12 @@ export function updatedWishlist(id, wish, db = connection) {
 export function deleteWishlist(id, db = connection) {
   return db('guest').del().where('id', id)
 }
+
+export function updateWishlistGifter(
+  gifter_id,
+  guest_code,
+  id,
+  db = connection
+) {
+  return db('guest').where('guest_code', guest_code).update({ gifter_id })
+}
