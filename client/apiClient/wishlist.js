@@ -22,3 +22,12 @@ export function createWishlistApi(wish) {
     })
     .catch(console.error)
 }
+
+export function updatedWishlistApi(id, newWish) {
+  return request
+    .patch(`${wishlistURL}${id}`)
+    .send(newWish)
+    .then((res) => {
+      return res.body
+    })
+}
