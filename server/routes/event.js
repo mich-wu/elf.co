@@ -3,7 +3,7 @@
 import express from 'express'
 const router = express.Router()
 import { createEvent, getEvent, getEvents } from '../db/functions/events.js'
-import * as db from '../db/functions/wishlist.js'
+import * as db from '../db/functions/guest.js'
 
 router.get('/dashboard', async (req, res) => {
   const events = await getEvents()

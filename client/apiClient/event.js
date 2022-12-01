@@ -1,6 +1,6 @@
 import request from 'superagent'
 
-const baseUrl = '/api'
+const baseUrl = '/api/v1'
 
 export const createEvent = async (event) => {
   const res = await request.post(`${baseUrl}/event`).send(event)
@@ -29,4 +29,20 @@ export function deleteGuest(guestId) {
     console.log(res.body)
     return res.body
   })
+}
+
+export function updateGuest(guestId, gifter_id) {
+  return request
+    .patch(`/api/v1/wishlist/${guestId}`)
+    .send({ gifter_id })
+    .then((res) => {
+      return res.body
+    })
+}
+
+export const updateWishlistGifterApi = async (assignment) => {
+  const res = await request
+    .put(`${baseUrl}/wishlist/${assignment.guest_code}`)
+    .send(assignment)
+  return res.body
 }

@@ -25,7 +25,7 @@ export function createWishlistApi(wish) {
 
 export function updatedWishlistApi(id, newWish) {
   return request
-    .patch(`${wishlistURL}${id}`)
+    .patch(`${wishlistURL}/${id}`)
     .send(newWish)
     .then((res) => {
       return res.body
@@ -33,7 +33,7 @@ export function updatedWishlistApi(id, newWish) {
 }
 
 export function deleteWishlistApi(id) {
-  return request.delete(`${wishlistURL}${id}`).then((res) => {
+  return request.delete(`${wishlistURL}/${id}`).then((res) => {
     console.log(res.body)
     return res.body
   })
