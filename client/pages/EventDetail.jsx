@@ -7,8 +7,8 @@ import { deleteGuest, getAllParticipants } from '../apiClient/event.js'
 // Retrieve every user's name that is attached to the event in the db.
 // host page
 
-//1) Map through the partipant info
-//2) Delete button
+//1) Map through the partipant info // DONE
+//2) Delete button // DONE
 //3) Draw - make a pairing
 //4) status - set to true/false
 
