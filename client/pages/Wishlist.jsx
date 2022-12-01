@@ -26,6 +26,7 @@ export default function AddWishlist() {
     wishlist: '',
   }
   const partner = 'Mickey Mouse in da House'
+  const partnerWishlist = 'cheese and more cheese'
   const completed = true
 
   useEffect(() => {
@@ -66,7 +67,10 @@ export default function AddWishlist() {
           <button onClick={handleSubmit}>ADD TO YOUR WISHLIST!!!</button>
         </form>
       ) : (
-        <p>Your assigned partner is {partner}</p>
+        <>
+          <p>Your assigned partner is {partner}</p>
+          <p>Their wishlist: {partnerWishlist}</p>
+        </>
       )}
     </>
   )
