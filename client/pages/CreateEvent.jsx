@@ -66,8 +66,8 @@ const Event = () => {
         <div className='event-created'>
           <h2>Event Created</h2>
           <p>Share this link with your guests</p>
-          <a href={`http://elf.co/secret-santa/${link}`}>
-            http://elf.co/secret-santa/${link}
+          <a href={`http://localhost:5173/invite/${link}`}>
+            http://elf.co/secret-santa/{link}
           </a>
           <button onClick={copyLink}>Copy Link</button>
           <Link to='/dashboard'>Go to Dashboard</Link>
