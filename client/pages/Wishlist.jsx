@@ -14,16 +14,14 @@
 
 import { useEffect, useState } from 'react'
 
-import { createWishlistApi, getWishlistApi } from '../apiClient/wishlist'
+import { createWishlistApi, getWishlistByIdApi } from '../apiClient/wishlist'
 
 export default function AddWishlist() {
-  const [newWish, setNewWish] = useState({
-    name: '',
-    wishlist: '',
-  })
+  const initialState = { wishlist: '' }
+  const [newWish, setNewWish] = useState(initialState)
 
   useEffect(() => {
-    getWishlistApi()
+    getWishlistByIdApi()
       .then((wishlist) => {
         setNewWish(wishlist)
       })
@@ -33,27 +31,28 @@ export default function AddWishlist() {
   }, [])
 
   function handleChange(event) {
-    const { wish, value } = event.target
+    const { name, value } = event.target
     setNewWish((result) => {
-      return { ...result, [wish]: value }
+      return { ...result, [name]: value }
     })
   }
 
   function handleSubmit(event) {
     event.preventDefault()
-    console.log(event.target, 'poop')
-    return createWishlistApi(newWish)
+    return createWishlistApi(newWish).then(setNewWish(initialState))
   }
 
   return (
     <>
-      <h1>YO LETS ADD TO YOUR WISHLISTTTTTT BEEETCHHH</h1>
+      <h1>Welcome {newWish.name}. Let's add to your wishlist!</h1>
       <form className='form'>
-        <label htmlFor='name'>Name: </label>
-        <input type='text' name='name' onChange={handleChange} />
-
         <label htmlFor='wishlist'>Wish List: </label>
-        <input type='text' name='wishlist' onChange={handleChange} />
+        <input
+          type='text'
+          value={newWish.wishlist}
+          name='wishlist'
+          onChange={handleChange}
+        />
 
         <button onClick={handleSubmit}>ADD TO YOUR WISHLIST!!!</button>
       </form>
