@@ -3,7 +3,6 @@ import request from 'superagent'
 const baseUrl = '/api'
 
 export const createEvent = async (event) => {
-  console.log(event, 'hit create event')
   const res = await request.post(`${baseUrl}/event`).send(event)
   return res.body
 }
@@ -18,8 +17,16 @@ export async function getEvents() {
   const res = await request.get(`${baseUrl}/event/dashboard`)
   return res.body
 }
+
 export function getAllParticipants() {
   return request.get('/api/v1/wishlist').then((res) => {
+    return res.body
+  })
+}
+
+export function deleteGuest(guestId) {
+  return request.del(`/api/v1/wishlist/${guestId}`).then((res) => {
+    console.log(res.body)
     return res.body
   })
 }

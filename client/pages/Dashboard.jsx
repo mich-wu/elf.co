@@ -17,7 +17,6 @@ const Dashboard = () => {
 
   // todo: hostId should be auth0_id but setup after.
   const filterEvents = (events) => {
-    console.log(events)
     return events.filter((event) => event.host_id === 1)
   }
 
