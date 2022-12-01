@@ -2,7 +2,7 @@
 
 import express from 'express'
 
-import * as db from '../db/functions/wishlist.js'
+import * as db from '../db/functions/guest.js'
 
 const router = express.Router()
 
@@ -19,6 +19,7 @@ router.get('/', (req, res) => {
 
 //id is 'guest_code' in the 'wishlist' db table
 router.get('/:id', (req, res) => {
+  console.log('hit get by id')
   const id = req.params.id
   db.getWishlistById(id)
     .then(() => {
@@ -47,8 +48,10 @@ router.post('/', (req, res) => {
 })
 
 router.patch('/:id', (req, res) => {
+  console.log('hit patch in wishlist')
   const id = req.params.id
   const wish = req.body
+  console.log(id, wish, 'id and wish')
   db.updatedWishlist(id, wish)
     .then(() => {
       return db.getWishlistById(id)
