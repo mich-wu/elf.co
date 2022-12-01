@@ -31,3 +31,10 @@ export function updatedWishlistApi(id, newWish) {
       return res.body
     })
 }
+
+export function deleteWishlistApi(id) {
+  return request.delete(`${wishlistURL}${id}`).then((res) => {
+    console.log(res.body)
+    return res.body
+  })
+}
