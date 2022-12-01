@@ -17,7 +17,7 @@ const Dashboard = () => {
 
   // todo: hostId should be auth0_id but setup after.
   const filterEvents = (events) => {
-    return events.filter((event) => event.host_id === 69)
+    return events.filter((event) => event.host_id === 1)
   }
 
   return (
@@ -26,8 +26,8 @@ const Dashboard = () => {
       <div className='events'>
         {filterEvents(events).map((event) => (
           <div className='event' key={event.id}>
-            <h3>{event.event_name}</h3>
-            <p>{event.date}</p>
+            <h3>Event name: {event.event_name}</h3>
+            <p> Event date: {event.date}</p>
 
             <p>
               {event.status === 0 ? 'Submissions Open' : 'Submissions Closed'}

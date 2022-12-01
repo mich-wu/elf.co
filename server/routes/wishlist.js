@@ -20,11 +20,11 @@ router.get('/', (req, res) => {
 //id is 'guest_code' in the 'wishlist' db table
 router.get('/:id', (req, res) => {
   const id = req.params.id
-
   db.getWishlistById(id)
     .then(() => {
       return db.getWishlistById(id)
     })
+    // lines 23-25 are not needed
     .then((result) => {
       res.json(result)
     })
@@ -66,13 +66,12 @@ router.patch('/:id', (req, res) => {
 
 router.delete('/:id', (req, res) => {
   const id = req.params.id
-
   db.deleteWishlist(id)
     .then(() => {
       return db.getWishlist()
     })
-    .then((wishlist) => {
-      res.json(wishlist)
+    .then((guest) => {
+      res.json(guest)
     })
     .catch((err) => {
       console.error(err.message)
@@ -81,4 +80,7 @@ router.delete('/:id', (req, res) => {
         .json({ message: 'Something went wrong with the delete route' })
     })
 })
+
+// Create a function here and in db to filter the guests down - don't want on front end for security concerns
+
 export default router
