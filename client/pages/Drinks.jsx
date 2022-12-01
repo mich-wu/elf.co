@@ -18,7 +18,7 @@ const Drinks = () => {
   return (
     <>
       <div>
-        <h1>{drink?.srtDrink}</h1>
+        <h1>{drink?.strDrink}</h1>
         <img src={drink?.strDrinkThumb} alt={drink?.srtDrink}></img>
         {/* <p>Ingredients: {drink.ingredients}</p> */}
         <p>Instructions: {drink?.strInstructions}</p>
