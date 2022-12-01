@@ -19,7 +19,14 @@ import { getWishlistByIdApi, updatedWishlistApi } from '../apiClient/wishlist'
 export default function AddWishlist() {
   const initialState = { wishlist: '' }
   const [newWish, setNewWish] = useState(initialState)
-  const dummy = { guest_code: 123, event_id: 987, name: 'Tyga', wishlist: '' }
+  const dummy = {
+    guest_code: 123,
+    event_id: 987,
+    name: 'Minnie Mouse',
+    wishlist: '',
+  }
+  const partner = 'Mickey Mouse in da House'
+  const completed = true
 
   useEffect(() => {
     getWishlistByIdApi()
@@ -45,19 +52,22 @@ export default function AddWishlist() {
 
   return (
     <>
-      <h1>Welcome {dummy.name} add to your wishlist!</h1>
+      <h1>Welcome {dummy.name}. Add to your wishlist!</h1>
+      {completed ? (
+        <form className='form'>
+          <label htmlFor='wishlist'>Wish List: </label>
+          <input
+            type='text'
+            value={newWish.wishlist}
+            name='wishlist'
+            onChange={handleChange}
+          />
 
-      <form className='form'>
-        <label htmlFor='wishlist'>Wish List: </label>
-        <input
-          type='text'
-          value={newWish.wishlist}
-          name='wishlist'
-          onChange={handleChange}
-        />
-
-        <button onClick={handleSubmit}>ADD TO YOUR WISHLIST!!!</button>
-      </form>
+          <button onClick={handleSubmit}>ADD TO YOUR WISHLIST!!!</button>
+        </form>
+      ) : (
+        <p>Your assigned partner is {partner}</p>
+      )}
     </>
   )
 }
