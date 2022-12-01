@@ -1,17 +1,3 @@
-// <WishListForm />
-//main layout and refractor our stuff in the components
-
-//<h2>Hello Michelle</h2>
-//YO LETS ADD TO YOUR WISHLISTTTTTT BEEETCHHH
-//Your partner will be revealed on:
-
-//submit calls  createWishlist()
-//Displays your own wishlist getWishlistById()
-//with edit button
-
-//conditional later
-//Get status - countdown?
-
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 
