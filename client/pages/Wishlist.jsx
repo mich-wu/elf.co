@@ -14,11 +14,12 @@
 
 import { useEffect, useState } from 'react'
 
-import { createWishlistApi, getWishlistByIdApi } from '../apiClient/wishlist'
+import { getWishlistByIdApi, updatedWishlistApi } from '../apiClient/wishlist'
 
 export default function AddWishlist() {
   const initialState = { wishlist: '' }
   const [newWish, setNewWish] = useState(initialState)
+  const dummy = { guest_code: 123, event_id: 987, name: 'Tyga', wishlist: '' }
 
   useEffect(() => {
     getWishlistByIdApi()
@@ -39,12 +40,13 @@ export default function AddWishlist() {
 
   function handleSubmit(event) {
     event.preventDefault()
-    return createWishlistApi(newWish).then(setNewWish(initialState))
+    return updatedWishlistApi(newWish).then(setNewWish(initialState))
   }
 
   return (
     <>
-      <h1>Welcome {newWish.name}. Let's add to your wishlist!</h1>
+      <h1>Welcome {dummy.name} add to your wishlist!</h1>
+
       <form className='form'>
         <label htmlFor='wishlist'>Wish List: </label>
         <input
