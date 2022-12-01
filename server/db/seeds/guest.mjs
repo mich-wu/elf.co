@@ -1,9 +1,9 @@
 export const seed = async (knex) => {
   // Deletes ALL existing entries
-  await knex('wishlist').del()
+  await knex('guest').del()
 
   // Inserts seed entries
-  await knex('wishlist').insert([
+  await knex('guest').insert([
     {
       id: 0,
       guest_code: '57D6F81D9C774D39A289ACE6AD17DA10',
