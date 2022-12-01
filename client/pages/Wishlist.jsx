@@ -12,13 +12,21 @@
 //conditional later
 //Get status - countdown?
 
+//TODO:
+
+// import useParams from react-router-dom
+// get guest_code from useParams
+// add guest_code to updatedWishlistApi(guest_code, newWish)
+// add guest_code to getWishlistByIdApi, return current wishlist to show name ect on page
+
 import { useEffect, useState } from 'react'
 
-import { getWishlistByIdApi, updatedWishlistApi } from '../apiClient/wishlist'
+import { getWishlistByIdApi, updatedWishlistApi } from '../apiClient/guest'
 
 export default function AddWishlist() {
   const initialState = { wishlist: '' }
   const [newWish, setNewWish] = useState(initialState)
+
   const dummy = {
     guest_code: 123,
     event_id: 987,
@@ -28,6 +36,8 @@ export default function AddWishlist() {
   const partner = 'Mickey Mouse in da House'
   const partnerWishlist = 'cheese and more cheese'
   const completed = true
+
+  console.log(newWish, 'newWish in AddWishlist with guest_code')
 
   useEffect(() => {
     getWishlistByIdApi()
@@ -41,6 +51,7 @@ export default function AddWishlist() {
 
   function handleChange(event) {
     const { name, value } = event.target
+    console.log(name, value, 'name value')
     setNewWish((result) => {
       return { ...result, [name]: value }
     })
