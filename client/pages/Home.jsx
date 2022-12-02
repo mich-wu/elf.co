@@ -7,7 +7,7 @@ const Home = () => {
       <div>
         <h1>Elf.Co</h1>
         <div>
-          <Link to='/dashboard'>Secret Santa</Link>
+          <Link to='/event'>Secret Santa</Link>
         </div>
         <div>
           <Link to='/drinks'>Drunk Santa</Link>

@@ -5,6 +5,7 @@ import Dashboard from './pages/Dashboard'
 import Drinks from './pages/Drinks'
 import EventDetail from './pages/EventDetail'
 import Home from './pages/Home'
+import InvitePage from './pages/InvitePage'
 import Wishlist from './pages/Wishlist'
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
       <Route path='/Wishlist/:guest_code' element={<Wishlist />} />
       <Route path='/drinks' element={<Drinks />} />
       <Route path='/wishlist/:guest_code' element={<Wishlist />} />
+      <Route path='/invite/:invite_code' element={<InvitePage />} />
     </Routes>
   )
 }
