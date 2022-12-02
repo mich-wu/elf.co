@@ -1,11 +1,10 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
+import { Link } from 'react-router-dom'
 
 import { getRandomDrink } from '../apiClient/drinks.js'
 
 const Drinks = () => {
   const [drink, setDrink] = useState({})
-  const [ingredients, setIngredients] = useState([])
-  const [measures, setMeasures] = useState([])
 
   useEffect(() => {
     getRandomDrink()
@@ -17,24 +16,24 @@ const Drinks = () => {
       })
   }, [])
 
-  useEffect(() => {
+  const ingredients = useMemo(() => {
     const allIngredients = Object.fromEntries(
       Object.entries(drink).filter(([key]) => key.includes('strIngredient'))
     )
     const ingredientsArray = Object.values(allIngredients).filter(
       (ingredient) => ingredient !== null
     )
-    setIngredients(ingredientsArray)
+    return ingredientsArray
   }, [drink])
 
-  useEffect(() => {
+  const measures = useMemo(() => {
     const allMeasures = Object.fromEntries(
       Object.entries(drink).filter(([key]) => key.includes('strMeasure'))
     )
     const measuresArray = Object.values(allMeasures).filter(
       (measure) => measure !== null
     )
-    setMeasures(measuresArray)
+    return measuresArray
   }, [drink])
 
   return (
@@ -53,6 +52,9 @@ const Drinks = () => {
         <p>Glass type: {drink?.strGlass}</p>
         <p>Category: {drink?.strCategory}</p>
         <p>Instructions: {drink?.strInstructions}</p>
+      </div>
+      <div>
+        <Link to='/'>Go Home</Link>
       </div>
     </>
   )
