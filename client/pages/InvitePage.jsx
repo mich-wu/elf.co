@@ -9,16 +9,9 @@ import { createGuestApi } from '../apiClient/guest'
 export default function InvitePage() {
   const initialState = { name: '', guest_code: '', event_id: '' }
   const [event, setNewEvent] = useState(initialState)
+  const [guestName, setGuestName] = useState('')
   const { invite_code } = useParams()
   const navigate = useNavigate()
-  const [guestName, setGuestName] = useState('')
-  const [guestCode, setGuestCode] = useState(null)
-
-  // const invite_code: '57D6F81'
-
-  console.log(invite_code, 'invite_code in InvitePage')
-
-  console.log(event, 'newGuest in InvitePage')
 
   useEffect(() => {
     getEventByInviteCode(invite_code)
@@ -30,13 +23,6 @@ export default function InvitePage() {
       })
   }, [])
 
-  function handleChange(event) {
-    const { name, value } = event.target
-    setNewEvent((result) => {
-      return { ...result, [name]: value }
-    })
-  }
-
   function handleSubmit(e) {
     e.preventDefault()
     const guest_code = uuidv4()
@@ -46,10 +32,10 @@ export default function InvitePage() {
       name: guestName,
       event_id: invite_code,
     }
-    console.log(newGuest, 'newGuest in InvitePage')
+
     createGuestApi(newGuest)
-      .then((guest) => {
-        setGuestCode(guest_code)
+      .then(() => {
+        // setGuestCode(guest_code)
         navigate(`/wishlist/${guest_code}`)
       })
       .catch((err) => {
