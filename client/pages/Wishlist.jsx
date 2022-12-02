@@ -5,25 +5,19 @@ import { getWishlistByIdApi, updatedWishlistApi } from '../apiClient/guest'
 
 export default function AddWishlist() {
   const initialState = { wishlist: '' }
-  const [newWish, setNewWish] = useState(initialState)
+  const [newWish, setNewWish] = useState(null)
   const { guest_code } = useParams()
 
-  const dummy = {
-    guest_code: 123,
-    event_id: 987,
-    name: 'Minnie Mouse',
-    wishlist: '',
-  }
+  // place holder text
   const partner = 'Mickey Mouse in da House'
   const partnerWishlist = 'cheese and more cheese'
-  const completed = true
-
-  console.log(newWish, 'newWish in AddWishlist with guest_code')
+  // completed is a placeholder for now. It will be status from Event table.
+  const completed = false
 
   useEffect(() => {
-    getWishlistByIdApi()
+    getWishlistByIdApi(guest_code)
       .then((wishlist) => {
-        setNewWish(wishlist)
+        setNewWish(...wishlist)
       })
       .catch((err) => {
         err.message
@@ -32,7 +26,6 @@ export default function AddWishlist() {
 
   function handleChange(event) {
     const { name, value } = event.target
-    console.log(name, value, 'name value')
     setNewWish((result) => {
       return { ...result, [name]: value }
     })
@@ -46,26 +39,28 @@ export default function AddWishlist() {
   }
 
   return (
-    <>
-      <h1>Welcome {dummy.name}. Add to your wishlist!</h1>
-      {completed ? (
-        <form className='form'>
-          <label htmlFor='wishlist'>Wish List: </label>
-          <input
-            type='text'
-            value={newWish.wishlist}
-            name='wishlist'
-            onChange={handleChange}
-          />
-
-          <button onClick={handleSubmit}>ADD TO YOUR WISHLIST!!!</button>
-        </form>
-      ) : (
-        <>
-          <p>Your assigned partner is {partner}</p>
-          <p>Their wishlist: {partnerWishlist}</p>
-        </>
-      )}
-    </>
+    <div>
+      <h1>Hi {newWish?.name}! </h1>
+      <p></p>
+      <form onSubmit={handleSubmit}>
+        <label htmlFor='wishlist'>Add Wishlist:</label>
+        <input
+          type='text'
+          name='wishlist'
+          id='wishlist'
+          value={newWish?.wishlist}
+          onChange={handleChange}
+        />
+        <button type='submit'>Add Wishlist</button>
+      </form>
+      <div>
+        {/* This code is just a place holder */}
+        <h2>Partner Wishlist</h2>
+        <p>
+          {partner}: {partnerWishlist}
+        </p>
+        <p>Completed: {completed ? 'Yes' : 'No'}</p>
+      </div>
+    </div>
   )
 }
