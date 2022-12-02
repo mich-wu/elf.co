@@ -70,7 +70,7 @@ router.patch('/:id', (req, res) => {
 router.put('/:id', (req, res) => {
   console.log('hit put in wishlist')
   const { gifter_id, guest_code, id } = req.body
-  // const wish = req.body
+
   console.log(gifter_id, guest_code, id, 'gifter_id, guest_code, id')
   db.updateWishlistGifter(gifter_id, guest_code, id)
     .then(() => {
@@ -104,6 +104,6 @@ router.delete('/:id', (req, res) => {
     })
 })
 
-// Create a function here and in db to filter the guests down - don't want on front end for security concerns
+// todo: Create a function here and in db to filter the guests down - don't want on front end for security concerns
 
 export default router
