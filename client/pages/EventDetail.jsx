@@ -30,28 +30,16 @@ const EventDetail = () => {
       setGuestList(newList)
     }
     fetchParticipants()
-  }, [])
-
-  useEffect(() => {
-    const fetchParticipants = async () => {
-      const participants = await getAllParticipants()
-      const newList = participants.filter(
-        (participant) => participant.event_id == event_id
-      )
-      setGuestList(newList)
-    }
-    fetchParticipants()
   }, [assigned])
 
   function handleDraw(event) {
     event.preventDefault()
     const assignments = assign(guestList)
+
     assignments.forEach((assignment) => {
-      console.log(assignment)
       updateWishlistGifterApi(assignment)
     })
 
-    // updateStatus(event_id)
     setAssigned(true)
   }
 
@@ -77,13 +65,12 @@ const EventDetail = () => {
       }
     })
 
-    console.log(assignments, 'ASSIGNMENTS')
     return assignments
   }
 
   const findGifter = (gifter_id) => {
     const gifter = guestList.find((participant) => participant.id === gifter_id)
-    return gifter.name
+    return gifter?.name
   }
 
   return (
