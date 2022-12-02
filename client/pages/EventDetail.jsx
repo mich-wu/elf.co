@@ -4,14 +4,17 @@ import { useParams } from 'react-router-dom'
 import {
   deleteGuest,
   getAllParticipants,
-  // updateStatus,
+  getEvent,
+  updateEventStatus,
   updateWishlistGifterApi,
 } from '../apiClient/event.js'
 
 const EventDetail = () => {
   const { event_id } = useParams()
   const [guestList, setGuestList] = useState([])
-  const [assigned, setAssigned] = useState(false)
+  const [assigned, setAssigned] = useState(null)
+
+  console.log(assigned, 'assigned')
 
   async function handleDelete(guest_id) {
     const participants = await deleteGuest(guest_id)
@@ -32,6 +35,14 @@ const EventDetail = () => {
     fetchParticipants()
   }, [assigned])
 
+  useEffect(() => {
+    // console.log('assigned is: ', assigned)
+    getEvent(event_id).then((event) => {
+      console.log(event)
+      setAssigned(event.status)
+    })
+  }, [assigned])
+
   function handleDraw(event) {
     event.preventDefault()
     const assignments = assign(guestList)
@@ -40,7 +51,11 @@ const EventDetail = () => {
       updateWishlistGifterApi(assignment)
     })
 
-    setAssigned(true)
+    // setAssigned(true)
+    return updateEventStatus(event_id).then((event) => {
+      console.log('new:', event)
+      setAssigned(event)
+    })
   }
 
   const shuffle = (array) => {

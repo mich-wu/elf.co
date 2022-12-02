@@ -17,9 +17,14 @@ export function getEvents(db = connection) {
 }
 
 export function getEvent(event_id, db = connection) {
-  return db('event').where('event_id', event_id)
+  return db('event').where('invite_code', event_id).first()
 }
 
 export function getEventByInviteCode(invite_code, db = connection) {
   return db('event').where('invite_code', invite_code).first()
+}
+
+export function updateStatus(event_id, db = connection) {
+  console.log(event_id, 'event id in database')
+  return db('event').where('invite_code', event_id).update({ status: true })
 }

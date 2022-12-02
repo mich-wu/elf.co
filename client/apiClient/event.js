@@ -9,8 +9,9 @@ export const createEvent = async (event) => {
 
 export const getEvent = async (event_id) => {
   const response = await request.get(`${baseUrl}/event/dashboard/${event_id}`)
-  const event = await response.json()
-  return event[0]
+  const event = await response.body
+  console.log(event, 'event in api')
+  return event
 }
 
 export async function getEvents() {
@@ -49,4 +50,11 @@ export const updateWishlistGifterApi = async (assignment) => {
 export const getEventByInviteCode = async (invite_code) => {
   const res = await request(`/api/v1/invite/${invite_code}`)
   return res.body
+}
+
+export function updateEventStatus(event_id) {
+  console.log('API:', event_id)
+  return request.patch(`${baseUrl}/event/dashboard/${event_id}`).then((res) => {
+    return res.body
+  })
 }

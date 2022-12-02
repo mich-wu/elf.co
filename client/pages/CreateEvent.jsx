@@ -26,7 +26,7 @@ const Event = () => {
   }
 
   const copyLink = () => {
-    navigator.clipboard.writeText(`http://elf.co/secret-santa/${link}`)
+    navigator.clipboard.writeText(`localhost:5173/invite/${link}`)
   }
 
   return (
