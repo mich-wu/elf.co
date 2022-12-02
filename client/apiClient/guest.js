@@ -24,6 +24,7 @@ export function createWishlistApi(wish) {
 }
 
 export function updatedWishlistApi(id, newWish) {
+  console.log(id, newWish, 'api')
   return request
     .patch(`${wishlistURL}/${id}`)
     .send(newWish)
@@ -37,4 +38,9 @@ export function deleteWishlistApi(id) {
     console.log(res.body)
     return res.body
   })
+}
+
+export const createGuestApi = async (newGuest) => {
+  const res = await request.post('/api/v1/wishlist', newGuest)
+  return res.body
 }
