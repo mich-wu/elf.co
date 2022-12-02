@@ -13,7 +13,6 @@ export function createWishlist(wish, db = connection) {
 }
 
 export function updatedWishlist(id, wish, db = connection) {
-  // console.log(id, wish, 'id and wish inside of updatedWishlist')
   return db('guest').where('guest_code', id).update(wish)
 }
 

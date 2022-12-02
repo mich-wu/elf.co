@@ -5,7 +5,6 @@ import { getEvents } from '../apiClient/event.js'
 
 const Dashboard = () => {
   const [events, setEvents] = useState([])
-  console.log(events)
 
   useEffect(() => {
     const fetchEvents = async () => {

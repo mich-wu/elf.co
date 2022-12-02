@@ -65,7 +65,6 @@ const EventDetail = () => {
       }
     })
 
-    console.log(assignments, 'ASSIGNMENTS')
     return assignments
   }
 

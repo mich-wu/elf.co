@@ -26,7 +26,6 @@ export function getAllParticipants() {
 
 export function deleteGuest(guestId) {
   return request.del(`/api/v1/wishlist/${guestId}`).then((res) => {
-    console.log(res.body)
     return res.body
   })
 }
@@ -49,6 +48,5 @@ export const updateWishlistGifterApi = async (assignment) => {
 
 export const getEventByInviteCode = async (invite_code) => {
   const res = await request(`/api/v1/invite/${invite_code}`)
-  console.log(res.body)
   return res.body
 }
