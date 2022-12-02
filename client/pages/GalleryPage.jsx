@@ -13,7 +13,7 @@ export default function GalleryPage() {
           return (
             <div key={peet.id} className={styles.item}>
               <div className={styles.polaroid}>
-                <img src={peet.image} alt='dog' />
+                <img src={`/images/${peet.image}`} alt='dog' />
                 <div className={styles['caption']}>
                   <p>{peet.owner}</p>
                   <p>{peet.petname}</p>
