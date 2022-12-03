@@ -1,12 +1,11 @@
 import express from 'express'
 const router = express.Router()
-import * as db from '../db/functions/guest.js'
-
+import * as db from '../db/functions/peets.js'
 
 router.get('/', (req, res) => {
   db.getPeets()
     .then((peetsdata) => {
-      res.json(peetsdata.body)
+      res.json(peetsdata)
     })
     .catch((err) => {
       console.error(err)
