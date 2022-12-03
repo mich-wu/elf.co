@@ -20,6 +20,7 @@ describe('apiClient/drinks.js', () => {
       expect(chosenDrink.strDrink).toContain('Espresso Martini')
       expect(chosenDrink.strGlass).toContain('Cocktail glass')
       expect(chosenDrink.strIngredient1).toContain('Vodka')
+      expect(chosenDrink.strMeasure1).toContain('5 cl')
       expect(scope.isDone()).toBe(true)
     })
   })
