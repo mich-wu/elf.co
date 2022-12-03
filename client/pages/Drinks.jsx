@@ -2,9 +2,12 @@ import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 import { getRandomDrink } from '../apiClient/drinks.js'
+import Spinner from '../components/Spinner'
 
 const Drinks = () => {
   const [drink, setDrink] = useState({})
+  const [loading, setLoading] = useState(true)
+  const [showText, setShowText] = useState(false)
 
   useEffect(() => {
     getRandomDrink()
@@ -36,25 +39,41 @@ const Drinks = () => {
     return measuresArray
   }, [drink])
 
+  const handleLoad = () => {
+    setLoading(false)
+    setShowText(true)
+  }
+
   return (
     <>
       <div>
-        <h1>{drink?.strDrink}</h1>
-        <img src={drink?.strDrinkThumb} width='600' alt={drink?.srtDrink}></img>
-        <p>Ingredients:</p>
-        {ingredients?.map((ingredient, key) => {
-          return (
-            <li key={key}>
-              {measures[key] || 'Add'} {ingredient}
-            </li>
-          )
-        })}
-        <p>Glass type: {drink?.strGlass}</p>
-        <p>Category: {drink?.strCategory}</p>
-        <p>Instructions: {drink?.strInstructions}</p>
-      </div>
-      <div>
-        <Link to='/'>Go Home</Link>
+        <img
+          src={drink?.strDrinkThumb}
+          width='600'
+          alt={drink?.srtDrink}
+          onLoad={handleLoad}
+        ></img>
+        {showText ? (
+          <>
+            <h1>{drink?.strDrink}</h1>
+            <p>Ingredients:</p>
+            {ingredients?.map((ingredient, key) => {
+              return (
+                <li key={key}>
+                  {measures[key] || 'Add'} {ingredient}
+                </li>
+              )
+            })}
+            <p>Glass type: {drink?.strGlass}</p>
+            <p>Category: {drink?.strCategory}</p>
+            <p>Instructions: {drink?.strInstructions}</p>
+            <div>
+              <Link to='/'>Go Home</Link>
+            </div>
+          </>
+        ) : (
+          <Spinner loading={loading} />
+        )}
       </div>
     </>
   )
