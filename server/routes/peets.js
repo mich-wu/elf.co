@@ -1,16 +1,16 @@
-// import express from 'express'
-// const router = express.Router()
+import express from 'express'
+const router = express.Router()
+import * as db from '../db/functions/guest.js'
 
-// router.get('/', (req, res) => {
-//   request
-//     .get('https://www.thecocktaildb.com/api/json/v1/1/random.php')
-//     .then((data) => {
-//       console.log(data.body)
-//       res.json(data.body)
-//     })
-//     .catch((err) => {
-//       console.error(err)
-//       res.sendStatus(500)
-//     })
-// })
-// export default router
+
+router.get('/', (req, res) => {
+  db.getPeets()
+    .then((peetsdata) => {
+      res.json(peetsdata.body)
+    })
+    .catch((err) => {
+      console.error(err)
+      res.sendStatus(500)
+    })
+})
+export default router
