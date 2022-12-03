@@ -8,10 +8,8 @@ beforeEach(() => {
 })
 
 describe('GET/api/v1/drinks', () => {
-  it('gets a random drink from the external API')
-  const scope = nock('https://www.thecocktaildb.com')
-    .get('/api/v1/drinks')
-    .reply(200, {
+  it('gets a random drink from the external API', () => {
+    const mockData = {
       drinks: [
         {
           idDrink: '11013',
@@ -24,12 +22,29 @@ describe('GET/api/v1/drinks', () => {
             'Stir all ingredients with ice, strain contents into a cocktail glass. Drop in a twist of lemon and serve.',
         },
       ],
-    })
-  return request(server)
-    .get('/')
-    .then((data) => {
-      console.log('poop', data)
-      expect(data.body.strGlass).toContain('Cocktail glass')
-      expect(scope.isDone()).toBe(true)
-    })
+    }
+    const scope = nock('https://www.thecocktaildb.com')
+      .get('/api/json/v1/1/random.php')
+      .reply(200, mockData)
+    return request(server)
+      .get('/api/v1/drinks')
+      .then((data) => {
+        expect(data.body).toEqual(mockData)
+        expect(scope.isDone()).toBe(true)
+      })
+  })
+})
+
+describe('GET/api/v1/drinks', () => {
+  it('sends an error status if it fails to get a random drink from the external API', () => {
+    const scope = nock('https://www.thecocktaildb.com')
+      .get('/api/json/v1/1/random.php')
+      .reply(500)
+    return request(server)
+      .get('/api/v1/drinks')
+      .then((res) => {
+        expect(res.status).toEqual(500)
+        expect(scope.isDone()).toBe(true)
+      })
+  })
 })
