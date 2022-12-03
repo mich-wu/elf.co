@@ -1,14 +1,8 @@
-import { CSSProperties, useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
-import ClipLoader from 'react-spinners/SyncLoader'
-
-const override = {
-  display: 'block',
-  margin: '0 auto',
-  borderColor: '#eac3ff',
-}
 
 import { getRandomDrink } from '../apiClient/drinks.js'
+import Spinner from '../components/Spinner'
 
 const Drinks = () => {
   const [drink, setDrink] = useState({})
@@ -52,17 +46,6 @@ const Drinks = () => {
 
   return (
     <>
-      <div className='sweet-loading'>
-        <ClipLoader
-          color='#eac3ff'
-          loading={loading}
-          cssOverride={override}
-          size={25}
-          aria-label='Loading Spinner'
-          data-testid='loader'
-        />
-      </div>
-
       <div>
         <img
           src={drink?.strDrinkThumb}
@@ -88,7 +71,9 @@ const Drinks = () => {
               <Link to='/'>Go Home</Link>
             </div>
           </>
-        ) : null}
+        ) : (
+          <Spinner loading={loading} />
+        )}
       </div>
     </>
   )
