@@ -11,18 +11,6 @@ export default [
     owner: 'James',
     image: 'PEET-28.jpg',
   },
-  // {
-  //   id: 3,
-  //   petname: 'Holly',
-  //   owner: 'Eleanor',
-  //   image: '',
-  // },
-  // {
-  //   id: 4,
-  //   petname: 'Mera',
-  //   owner: 'Eleanor',
-  //   image: '',
-  // },
   {
     id: 5,
     petname: 'Siren',
