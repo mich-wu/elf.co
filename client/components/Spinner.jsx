@@ -1,4 +1,3 @@
-import { CSSProperties /* useState */ } from 'react'
 import ClipLoader from 'react-spinners/SyncLoader'
 
 const override = {

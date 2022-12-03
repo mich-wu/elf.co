@@ -37,7 +37,7 @@ describe('<Drinks />', () => {
     getRandomDrink.mockReturnValue(Promise.resolve(randomDrinkResponse))
     render(
       <BrowserRouter>
-        <Drinks />
+        <Drinks loading={true} />
       </BrowserRouter>
     )
     const drinkName = await screen.findByText(randomDrinkResponse.strDrink, {
@@ -85,7 +85,7 @@ describe('<Drinks />', () => {
     getRandomDrink.mockReturnValue(Promise.resolve(randomDrinkResponse))
     render(
       <BrowserRouter>
-        <Drinks />
+        <Drinks loading={true} />
       </BrowserRouter>
     )
     await screen.findByText(`Owen's Grandmother's Revenge`)
