@@ -19,7 +19,6 @@ export default function GalleryPage() {
   return (
     <>
       <h1> Peets 🐾 </h1>
-
       <div className={styles['wrapper']}>
         {peets.map((peet) => {
           return (
@@ -28,7 +27,7 @@ export default function GalleryPage() {
                 <img src={`/images/${peet.image}`} alt='dog' />
                 <div className={styles['caption']}>
                   <p>Owner: {peet.owner}</p>
-                  <p>Pet Name:{peet.petname}</p>
+                  <p>Pet Name: {peet.petname}</p>
                 </div>
               </div>
             </div>

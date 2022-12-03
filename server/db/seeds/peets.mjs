@@ -36,7 +36,7 @@ export const seed = (knex) => {
         {
           id: 8,
           petname: 'Roman',
-          owner: 'Michelle',
+          owner: 'Rachel',
           image: 'PEET-17.jpg',
         },
         {
