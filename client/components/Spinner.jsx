@@ -18,7 +18,7 @@ const Spinner = ({ loading }) => {
           aria-label='Loading Spinner'
         />
       </div>
-      <div data-testid='loader' />{' '}
+      <div data-testid='bananas' />
     </>
   )
 }
