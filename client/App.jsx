@@ -15,10 +15,10 @@ function App() {
       <Route path='/event' element={<CreateEvent />} />
       <Route path='/dashboard' element={<Dashboard />} />
       <Route path='/dashboard/:event_id' element={<EventDetail />} />
-      <Route path='/Wishlist/:guest_code' element={<Wishlist />} />
+      {/* <Route path='/Wishlist/:guest_code' element={<Wishlist />} /> */}
       <Route path='/drinks' element={<Drinks />} />
       <Route path='/wishlist/:guest_code' element={<Wishlist />} />
-      <Route path='/invite/:invite_code' element={<InvitePage />} />
+      <Route path='/invite/:invite_id' element={<InvitePage />} />
     </Routes>
   )
 }
