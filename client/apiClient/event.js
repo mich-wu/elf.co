@@ -4,14 +4,14 @@ const baseUrl = '/api/v1'
 
 export const createEvent = async (event) => {
   const res = await request.post(`${baseUrl}/event`).send(event)
+
   return res.body
 }
 
 export const getEvent = async (event_id) => {
   const response = await request.get(`${baseUrl}/event/dashboard/${event_id}`)
-  const event = await response.body
-  console.log(event, 'event in api')
-  return event
+
+  return response.body
 }
 
 export async function getEvents() {
@@ -47,14 +47,20 @@ export const updateWishlistGifterApi = async (assignment) => {
   return res.body
 }
 
-export const getEventByInviteCode = async (invite_code) => {
-  const res = await request(`/api/v1/invite/${invite_code}`)
+export const getEventByInviteCode = async (invite_id) => {
+  const res = await request(`/api/v1/invite/${invite_id}`)
   return res.body
 }
 
-export function updateEventStatus(event_id) {
-  console.log('API:', event_id)
-  return request.patch(`${baseUrl}/event/dashboard/${event_id}`).then((res) => {
-    return res.body
-  })
+export async function updateEventStatus(event_id) {
+  const res = await request.patch(`${baseUrl}/event/dashboard/${event_id}`)
+
+  return res.body[0]
+}
+
+export async function assignGifter(event_id) {
+  const res = await await request.get(
+    `${baseUrl}/event/dashboard/${event_id}/assign`
+  )
+  return res.body
 }

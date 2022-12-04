@@ -2,19 +2,17 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 
 import {
+  assignGifter,
   deleteGuest,
   getAllParticipants,
   getEvent,
   updateEventStatus,
-  updateWishlistGifterApi,
 } from '../apiClient/event.js'
 
 const EventDetail = () => {
   const { event_id } = useParams()
   const [guestList, setGuestList] = useState([])
   const [assigned, setAssigned] = useState(null)
-
-  console.log(assigned, 'assigned')
 
   async function handleDelete(guest_id) {
     const participants = await deleteGuest(guest_id)
@@ -27,64 +25,44 @@ const EventDetail = () => {
   useEffect(() => {
     const fetchParticipants = async () => {
       const participants = await getAllParticipants()
+
       const newList = participants.filter(
         (participant) => participant.event_id == event_id
       )
+
       setGuestList(newList)
     }
     fetchParticipants()
   }, [assigned])
 
   useEffect(() => {
-    // console.log('assigned is: ', assigned)
     getEvent(event_id).then((event) => {
-      console.log(event)
       setAssigned(event.status)
     })
   }, [assigned])
 
-  function handleDraw(event) {
-    event.preventDefault()
-    const assignments = assign(guestList)
-
-    assignments.forEach((assignment) => {
-      updateWishlistGifterApi(assignment)
-    })
-
-    // setAssigned(true)
-    return updateEventStatus(event_id).then((event) => {
-      console.log('new:', event)
-      setAssigned(event)
-    })
-  }
-
-  const shuffle = (array) => {
-    for (let i = array.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1))
-      ;[array[i], array[j]] = [array[j], array[i]]
+  useEffect(() => {
+    const getEventStatus = async () => {
+      const event = await getEvent(event_id)
     }
+    getEventStatus()
+  }, [assigned])
 
-    return array
-  }
+  async function handleDraw(event) {
+    event.preventDefault()
 
-  const assign = (array) => {
-    const shuffledArray = shuffle(array)
-    const assignments = shuffledArray.map((participant, i) => {
-      return {
-        id: participant.id,
-        gifter_id:
-          i === shuffledArray.length - 1
-            ? shuffledArray[0].id
-            : shuffledArray[i + 1].id,
-        guest_code: participant.guest_code,
-      }
-    })
+    const assignments = await assignGifter(event_id)
 
-    return assignments
+    setGuestList(assignments)
+
+    const updatedStatus = await updateEventStatus(event_id)
+
+    setAssigned(updatedStatus.status)
   }
 
   const findGifter = (gifter_id) => {
     const gifter = guestList.find((participant) => participant.id === gifter_id)
+
     return gifter?.name
   }
 
@@ -98,6 +76,7 @@ const EventDetail = () => {
                 <p>Name: {participant.name}</p>
                 <p>Wishlist: {participant.wishlist}</p>
                 <p>Gifter: {findGifter(participant.gifter_id)}</p>
+
                 <div>
                   <button onClick={() => handleDelete(participant.id)}>
                     Delete
