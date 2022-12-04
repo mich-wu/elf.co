@@ -5,14 +5,14 @@ import styles from './Spinner.module.scss'
 const override = {
   display: 'flex',
   margin: '0 auto',
-  borderColor: '#eac3ff',
+  borderColor: '#EDC4C2',
 }
 
 const Spinner = ({ loading }) => {
   return (
     <div className='sweet-loading'>
       <ClipLoader
-        color='#eac3ff'
+        color='#EDC4C2'
         loading={loading}
         cssOverride={override}
         size={25}
