@@ -8,31 +8,31 @@
   justify-content: center;
 }
 
-
 .infoContainer {
   display: flex;
   flex-direction: column;
   padding: 30px;
   background-color: rgb(232, 232, 232);
   border-radius: 0px 20px 20px 0px;
-  
 }
 
+// this causes global styles to be applied to the site
+// to avoid this with scss, you can nest the styles inside the class
 
-img {
-  border-radius: 20px 0px 0px 20px;
-}
+// img {
+//   border-radius: 20px 0px 0px 20px;
+// }
 
-h1 {
-  font-size: 30px;
-}
+// h1 {
+//   font-size: 30px;
+// }
 
-h2 {
-  font-size: 20px;
-}
+// h2 {
+//   font-size: 20px;
+// }
 
-button {
-  padding: 10px;
-  width: 200px;
-  margin-bottom: 50px;
-}
+// button {
+//   padding: 10px;
+//   width: 200px;
+//   margin-bottom: 50px;
+// }
