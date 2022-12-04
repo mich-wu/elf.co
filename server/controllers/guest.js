@@ -77,4 +77,40 @@ export default {
         .json({ message: 'Something went wrong with the delete route' })
     }
   },
+
+  getEventById: async (req, res) => {
+    //get wishlist by guest_code and then get event by event_id
+    const { id } = req.params
+
+    try {
+      const wishlist = await db.getWishListByGuestCode(id)
+
+      const event = await db.getEventById(wishlist[0].event_id)
+
+      res.status(200).json(event)
+      // res.json(event)
+    } catch (err) {
+      console.error(err.message)
+      res
+        .status(500)
+        .json({ message: 'Something went wrong with the get event route' })
+    }
+  },
+
+  getWishListByGuestCode: async (req, res) => {
+    const { guest_code } = req.params
+    console.log(guest_code, '^&^^^^^^^^^^')
+    try {
+      const wishlist = await db.getWishListByGuestCode(guest_code)
+
+      const gifter = await db.getById(wishlist[0]?.gifter_id)
+
+      res.status(200).json(gifter)
+    } catch (err) {
+      console.error(err.message)
+      res
+        .status(500)
+        .json({ message: 'Something went wrong with the get event route' })
+    }
+  },
 }
