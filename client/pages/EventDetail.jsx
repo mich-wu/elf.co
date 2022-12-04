@@ -25,23 +25,15 @@ const EventDetail = () => {
   useEffect(() => {
     const fetchParticipants = async () => {
       const participants = await getAllParticipants()
-
       const newList = participants.filter(
         (participant) => participant.event_id == event_id
       )
-
       setGuestList(newList)
     }
     fetchParticipants()
-  }, [assigned])
-
-  useEffect(() => {
     getEvent(event_id).then((event) => {
       setAssigned(event.status)
     })
-  }, [assigned])
-
-  useEffect(() => {
     const getEventStatus = async () => {
       const event = await getEvent(event_id)
     }
