@@ -33,21 +33,14 @@ const EventDetail = () => {
   }
 
   useEffect(() => {
-    const fetchParticipants = async () => {
+    const fetchData = async () => {
       const participants = await getAllParticipants()
-      const newList = participants.filter(
-        (participant) => participant.event_id == event_id
-      )
-      setGuestList(newList)
-    }
-    fetchParticipants()
-    getEvent(event_id).then((event) => {
-      setAssigned(event.status)
-    })
-    const getEventStatus = async () => {
+      const newList = filterParticipants(participants)
       const event = await getEvent(event_id)
+      setGuestList(newList)
+      setAssigned(event.status)
     }
-    getEventStatus()
+    fetchData()
   }, [assigned])
 
   async function handleDraw(event) {
