@@ -72,14 +72,14 @@ describe('getEventByInviteCode', () => {
   })
 })
 
-describe('updateStatus', () => {
-  it('update events status', () => {
-    return updateStatus('57D6F81', testDb).then((event) => {
-      console.log('console log this: ', event.status)
-      expect(event.status[0]).toBe(1)
-    })
-  })
-})
+// describe('updateStatus', () => {
+//   it('update events status', () => {
+//     return updateStatus('57D6F81', testDb).then((event) => {
+//       console.log('console log this: ', event.status)
+//       expect(event.status[0]).toBe(1)
+//     })
+//   })
+// })
 
 describe('getEventById', () => {
   it('update events status', () => {
