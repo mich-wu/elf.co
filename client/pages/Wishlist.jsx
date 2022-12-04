@@ -17,33 +17,15 @@ export default function Wishlist() {
   const [assignedWishlist, setAssignedWishlist] = useState(null)
 
   useEffect(() => {
-    getWishlistByIdApi(guest_code)
-      .then((wishlist) => {
-        setNewWish(wishlist)
-      })
-      .catch((err) => {
-        err.message
-      })
-  }, [])
-
-  useEffect(() => {
-    getEventByGuestCodeApi(guest_code)
-      .then((event) => {
-        setEventResult(event[0].status)
-      })
-      .catch((err) => {
-        err.message
-      })
-  }, [])
-
-  useEffect(() => {
-    getAssignedWishlist(guest_code)
-      .then((assigned) => {
-        setAssignedWishlist(assigned)
-      })
-      .catch((err) => {
-        err.message
-      })
+    async function fetchData() {
+      const wishlist = await getWishlistByIdApi(guest_code)
+      setNewWish(wishlist)
+      const event = await getEventByGuestCodeApi(guest_code)
+      setEventResult(event[0].status)
+      const assigned = await getAssignedWishlist(guest_code)
+      setAssignedWishlist(assigned)
+    }
+    fetchData()
   }, [])
 
   const handleEdit = () => {
