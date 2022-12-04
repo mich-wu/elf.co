@@ -53,6 +53,7 @@ const Drinks = () => {
           alt={drink?.srtDrink}
           onLoad={handleLoad}
         ></img>
+
         {showText ? (
           <>
             <h1>{drink?.strDrink}</h1>
