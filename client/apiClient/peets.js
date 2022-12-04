@@ -7,4 +7,3 @@ export function getPeets() {
     return res.body
   })
 }
-
