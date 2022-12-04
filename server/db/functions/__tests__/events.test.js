@@ -75,8 +75,16 @@ describe('getEventByInviteCode', () => {
 describe('updateStatus', () => {
   it('update events status', () => {
     return updateStatus('57D6F81', testDb).then((event) => {
-      console.log(event.status)
-      expect(event.status[0]).toBe(true)
+      console.log('console log this: ', event.status)
+      expect(event.status[0]).toBe(1)
+    })
+  })
+})
+
+describe('getEventById', () => {
+  it('update events status', () => {
+    return getEventById('1', testDb).then((event) => {
+      expect(event.event_name).toContain('Trade Me Christmas Party')
     })
   })
 })
