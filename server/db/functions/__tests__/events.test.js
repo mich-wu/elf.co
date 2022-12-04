@@ -56,13 +56,13 @@ describe('getEventById', () => {
   })
 })
 
-// describe('getGuestsByEventId', () => {
-//   it('gets the guests by the event id', () => {
-//     return getGuestsByEventId(1, testDb).then((guest) => {
-//       expect(guest.name).toContain('Bruno')
-//     })
-//   })
-// })
+describe('getGuestsByEventId', () => {
+  it('gets the guests by the event id', () => {
+    return getGuestsByEventId(1, testDb).then((guest) => {
+      expect(guest.name).toContain('Bruno')
+    })
+  })
+})
 
 describe('getEventByInviteCode', () => {
   it('gets the event by the invite code', () => {
@@ -72,14 +72,13 @@ describe('getEventByInviteCode', () => {
   })
 })
 
-// describe('updateStatus', () => {
-//   it('update events status', () => {
-//     return updateStatus('57D6F81', testDb).then((event) => {
-//       console.log('console log this: ', event.status)
-//       expect(event.status[0]).toBe(1)
-//     })
-//   })
-// })
+describe('updateStatus', () => {
+  it('update events status', () => {
+    return updateStatus('57D6F81', testDb).then((event) => {
+      expect(event[0].status).toBe(1)
+    })
+  })
+})
 
 describe('getEventById', () => {
   it('update events status', () => {
