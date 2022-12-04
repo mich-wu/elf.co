@@ -14,11 +14,21 @@ const EventDetail = () => {
   const [guestList, setGuestList] = useState([])
   const [assigned, setAssigned] = useState(null)
 
-  async function handleDelete(guest_id) {
-    const participants = await deleteGuest(guest_id)
-    const newList = participants.filter(
+  const filterParticipants = (participants) => {
+    return participants.filter(
       (participant) => participant.event_id == event_id
     )
+  }
+
+  const findGifter = (gifter_id) => {
+    const gifter = guestList.find((participant) => participant.id === gifter_id)
+
+    return gifter?.name
+  }
+
+  const handleDelete = async (guest_id) => {
+    const participants = await deleteGuest(guest_id)
+    const newList = filterParticipants(participants)
     setGuestList(newList)
   }
 
@@ -50,12 +60,6 @@ const EventDetail = () => {
     const updatedStatus = await updateEventStatus(event_id)
 
     setAssigned(updatedStatus.status)
-  }
-
-  const findGifter = (gifter_id) => {
-    const gifter = guestList.find((participant) => participant.id === gifter_id)
-
-    return gifter?.name
   }
 
   return (
