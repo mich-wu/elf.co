@@ -1,5 +1,7 @@
 import ClipLoader from 'react-spinners/SyncLoader'
 
+import styles from './Spinner.module.scss'
+
 const override = {
   display: 'flex',
   margin: '0 auto',

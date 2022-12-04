@@ -1,11 +1,12 @@
 import '@testing-library/jest-dom'
 
-import { render, screen, waitFor } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
 import { vi } from 'vitest'
 
 import { getRandomDrink } from '../../apiClient/drinks.js'
+// import Spinner from '../../components/Spinner.jsx'
 import Drinks from '../Drinks'
 
 vi.mock('../../apiClient/drinks.js')
@@ -31,15 +32,19 @@ afterEach(() => {
   vi.resetAllMocks()
 })
 
-screen.debug()
-
 describe('<Drinks />', () => {
+  // it('should render Spinner first', async () => {
+  //   render(<Spinner firstTime={true} />)
+  //   expect(
+  //     screen.queryByText('I see this is your first time!')
+  //   ).not.toBeInTheDocument()
+  // })
   it('Displays an image, drink name, ingredients, measures, instructions, category and glass type', async () => {
     expect.assertions(7)
     getRandomDrink.mockReturnValue(Promise.resolve(randomDrinkResponse))
     render(
       <BrowserRouter>
-        <Drinks />
+        <Drinks loading={true} />
       </BrowserRouter>
     )
     const drinkName = await screen.findByText(randomDrinkResponse.strDrink, {
@@ -87,7 +92,7 @@ describe('<Drinks />', () => {
     getRandomDrink.mockReturnValue(Promise.resolve(randomDrinkResponse))
     render(
       <BrowserRouter>
-        <Drinks />
+        <Drinks loading={true} />
       </BrowserRouter>
     )
     await screen.findByText(`Owen's Grandmother's Revenge`)

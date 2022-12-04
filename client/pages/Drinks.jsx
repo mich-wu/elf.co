@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 
 import { getRandomDrink } from '../apiClient/drinks.js'
 import Spinner from '../components/Spinner'
+import styles from './Drinks.module.scss'
 
 const Drinks = () => {
   const [drink, setDrink] = useState({})
@@ -47,34 +48,40 @@ const Drinks = () => {
   return (
     <>
       <div>
-        <img
-          src={drink?.strDrinkThumb}
-          width='600'
-          alt={drink?.srtDrink}
-          onLoad={handleLoad}
-        ></img>
+        <div className={styles.drinksContainer}>
+          <img
+            src={drink?.strDrinkThumb}
+            width='600'
+            alt={drink?.srtDrink}
+            onLoad={handleLoad}
+          ></img>
 
-        {showText ? (
-          <>
-            <h1>{drink?.strDrink}</h1>
-            <p>Ingredients:</p>
-            {ingredients?.map((ingredient, key) => {
-              return (
-                <li key={key}>
-                  {measures[key] || 'Add'} {ingredient}
-                </li>
-              )
-            })}
-            <p>Glass type: {drink?.strGlass}</p>
-            <p>Category: {drink?.strCategory}</p>
-            <p>Instructions: {drink?.strInstructions}</p>
-            <div>
-              <Link to='/'>Go Home</Link>
+          {showText ? (
+            <>
+              <div className={styles.infoContainer}>
+                <h1>{drink?.strDrink}</h1>
+                <h2>Ingredients:</h2>
+                {ingredients?.map((ingredient, key) => {
+                  return (
+                    <li key={key}>
+                      {measures[key] || 'Add'} {ingredient}
+                    </li>
+                  )
+                })}
+                <h2>Glass type: {drink?.strGlass}</h2>
+                <h2>Category: {drink?.strCategory}</h2>
+                <h2>Instructions:</h2> <p>{drink?.strInstructions}</p>
+              </div>
+            </>
+          ) : (
+            <div className={styles.spinner}>
+              <Spinner loading={loading} />
             </div>
-          </>
-        ) : (
-          <Spinner loading={loading} />
-        )}
+          )}
+        </div>
+        <button>
+          <Link to='/'>Go Home</Link>
+        </button>
       </div>
     </>
   )
