@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router-dom'
 
+import Navbar from './components/Navbar'
 import CreateEvent from './pages/CreateEvent'
 import Dashboard from './pages/Dashboard'
 import Drinks from './pages/Drinks'
