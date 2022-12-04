@@ -1,5 +1,7 @@
 import ClipLoader from 'react-spinners/SyncLoader'
 
+import styles from './Spinner.module.scss'
+
 const override = {
   display: 'flex',
   margin: '0 auto',
@@ -9,15 +11,18 @@ const override = {
 const Spinner = ({ loading }) => {
   return (
     <>
-      <div className='sweet-loading'>
-        <ClipLoader
-          color='#eac3ff'
-          loading={loading}
-          cssOverride={override}
-          size={25}
-          aria-label='Loading Spinner'
-        />
+      <div>
+        <div className={styles.loadingContainer}>
+          <ClipLoader
+            color='#D08C54'
+            loading={loading}
+            cssOverride={override}
+            size={25}
+            aria-label='Loading Spinner'
+          />
+        </div>
       </div>
+
       <div data-testid='bananas' />
     </>
   )
