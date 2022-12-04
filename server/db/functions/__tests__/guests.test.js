@@ -69,22 +69,23 @@ describe('createWishlist', () => {
   })
 })
 
-// describe('updateWishlist', () => {
-//   test('updates a guests wishlist based on guest-code', () => {
-//     const participant = [
-//       {
-//         id: 3,
-//         guest_code: '6F81E9A7DA6AD157DD9C774D3289AC10',
-//         event_id: 2,
-//         name: 'Bella',
-//         wishlist: 'a nice pair of socks',
-//       },
-//     ]
-//     return updatedWishlist(participant, testDb).then((guest) => {
-//       expect(guest[0].wishlist).toContain('a nice pair of socks')
-//     })
-//   })
-// })
+describe('updateWishlist', () => {
+  test('updates a guests wishlist based on guest-code', () => {
+    const id = '6F81E9A7DA6AD157DD9C774D3289AC10'
+    const participant = {
+      id: 3,
+      guest_code: '6F81E9A7DA6AD157DD9C774D3289AC10',
+      event_id: 2,
+      name: 'Bella',
+      wishlist: 'a nice pair of socks',
+    }
+    return updatedWishlist(id, participant, testDb).then(() => {
+      return getWishlistById(id, testDb).then((guest) => {
+        expect(guest.wishlist).toBe('a nice pair of socks')
+      })
+    })
+  })
+})
 
 // describe('deleteWishlist', () => {
 //   it('deletes a guests wishlist based on the id', () => {
