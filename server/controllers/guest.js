@@ -2,6 +2,13 @@ import { v4 as uuidv4 } from 'uuid'
 
 import * as db from '../db/functions/guest.js'
 
+/* 
+TODO: refactor duplicate functions to remove duplication.
+- duplicate functions: getWishlist, getWishlistById, getWishListByGuestCode
+- duplicate functions: updatedWishlist, updateWishlistGifter
+
+*/
+
 export default {
   getWishlist: async (req, res) => {
     try {
@@ -12,6 +19,7 @@ export default {
       res.status(500).json({ message: 'Something went wrong' })
     }
   },
+
   getWishlistById: async (req, res) => {
     const id = req.params.id
 
@@ -24,6 +32,7 @@ export default {
       res.sendStatus(500)
     }
   },
+
   createWishlist: async (req, res) => {
     try {
       const wish = req.body
@@ -36,6 +45,7 @@ export default {
       console.error(err.message)
     }
   },
+
   updatedWishlist: async (req, res) => {
     const id = req.params.id
     const wish = req.body
@@ -50,6 +60,7 @@ export default {
         .json({ message: 'Something went wrong with the patch route' })
     }
   },
+
   updateWishlistGifter: async (req, res) => {
     const { gifter_id, guest_code, id } = req.body
     try {
