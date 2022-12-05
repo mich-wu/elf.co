@@ -1,0 +1,109 @@
+@import '../styles/theme';
+
+.eventContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 9.6rem;
+
+  .header {
+    // background-color: $headerPrimary;
+    color: $bodyRed;
+    font-family: $font-header;
+    font-size: 5.2rem;
+    font-weight: 900;
+    padding: 1rem 6rem;
+    text-align: center;
+    text-shadow: $shadow;
+    width: 100%;
+
+    border-bottom: 8px solid $bodyGold;
+    // display: inline-block;
+    margin: 0 auto;
+    padding-bottom: 0.5rem;
+    position: relative;
+    width: fit-content;
+  }
+
+  .createEventContainer {
+    border-radius: 1rem;
+
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    padding: 1rem;
+    width: fit-content;
+    gap: 5rem;
+    position: relative;
+
+    .secondaryHeading {
+      color: $black;
+      font-family: $font-header;
+      font-size: 3.2rem;
+      font-weight: 900;
+      text-align: center;
+      // text-shadow: $shadow;
+      width: 100%;
+
+      // display: inline-block;
+      margin: 0 auto;
+      // padding-bottom: 0.5rem;
+      // position: relative;
+      // width: fit-content;
+    }
+
+    .eventForm {
+      display: grid;
+      grid-template-columns: 1fr 3fr;
+
+      // center under the header
+      margin: 0 auto;
+
+      // width: 50rem;
+
+      gap: 2rem;
+
+      label {
+        // center the label text
+        font-size: 1.6rem;
+        // text-align: center;
+        color: $headerTertiary;
+        font-family: $font-header;
+      }
+      input {
+        // center the input text
+        // text-align: center;
+        background-color: $headerTertiary;
+        border-radius: 10px;
+        color: $text-white;
+        font-size: 1.6rem;
+        height: 2.6rem;
+      }
+
+      button {
+        // center the button text
+
+        background-color: $headerTertiary;
+        border-radius: 10px;
+        color: $text-white;
+        font-size: 1.4rem;
+        padding: 1rem;
+
+        grid-column: 1 / -1;
+        justify-self: center;
+
+        white-space: nowrap;
+        margin-top: 4.2rem;
+      }
+    }
+    img {
+      width: 10rem;
+      height: auto;
+      position: absolute;
+      bottom: 5rem;
+      right: -8rem;
+    }
+  }
+}

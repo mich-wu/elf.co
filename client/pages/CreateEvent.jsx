@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 import { createEvent } from '../apiClient/event.js'
+import styles from './CreateEvent.module.scss'
 
 const Event = () => {
   const [name, setName] = useState('')
@@ -28,11 +29,12 @@ const Event = () => {
   }
 
   return (
-    <div className='event'>
+    <div className={styles.eventContainer}>
+      <h1 className={styles.header}>Secret Santa</h1>
       {!eventCreated ? (
-        <div className='create-event'>
-          <h2>Create a New Event</h2>
-          <form onSubmit={handleSubmit}>
+        <div className={styles.createEventContainer}>
+          <h2 className={styles.secondaryHeading}>Create your Event</h2>
+          <form className={styles.eventForm} onSubmit={handleSubmit}>
             <label htmlFor='name'>Event Name:</label>
             <input
               type='text'
@@ -40,25 +42,34 @@ const Event = () => {
               value={name}
               name='name'
               onChange={(e) => setName(e.target.value)}
+              placeholder='Event Name'
             />
-            <label htmlFor='date'>Event Date:</label>
-            <input
-              type='date'
-              name='date'
-              required
-              value={date}
-              onChange={(e) => setDate(e.target.value)}
-            />
-            <label htmlFor='budget'>Event Budget:</label>
+            <label htmlFor='budget'>Budget:</label>
             <input
               type='number'
               name='budget'
               required
               value={budget}
               onChange={(e) => setBudget(e.target.value)}
+              placeholder='Event Budget'
             />
-            <button>Create Event</button>
+            <label htmlFor='date'>Draw Date:</label>
+            <input
+              type='date'
+              name='date'
+              required
+              value={date}
+              onChange={(e) => setDate(e.target.value)}
+              placeholder='Draw Date'
+            />
+
+            <button>Create Your Event</button>
           </form>
+          <img
+            src='/server/public/assets/santa-small.PNG'
+            alt='cartoon of santa'
+            className={styles.santaImg}
+          />
         </div>
       ) : (
         <div className='event-created'>
