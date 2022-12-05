@@ -111,3 +111,7 @@ describe('deleteWishlist', () => {
       })
   })
 })
+
+describe('updateWishlistGifter', () => {
+  it.todo('should update the users gifter_id with their partners id')
+})
