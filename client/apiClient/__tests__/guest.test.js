@@ -1,9 +1,13 @@
 import nock from 'nock'
 
 import {
+  createGuestApi,
+  createWishlistApi,
+  deleteWishlistApi,
   getEventByGuestCodeApi,
   getWishlistApi,
   getWishlistByIdApi,
+  updatedWishlistApi,
 } from '../guest'
 
 describe('getWishlistApi', () => {
@@ -62,6 +66,87 @@ describe('getWishlistByIdApi', () => {
       expect(guest.guest_code).toBe('HAPPYDOGGO')
       expect(guest.name).toBe('Mr Happy')
       expect(guest.wishlist).toBe('monkey toy')
+      expect(scope.isDone()).toBe(true)
+    })
+  })
+})
+
+describe('createWishlistApi', () => {
+  it('creates a wishlist', () => {
+    const scope = nock('http://localhost').post('/api/v1/wishlist').reply(200, {
+      id: 5,
+      guest_code: 'E9A7DA6AD15D9C774D3289AC7D6F81D',
+      event_id: 3,
+      name: 'Murry',
+      wishlist: 'a new cat',
+      gifter_id: null,
+    })
+    return createWishlistApi('E9A7DA6AD15D9C774D3289AC7D6F81D').then(
+      (guest) => {
+        expect(guest.id).toBe(5)
+        expect(guest.guest_code).toBe('E9A7DA6AD15D9C774D3289AC7D6F81D')
+        expect(guest.event_id).toBe(3)
+        expect(guest.name).toBe('Murry')
+        expect(guest.wishlist).toBe('a new cat')
+        expect(scope.isDone()).toBe(true)
+      }
+    )
+  })
+})
+
+describe('updateWishlistApi', () => {
+  it('updates a wishlist', () => {
+    const scope = nock('http://localhost')
+      .patch('/api/v1/wishlist/4')
+      .reply(200, {
+        id: 4,
+        guest_code: 'A6AD1D3289ACE9A7D57D6F81D9C7741',
+        event_id: 3,
+        name: 'Boris',
+        wishlist: 'Muffins',
+        gifter_id: null,
+      })
+    return updatedWishlistApi(4, 'Muffins').then((guest) => {
+      expect(guest.wishlist).toBe('Muffins')
+      expect(scope.isDone()).toBe(true)
+    })
+  })
+})
+
+describe('deleteWishlistApi', () => {
+  it('deletes a wishlist', () => {
+    const scope = nock('http://localhost')
+      .delete('/api/v1/wishlist/5')
+      .reply(200, {
+        id: 5,
+        guest_code: 'E9A7DA6AD15D9C774D3289AC7D6F81D',
+        event_id: 3,
+        name: 'Murry',
+        wishlist: 'a new cat',
+        gifter_id: null,
+      })
+    return deleteWishlistApi(5).then((guest) => {
+      expect(guest.guest_code).toBe('E9A7DA6AD15D9C774D3289AC7D6F81D')
+      expect(scope.isDone()).toBe(true)
+    })
+  })
+})
+
+describe('createGuestApi', () => {
+  it.skip('creates a guest', () => {
+    // const guestObj = { name: 'Marty', event_id: 2 }
+    const scope = nock('http://localhost')
+      .post(`/api/v1/wishlist/`)
+      .reply(200, {
+        event_id: '46a23726-827c-4c63-b04c-6ec38d29fd4f',
+        name: 'barry',
+      })
+    return createGuestApi({
+      event_id: '46a23726-827c-4c63-b04c-6ec38d29fd4f',
+      name: 'barry',
+    }).then((guest) => {
+      console.log('poop', guest)
+      expect(guest.event_id).toBe('46a23726-827c-4c63-b04c-6ec38d29fd4f')
       expect(scope.isDone()).toBe(true)
     })
   })
