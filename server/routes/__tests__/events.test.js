@@ -70,3 +70,22 @@ describe('POST/', () => {
       })
   })
 })
+
+describe('GET/dashboard/:event_id', () => {
+  it('Gets event by event_id', () => {
+    return request(server)
+      .get('/api/v1/event/dashboard/1')
+      .then((res) => {
+        expect(res.status).toBe(200)
+        expect(res.body).toBe({
+          event_id: 1,
+          host_id: 1,
+          invite_id: '57D6F81',
+          event_name: 'Trade Me Christmas Party',
+          budget: 30,
+          date: '19-12-2022',
+          status: 0,
+        })
+      })
+  })
+})
