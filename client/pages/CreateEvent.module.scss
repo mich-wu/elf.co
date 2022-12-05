@@ -132,6 +132,11 @@
       text-align: center;
       font-family: $body-font-family;
       padding: 0rem 5rem;
+
+      &:hover {
+        text-decoration: underline;
+        color: $lightBackground;
+      }
     }
   }
   .copyLinkContainer {
