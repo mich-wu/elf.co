@@ -35,6 +35,7 @@ const Event = () => {
           <form onSubmit={handleSubmit}>
             <label htmlFor='name'>Event Name:</label>
             <input
+              id='name'
               type='text'
               required
               value={name}
@@ -43,6 +44,7 @@ const Event = () => {
             />
             <label htmlFor='date'>Event Date:</label>
             <input
+              id='date'
               type='date'
               name='date'
               required
@@ -51,6 +53,7 @@ const Event = () => {
             />
             <label htmlFor='budget'>Event Budget:</label>
             <input
+              id='budget'
               type='number'
               name='budget'
               required
