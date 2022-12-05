@@ -1,54 +1,49 @@
 @use '../styles/_theme' as theme;
 
-// --------------------------
-// Set-up styles
-// --------------------------
-// * { box-sizing: border-box; }
-// body { background: slategray; margin: 0; padding: 3em 1em;}
 ul { list-style: none; margin: 0; padding: 0;}
 figure { margin: 0; }
 figcaption { font-style: italic; font-size: 0.8em; color: grey; line-height: 1.4; }
 
-// --------------------------
-// Grid styles
-// --------------------------
 .grid {
   display: grid;
-  grid-auto-flow: column; // display the items in columns only, ie horizontal
-  grid-auto-columns: 90%; // create as many columns as there are items. 90% so we can see next item on the right.
+
+  grid-auto-flow: initial; 
+  grid-template-columns: repeat(auto-fit, minmax(auto,20em)); 
+  justify-content: center; 
   grid-gap: 1em;
-  overflow-x: scroll; // scroll only within the grid, not entire page
-  -webkit-overflow-scrolling: touch; // better scrolling on touch
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch; 
   padding: 2em 1em;
   background-color: rgb(232, 232, 232);
   
-  @media all and (min-width: 600px) {
-    grid-auto-flow: initial; // default: display items in rows and cols
-    grid-template-columns: repeat(auto-fit, minmax(auto,20em)); // as many columns with max-width of 20em;
-    justify-content: center; // center the items - this is optional
-  }
-  
   &__figure {
     display: grid;
-    grid-template-rows: 15em 1fr; // 15em high row for image – value could be whatever
+    grid-template-rows: 15em 1fr; 
     grid-gap: 1em;
     
     img {
       width: 100%;
       height: 100%;
-      object-fit: cover; // crop image within its cell
+      object-fit: cover; 
       border-radius: 20px;
     }
   }
 }
+
+.littleguys{
+ position: relative;
+ height: 300px;
+ background-color: rgb(232, 232, 232);
+ 
+}
 .reindeer{
-  
-  position: sticky;
+  position: absolute;
+  top: 0px;
   bottom: 5px;
   right: 5px;
-  animation: rotate 1s infinite;
+  animation: rotate1 1s infinite;
 
-      @keyframes rotate {
+      @keyframes rotate1 {
         0% {
           transform: rotate(0deg);
         }
@@ -61,178 +56,23 @@ figcaption { font-style: italic; font-size: 0.8em; color: grey; line-height: 1.4
       }      
 }
 .meow{
-  position: sticky;
+
+  position: absolute;
+  top: 0px;
   bottom: 5px;
   left: 5px;
-  animation: rotate 1s infinite;
+  animation: rotate2 1s infinite;
 
-      @keyframes rotate {
+      @keyframes rotate2 {
         0% {
-          transform: rotate(10deg);
-        }
-        50% {
           transform: rotate(0deg);
         }
+        50% {
+          transform: rotate(-10deg);
+        }
         100% {
-          transform: rotate(10deg);
+          transform: rotate(0deg);
         }
       }      
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// * {
-//   box-sizing: border-box;
-// }
-
-// body {
-//   font-family: 'Poor Story', cursive;
-//   background: #e0c3a5;
-// }
-
-
-// .wrapper {
-//   width: 100%;
-//   padding: 0 2rem;
-//   text-align: center;
-//   background-color: rgb(232, 232, 232);
-// }
-// .polaroid {
-//   background: #fff;
-//   padding: .5rem;
-//   box-shadow: 0 0.2rem 1.2rem rgba(0,0,0,0.2);
-//   border-radius: 20px 20px;
-  
-// }
-// .polaroid > img{
-//   width: 450px;
-//   height: 450px;
-//   border-radius: 20px 20px 20px 20px;
-//   object-fit: cover;
-//   object-position: 25% 25%; 
-// }
-// .caption {
-//   font-size: 1.8rem;
-//   text-align: center;
-//   line-height: 2em;
-// }
-// .item {
-//   width: 30%;
-//   display: inline-block;
-//   margin-top: 30px;
-//   //filter: grayscale(100%);
-// }
-// .item .polaroid:before {
-//   content: '';
-//   position: absolute;
-//   z-index: -1;
-//   transition: all 0.35s;
-// }
-// .item:nth-of-type(4n+1) {
-//   transform: scale(0.8, 0.8) rotate(5deg);
-//   transition: all 0.35s;
-// }
-// .item:nth-of-type(4n+1) .polaroid:before {
-//   transform: rotate(6deg);
-//   height: 20%;
-//   width: 47%;
-//   bottom: 30px;
-//   right: 12px;
-//   // box-shadow: 0 2.1rem 2rem rgba(0,0,0,0.4);
-// }
-// .item:nth-of-type(4n+2) {
-//   transform: scale(0.8, 0.8) rotate(-5deg);
-//   transition: all 0.35s;
-// }
-// .item:nth-of-type(4n+2) .polaroid:before {
-//   transform: rotate(-6deg);
-//   height: 20%;
-//   width: 47%;
-//   bottom: 30px;
-//   left: 12px;
-//   // box-shadow: 0 2.1rem 2rem rgba(0,0,0,0.4);
-// }
-// .item:nth-of-type(4n+4) {
-//   transform: scale(0.8, 0.8) rotate(3deg);
-//   transition: all 0.35s;
-// }
-// .item:nth-of-type(4n+4) .polaroid:before {
-//   transform: rotate(4deg);
-//   height: 20%;
-//   width: 47%;
-//   bottom: 30px;
-//   right: 12px;
-//   // box-shadow: 0 2.1rem 2rem rgba(0,0,0,0.3);
-// }
-// .item:nth-of-type(4n+3) {
-//   transform: scale(0.8, 0.8) rotate(-3deg);
-//   transition: all 0.35s;
-// }
-// .item:nth-of-type(4n+3) .polaroid:before {
-//   transform: rotate(-4deg);
-//   height: 20%;
-//   width: 47%;
-//   bottom: 30px;
-//   left: 12px;
-//   // box-shadow: 0 2.1rem 2rem rgba(0,0,0,0.3);
-// }
-// .item:hover {
-//   filter: none;
-//   transform: scale(1, 1) rotate(0deg) !important;
-//   transition: all 0.35s;
-// }
-// .item:hover .polaroid:before {
-//   content: '';
-//   position: absolute;
-//   z-index: -1;
-//   transform: rotate(0deg);
-//   height: 90%;
-//   width: 90%;
-//   top: 5%;
-//   bottom: 0%;
-//   right: 5%;
-//   // box-shadow: 0 1rem 3rem rgba(0,0,0,0.2);
-//   transition: all 0.35s;
-// }
