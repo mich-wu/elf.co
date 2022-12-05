@@ -60,6 +60,17 @@ const Drinks = () => {
             <>
               <div className={styles.infoContainer}>
                 <h1>{drink?.strDrink}</h1>
+                <hr></hr>
+                <div className={styles.catGlassContainer}>
+                  <h2 className={styles.catGlasschild1}>
+                    Category: <span>{drink?.strCategory}</span>
+                  </h2>
+                  <h2 className={styles.catGlasschild2}>
+                    Glass type: <span>{drink?.strGlass}</span>{' '}
+                  </h2>
+                </div>
+
+                <hr />
                 <h2 id='ingredients'>Ingredients:</h2>
                 <ul aria-labelledby='ingredients'>
                   {ingredients?.map((ingredient, key) => {
@@ -70,13 +81,8 @@ const Drinks = () => {
                     )
                   })}
                 </ul>
-                <h2>Glass type: {drink?.strGlass}</h2>
-                <h2>Category: {drink?.strCategory}</h2>
-                <h2>Instructions:</h2> <p>{drink?.strInstructions}</p>
-                <div className={styles.centerButton}>
-                  <button className={styles.drinksButton}>
-                    <Link to='/'>Go Home</Link>
-                  </button>
+                <div className={styles.instructions}>
+                  <h2>Instructions:</h2> <p>{drink?.strInstructions}</p>
                 </div>
               </div>
             </>
@@ -85,6 +91,20 @@ const Drinks = () => {
               <Spinner loading={loading} />
             </div>
           )}
+        </div>
+        <div className={styles.centerButton}>
+          <button
+            onClick='window.location.reload()'
+            className={styles.drinksButton}
+          >
+            <Link to='/drinks'>RANDOMISE DRINK</Link>
+          </button>
+          <img
+            src='../../server/public/tree.PNG'
+            alt='christmas tree'
+            width='80'
+            className={styles.treeImage}
+          ></img>
         </div>
       </div>
     </>
