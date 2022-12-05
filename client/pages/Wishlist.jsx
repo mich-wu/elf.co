@@ -81,20 +81,10 @@ export default function Wishlist() {
     )
   }
 
-  const handleDescription = (description) => {
-    const newDescription = description.split('  ')
-
-    const addLineBreak = newDescription.map((item) => {
-      return item.replace(/\n\n/g, '<br />')
-    })
-    return addLineBreak
-  }
-
   return (
     <div>
       <div className={styles.eventContainer}>
         <h1 className={styles.header}>Secret Santa</h1>
-        {/* <h1>Hi {newWish?.name}! </h1> */}
 
         {eventResult === 1 ? (
           <div className={styles.createEventContainer}>
@@ -161,10 +151,7 @@ export default function Wishlist() {
                   <div className={styles.createEventContainer}>
                     <h2 className={styles.secondaryHeading}>Your Wishlist</h2>
 
-                    <h3 className={styles.wishlistItem}>
-                      {newWish.wishlist}
-                      {/* {handleDescription(newWish.wishlist)} */}
-                    </h3>
+                    <h3 className={styles.wishlistItem}>{newWish.wishlist}</h3>
 
                     <button className={styles.editBtn} onClick={handleEdit}>
                       Edit Wishlist
