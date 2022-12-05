@@ -1,9 +1,10 @@
-@use './theme';
+
+@use '../styles/_theme' as theme;
 
 html,
 body {
-  font-family: theme.$font-body; color: theme.$text-black;
-  background-color: theme.$white; margin: 0px;
+  font-family: theme.$body-font-family; color: theme.$text-black;
+  background-color: theme.$white;
 }
 
 p { margin: 0px; }
