@@ -19,21 +19,29 @@ export default function GalleryPage() {
   return (
     <>
       {/* <h1> Peets 🐾 </h1> */}
-      <div className={styles['wrapper']}>
+      <ul className={styles.grid}>
         {peets.map((peet) => {
           return (
-            <div key={peet.id} className={styles.item}>
-              <div className={styles.polaroid}>
-                <img src={`/images/${peet.image}`} alt='dog' />
-                <div className={styles['caption']}>
-                  {/* <p>Owner: {peet.owner}</p> */}
-                  <p>{peet.petname}</p>
-                </div>
-              </div>
-            </div>
+            <li key={peet.id}>
+              <figure className={styles.grid__figure}>
+                <img src={`/images/${peet.image}`} alt='doggo' />
+                <figcaption>{peet.petname}</figcaption>
+              </figure>
+            </li>
           )
         })}
-      </div>
+
+        <img
+          className={styles.reindeer}
+          src={'server/public/reindeer-guy.png'}
+          alt='reindeer-guy'
+        />
+        <img
+          className={styles.meow}
+          src={'server/public/meow-guy.png'}
+          alt='reindeer-guy'
+        />
+      </ul>
     </>
   )
 }
