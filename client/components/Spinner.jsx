@@ -1,24 +1,9 @@
-import ClipLoader from 'react-spinners/SyncLoader'
-
 import styles from './Spinner.module.scss'
 
-const override = {
-  display: 'flex',
-  margin: '0 auto',
-  borderColor: '#d6b068',
-}
-
-const Spinner = ({ loading }) => {
+const Spinner = () => {
   return (
-    <div className='sweet-loading'>
-      <ClipLoader
-        color='#d6b068'
-        loading={loading}
-        cssOverride={override}
-        size={25}
-        aria-label='Loading Spinner'
-        data-testid='loader'
-      />
+    <div className={styles.spinner}>
+      <div className={styles.spinner__circle}></div>
     </div>
   )
 }
