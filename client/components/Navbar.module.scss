@@ -2,8 +2,16 @@
 
 .navbar {
   display: flex; justify-content: space-between; align-items: center;
-  gap: 8px; padding: 24px; background-color: theme.$bright; color: theme.$black;
+  gap: 8px; padding: 24px; background-color: theme.$headerPrimary; color: theme.$white;
   font-size: 1.2rem; font-weight: bolder; white-space: nowrap;  
+  a {
+    color: theme.$white;
+    text-decoration: none;
+  }
+  nav {
+    text-decoration: none;
+    font-size: larger;
+  }
 }
 
 .title { font-size: 2rem; }

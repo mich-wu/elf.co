@@ -1,18 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@100;300;400;900&family=Nova+Mono&display=swap');
 
 $white: #ffffff;
-$light: #FFE298;
-$medium: #FFD05A;
-$bright: #D08C54;
+$lightBackground: #f7f7f7;
+$lighterMainGreen: #5873534a;
+$headerPrimary: #2e5544;
+$headerTertiary: #587353;
+$headerSecondary: #1a2f27;
 $black: #000000;
+$bodyRed: #a84537;
+$bodyGold: #d6b068;
 
 $text-white: $white;
-$text-light: #FFE298;
-$text-medium: #FFD05A;
-$text-bright: #EC9F29;
 $text-black: $black;
-
 $shadow: rgba(0, 0, 0, 0.2) 2px 2px 4px 0px;
 
-$font-body: 'Roboto', sans-serif;
-$font-header: 'Inter', sans-serif;
+$font-body: 'Londrina Solid', sans-serif;
+$font-header: 'Port Lligat Slab', sans-serif;
