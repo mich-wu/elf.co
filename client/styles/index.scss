@@ -1,37 +1,4 @@
-// @use './theme';
-
-// html {
-//   font-size: 62.5%;
-// }
-
-// html,
-// body {
-//   font-family: theme.$font-body;
-//   color: theme.$text-black;
-//   background-color: theme.$lightBackground;
-//   margin: 0px;
-//   margin: 0 auto;
-// }
-
-// body {
-//   max-width: 1200px;
-//   font-size: 1.6rem;
-// }
-
-// p {
-//   margin: 0px;
-// }
-
-// a {
-//   text-decoration: none;
-//   color: theme.$text-black;
-//   cursor: pointer;
-// }
-
-// @use '../styles/_theme' as theme;
-
 @import './_theme.scss';
-
 html,
 body {
   font-family: $body-font-family;
