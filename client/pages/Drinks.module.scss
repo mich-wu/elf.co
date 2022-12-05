@@ -8,7 +8,6 @@
   justify-content: center;
 }
 
-
 .infoContainer {
   display: flex;
   flex-direction: column;
@@ -18,20 +17,24 @@
   
 }
 
+.spinner{
+  margin-left: -40rem;
+  margin-top: 10rem;
+}
+
 
 img {
   border-radius: 20px 0px 0px 20px;
-}
+  }
+  h1 {
+    font-size: 30px;
+  }
+  h2 {
+    font-size: 20px;
+  }
 
-h1 {
-  font-size: 30px;
-}
 
-h2 {
-  font-size: 20px;
-}
-
-button {
+.drinksButton {
   padding: 10px;
   width: 200px;
   margin-bottom: 50px;

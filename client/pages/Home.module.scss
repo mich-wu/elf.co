@@ -63,23 +63,26 @@ nav a {
   color: #000000;
   border-radius: 10px;
   transition: cubic-bezier(0.075, 0.82, 0.165, 1);
-
 }
 
 .homepageButtons a {
   color: #000000;
   border-radius: 10px;
   font-size: 26px;
+
 }
 
 .homepageButtons:hover {
   background-color: #D08C54;
   color: rgb(255, 255, 255);
+
+
 }
 
 .homepageButtons:hover a {
   background-color: #D08C54;
   color: rgb(255, 255, 255);
+
 }
 
 // .homepageButtons, .homepageButtons a {
