@@ -159,10 +159,7 @@
       width: 4.5rem;
       top: 0;
       right: -2.8rem;
-      // make it rotate left and right on hover
       animation: rotate 1s infinite;
-      //rotate 360 degrees
-      // transform: rotate(360deg);
 
       @keyframes rotate {
         0% {
@@ -214,6 +211,10 @@
     font-family: $body-font-family;
     font-size: 1.6rem;
     font-weight: 900;
+
+    &:hover {
+      background-color: $bodyRed;
+    }
   }
 
   .rudolphImg {
@@ -223,7 +224,6 @@
     position: absolute;
     top: 19rem;
     left: -5rem;
-    //rotate to the left
     transform: rotate(-10deg);
   }
 }
