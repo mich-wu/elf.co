@@ -1,9 +1,10 @@
-@use '../styles/theme';
+@use '../styles/_theme' as theme;
+
 
 .navbar {
   display: flex; justify-content: space-between; align-items: center;
-  gap: 8px; padding: 24px; background-color: theme.$headerPrimary; color: theme.$white;
-  font-size: 1.2rem; font-weight: bolder; white-space: nowrap;  
+  gap: 8px; padding: 50px; background-color: theme.$headerPrimary; color: theme.$white;
+  font-size: 1.2rem; font-family: theme.$heading-font-family; font-weight: bolder; white-space: nowrap;  
   a {
     color: theme.$white;
     text-decoration: none;
@@ -14,9 +15,46 @@
   }
 }
 
-.title { font-size: 2rem; }
+.title { font-size: 3rem; }
 
 .links {
   display: flex; justify-content: space-around; gap: 48px;
   margin-left: 48px;
+}
+
+.signup {
+padding: 10px 30px 10px 30px;
+background-color: theme.$headerTertiary;
+border-color: theme.$headerTertiary;
+border-width: 4px;
+border-radius: 10px;
+border-style: solid;
+font-size: 20px;
+font-family: theme.$heading-font-family;
+a {
+  color: theme.$text-white;
+}
+}
+
+.login {
+  padding: 10px 30px 10px 30px;
+  background-color: theme.$lightBackground;
+  border-color: theme.$headerTertiary;
+  border-width: 4px;
+  border-radius: 10px;
+  border-style: solid;
+  color: theme.$text-black;
+  font-family: theme.$heading-font-family;
+  font-size: 20px;
+
+  a {
+    color: theme.$text-black;
+  }
+}
+
+.login:hover {
+  background-color: theme.$lighterMainGreen;
+}
+.signup:hover {
+background-color: theme.$lighterMainGreen;
 }

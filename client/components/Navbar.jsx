@@ -24,10 +24,15 @@ export default function Navbar() {
         <div className={styles.title}>ELF.CO</div>
       </Link>
       <div className={styles.links}>
-        <Link to='/'>MY EVENTS</Link>
-        <Link to='/'>MY WISHLIST</Link>
-        <Link to='/'>SIGN UP</Link>
-        <Link to='/'>LOG IN</Link>
+        <button className={styles.signup}>
+          <Link to='/'>HOME</Link>
+        </button>
+        <button className={styles.login}>
+          <Link to='/'>LOG IN</Link>
+        </button>
+        <button className={styles.signup}>
+          <Link to='/'>SIGN UP</Link>
+        </button>
 
         {/* <IfAuthenticated>
           <div className={styles.auth}>

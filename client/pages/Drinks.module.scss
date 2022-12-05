@@ -1,4 +1,5 @@
-@use '../styles/theme';
+
+@use '../styles/_theme' as theme;
 
 .drinksContainer {
   display: flex;
@@ -9,6 +10,7 @@
 }
 
 .infoContainer {
+  font-family: theme.$body-font-family;
   display: flex;
   flex-direction: column;
   padding: 30px;
