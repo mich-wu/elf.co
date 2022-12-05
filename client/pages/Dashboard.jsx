@@ -14,9 +14,11 @@ const Dashboard = () => {
     fetchEvents()
   }, [])
 
+  const MOCK_AUTHID = 69
+
   // todo: hostId should be auth0_id but setup after.
   const filterEvents = (events) => {
-    return events.filter((event) => event.host_id === 69)
+    return events.filter((event) => event.host_id === MOCK_AUTHID)
   }
 
   return (
@@ -31,7 +33,7 @@ const Dashboard = () => {
             <p>
               {event.status === 0 ? 'Submissions Open' : 'Submissions Closed'}
             </p>
-            {/* <Link to={`/dashboard/${event.event_id}`}>View Event</Link> */}
+
             <Link to={`/dashboard/${event.invite_id}`}>View Event</Link>
           </div>
         ))}
