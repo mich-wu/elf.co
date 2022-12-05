@@ -33,7 +33,7 @@ afterEach(() => {
 })
 
 describe('<Drinks />', () => {
-  it('Displays an image, drink name, ingredients, measures, instructions, category and glass type', async () => {
+  it.skip('Displays an image, drink name, ingredients, measures, instructions, category and glass type', async () => {
     getRandomDrink.mockReturnValue(Promise.resolve(randomDrinkResponse))
     render(<Drinks />, { wrapper: MemoryRouter })
 
@@ -54,7 +54,7 @@ describe('<Drinks />', () => {
     // screen.logTestingPlaygroundURL()
   })
 
-  it('has a link to the home route', async () => {
+  it.skip('has a link to the home route', async () => {
     getRandomDrink.mockReturnValue(Promise.resolve(randomDrinkResponse))
     render(<Drinks />, { wrapper: MemoryRouter })
 

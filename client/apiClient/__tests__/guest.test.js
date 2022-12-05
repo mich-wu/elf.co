@@ -1,6 +1,10 @@
 import nock from 'nock'
 
-import { getEventByGuestCodeApi, getWishlistApi } from '../guest'
+import {
+  getEventByGuestCodeApi,
+  getWishlistApi,
+  getWishlistByIdApi,
+} from '../guest'
 
 describe('getWishlistApi', () => {
   it('returns the guest db', () => {
@@ -36,6 +40,28 @@ describe('getEventByGuestCodeApi', () => {
       })
     return getEventByGuestCodeApi('DOGGOLIFE').then((guest) => {
       expect(guest.name).toBe('DOG')
+      expect(scope.isDone()).toBe(true)
+    })
+  })
+})
+
+describe('getWishlistByIdApi', () => {
+  it('returns the wishlist based on id', () => {
+    const scope = nock('http://localhost')
+      .get('/api/v1/wishlist/1')
+      .reply(200, {
+        id: 1,
+        guest_code: 'HAPPYDOGGO',
+        event_id: 20,
+        name: 'Mr Happy',
+        wishlist: 'monkey toy',
+        gifter_id: null,
+      })
+    return getWishlistByIdApi(1).then((guest) => {
+      expect(guest.id).toBe(1)
+      expect(guest.guest_code).toBe('HAPPYDOGGO')
+      expect(guest.name).toBe('Mr Happy')
+      expect(guest.wishlist).toBe('monkey toy')
       expect(scope.isDone()).toBe(true)
     })
   })
