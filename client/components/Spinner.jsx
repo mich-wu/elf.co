@@ -5,26 +5,21 @@ import styles from './Spinner.module.scss'
 const override = {
   display: 'flex',
   margin: '0 auto',
-  borderColor: '#eac3ff',
+  borderColor: '#EDC4C2',
 }
 
 const Spinner = ({ loading }) => {
   return (
-    <>
-      <div>
-        <div className={styles.loadingContainer}>
-          <ClipLoader
-            color='#D08C54'
-            loading={loading}
-            cssOverride={override}
-            size={25}
-            aria-label='Loading Spinner'
-          />
-        </div>
-      </div>
-
-      <div data-testid='bananas' />
-    </>
+    <div className='sweet-loading'>
+      <ClipLoader
+        color='#EDC4C2'
+        loading={loading}
+        cssOverride={override}
+        size={25}
+        aria-label='Loading Spinner'
+        data-testid='loader'
+      />
+    </div>
   )
 }
 
