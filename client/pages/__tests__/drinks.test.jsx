@@ -2,10 +2,11 @@ import '@testing-library/jest-dom'
 
 import { fireEvent, render, screen, within } from '@testing-library/react'
 import React from 'react'
-import { BrowserRouter, MemoryRouter } from 'react-router-dom'
+import { MemoryRouter } from 'react-router-dom'
 import { vi } from 'vitest'
 
 import { getRandomDrink } from '../../apiClient/drinks.js'
+// import Spinner from '../../components/Spinner.jsx'
 import Drinks from '../Drinks'
 
 vi.mock('../../apiClient/drinks.js')
@@ -52,14 +53,11 @@ describe('<Drinks />', () => {
   })
 
   it('has a link to the home route', async () => {
-    expect.assertions(1)
     getRandomDrink.mockReturnValue(Promise.resolve(randomDrinkResponse))
-    render(
-      <BrowserRouter>
-        <Drinks loading={true} />
-      </BrowserRouter>
-    )
-    await screen.findByText(`Owen's Grandmother's Revenge`)
+    render(<Drinks />, { wrapper: MemoryRouter })
+
+    fireEvent.load(await screen.findByRole('img'))
+
     const link = screen.getByRole('link')
     expect(link).toHaveAttribute('href', '/')
   })

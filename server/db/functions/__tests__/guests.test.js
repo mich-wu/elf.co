@@ -88,18 +88,18 @@ describe('updateWishlist', () => {
 })
 
 // describe('deleteWishlist', () => {
-//   it('deletes a guests wishlist based on the id', () => {
-//     const deletedPerson = [
-//       {
-//         id: 3,
-//         guest_code: '6F81E9A7DA6AD157DD9C774D3289AC10',
-//         event_id: 2,
-//         name: 'Bella',
-//         wishlist: 'a new house',
-//       },
-//     ]
-//     return deleteWishlist(deletedPerson, testDb).then((deleted) => {
-//       expect(deleted).not.toBe('')
+//   it('deletes a guest based on the id', () => {
+//     const deletedPerson = {
+//       id: 3,
+//       guest_code: '6F81E9A7DA6AD157DD9C774D3289AC10',
+//       event_id: 2,
+//       name: 'Bella',
+//       wishlist: 'a new house',
+//     }
+//     return deleteWishlist(deletedPerson, testDb).then(() => {
+//       expect(testDb.del)
+//         .toHaveBeenCalledWith()
+//         .where('deletedPerson', deletedPerson)
 //     })
 //   })
 // })
