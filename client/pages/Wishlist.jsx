@@ -109,7 +109,7 @@ export default function Wishlist() {
                 budget is ${event[0].budget}{' '}
               </p>
               <img
-                src='/server/public/assets/tree-v2.png'
+                src='/server/public/assets/tree.PNG'
                 alt='cartoon drawing of christmas tree person'
                 className={styles.treeImAssigned}
                 draggable='false'
@@ -160,7 +160,7 @@ export default function Wishlist() {
                     <p className={styles.days}> {handleDate(event[0].date)}</p>
 
                     <img
-                      src='/server/public/assets/tree-v2.png'
+                      src='/server/public/assets/tree.PNG'
                       alt='tree'
                       className={styles.treeImg}
                       draggable='false'
