@@ -1,19 +1,15 @@
-// import '@testing-library/jest-dom'
+import '@testing-library/jest-dom'
 
-// import { render, screen } from '@testing-library/react'
-// import { vi } from 'vitest'
+import { render, screen } from '@testing-library/react'
+import { vi } from 'vitest'
 
-// vi.mock('../Spinner.jsx')
-// import Spinner from '../Spinner'
+vi.mock('../Spinner.jsx')
+import Spinner from '../Spinner'
 
-// describe('<Spinner />', () => {
-//   beforeEach(() => {
-//     vi.clearAllMocks()
-//   })
-
-//   it('Renders a Spinner when the page is loading', () => {
-//     render(<Spinner />)
-//     const loadingWheel = screen.getByText('sweet-loading')
-//     expect(loadingWheel).toBeInTheDocument()
-//   })
-// })
+describe('<Spinner />', () => {
+  it.skip('Loads a Spinner when the page is loading', () => {
+    render(<Spinner />)
+    const spinner = screen.queryByTestId('loader')
+    expect(spinner).not.toBeDefined()
+  })
+})
