@@ -73,6 +73,11 @@ const Drinks = () => {
                 <h2>Glass type: {drink?.strGlass}</h2>
                 <h2>Category: {drink?.strCategory}</h2>
                 <h2>Instructions:</h2> <p>{drink?.strInstructions}</p>
+                <div className={styles.centerButton}>
+                  <button className={styles.drinksButton}>
+                    <Link to='/'>Go Home</Link>
+                  </button>
+                </div>
               </div>
             </>
           ) : (
@@ -81,9 +86,6 @@ const Drinks = () => {
             </div>
           )}
         </div>
-        <button className={styles.drinksButton}>
-          <Link to='/'>Go Home</Link>
-        </button>
       </div>
     </>
   )
