@@ -7,6 +7,7 @@ import Drinks from './pages/Drinks'
 import EventDetail from './pages/EventDetail'
 import Home from './pages/Home'
 import InvitePage from './pages/InvitePage'
+import SSHome from './pages/SSHome'
 import Wishlist from './pages/Wishlist'
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path='/' element={<Home />} />
+        <Route path='/secretsanta' element={<SSHome />} />
         <Route path='/event' element={<CreateEvent />} />
         <Route path='/dashboard' element={<Dashboard />} />
         <Route path='/dashboard/:event_id' element={<EventDetail />} />

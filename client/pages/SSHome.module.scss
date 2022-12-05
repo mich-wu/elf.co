@@ -1,0 +1,43 @@
+@use '../styles/_theme' as theme;
+
+
+.imageWrapper {
+  width: fit-content;
+  margin: 0 1.5rem;
+  text-align: center;
+
+  h1 {
+  font-size: 3rem;
+  font-family: theme.$body-font-family;
+  color: theme.$bodyRed;
+  text-decoration: none;
+  margin-top: 50px;
+  }
+  a {
+    text-decoration: none;
+  }
+}
+
+.links {
+  display: flex;
+  margin-top: 10px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 2.6rem;
+  font-family: theme.$body-font-family;
+  color: theme.$bodyRed
+}
+
+.image {
+  width: 40%;
+  margin-bottom: 20px;
+  margin-top: 0px;
+  transition: transform .5s;
+}
+
+.image:hover {
+  transform: scale(1.1);
+}
+
