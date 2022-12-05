@@ -9,7 +9,7 @@ const Home = () => {
       <div className={styles.home}>
         <div className={styles.imageContainer}>
           <div className={styles.imageWrapper}>
-            <a href='/event'>
+            <a href='/secretsanta'>
               <img
                 src='../../server/public/assets/Secret-Santa-.png'
                 alt='secret santa'
@@ -17,7 +17,7 @@ const Home = () => {
               />
             </a>
 
-            <Link to='/event' className={styles.links}>
+            <Link to='/secretsanta' className={styles.links}>
               SECRET SANTA
             </Link>
           </div>
