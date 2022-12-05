@@ -154,27 +154,27 @@ describe('updateGuest', () => {
 })
 
 //NEED HELP
-// describe('updateWishlistGifterApi', () => {
-//   it('updates a secret santa guests wishlist', () => {
-//     const scope = nock('http://localhost')
-//       .put('/api/v1/wishlist/9ACE6AD157D6F81D9C774D39A287DA10')
-//       .reply(200, {
-//         id: 0,
-//         guest_code: '9ACE6AD157D6F81D9C774D39A287DA10',
-//         event_id: 1,
-//         name: 'Bruno',
-//         wishlist: 'gardening tools and soil',
-//         gifter_id: 1,
-//       })
+describe('updateWishlistGifterApi', () => {
+  it.skip('updates a secret santa guests wishlist', () => {
+    const scope = nock('http://localhost')
+      .put('/api/v1/wishlist/9ACE6AD157D6F81D9C774D39A287DA10')
+      .reply(200, {
+        id: 0,
+        guest_code: '9ACE6AD157D6F81D9C774D39A287DA10',
+        event_id: 1,
+        name: 'Bruno',
+        wishlist: 'gardening tools and soil',
+        gifter_id: 1,
+      })
 
-//     return updateWishlistGifterApi('9ACE6AD157D6F81D9C774D39A287DA10').then(
-//       (guest) => {
-//         expect(guest.wishlist).toContain('gardening tools and soil')
-//         expect(scope.isDone()).toBe(true)
-//       }
-//     )
-//   })
-// })
+    return updateWishlistGifterApi('9ACE6AD157D6F81D9C774D39A287DA10').then(
+      (guest) => {
+        expect(guest.wishlist).toContain('gardening tools and soil')
+        expect(scope.isDone()).toBe(true)
+      }
+    )
+  })
+})
 
 describe('getEventByInviteCode', () => {
   it('gets event by invite code', () => {
@@ -198,26 +198,26 @@ describe('getEventByInviteCode', () => {
 })
 
 //NEED HELP
-// describe('updateEventStatus', () => {
-//   it('updates event status after draw', () => {
-//     const scope = nock('http://localhost')
-//       .patch('/api/v1/event/dashboard/57D6F81')
-//       .reply(200, {
-//         event_id: 1,
-//         host_id: 1,
-//         invite_id: '57D6F81',
-//         event_name: 'Trade Me Christmas Party',
-//         budget: 30,
-//         date: '19-12-2022',
-//         status: true,
-//       })
+describe('updateEventStatus', () => {
+  it.skip('updates event status after draw', () => {
+    const scope = nock('http://localhost')
+      .patch('/api/v1/event/dashboard/57D6F81')
+      .reply(200, {
+        event_id: 1,
+        host_id: 1,
+        invite_id: '57D6F81',
+        event_name: 'Trade Me Christmas Party',
+        budget: 30,
+        date: '19-12-2022',
+        status: true,
+      })
 
-//     return updateEventStatus('57D6F81').then((event) => {
-//       expect(event.status).toBe(true)
-//       expect(scope.isDone()).toBe(true)
-//     })
-//   })
-// })
+    return updateEventStatus('57D6F81').then((event) => {
+      expect(event.status).toBe(true)
+      expect(scope.isDone()).toBe(true)
+    })
+  })
+})
 
 describe(' assignGifter', () => {
   it('gets event by invite code', () => {
