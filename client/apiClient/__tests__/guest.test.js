@@ -1,8 +1,8 @@
 import nock from 'nock'
 
-import { getWishlistApi } from '../guest'
+import { getEventByGuestCodeApi, getWishlistApi } from '../guest'
 
-describe('apiClient/guest.js', () => {
+describe('getWishlistApi', () => {
   it('returns the guest db', () => {
     const scope = nock('http://localhost').get('/api/v1/wishlist').reply(200, {
       id: 2,
@@ -17,6 +17,25 @@ describe('apiClient/guest.js', () => {
       expect(guestList.guest_code).toBe('1D9C774D326AD157D6F889ACE9A7DA10')
       expect(guestList.event_id).toBe(2)
       expect(guestList.wishlist).toBe('a new car')
+      expect(scope.isDone()).toBe(true)
+    })
+  })
+})
+
+describe('getEventByGuestCodeApi', () => {
+  it('returns the event based on guest code', () => {
+    const scope = nock('http://localhost')
+      .get('/api/v1/wishlist/DOGGOLIFE/event')
+      .reply(200, {
+        id: 3,
+        guest_code: 'DOGGOLIFE',
+        event_id: 45,
+        name: 'DOG',
+        wishlist: 'Doggo Toys',
+        gifter_id: null,
+      })
+    return getEventByGuestCodeApi('DOGGOLIFE').then((guest) => {
+      expect(guest.name).toBe('DOG')
       expect(scope.isDone()).toBe(true)
     })
   })

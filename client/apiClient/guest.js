@@ -8,7 +8,6 @@ export function getWishlistApi() {
 }
 
 export function getEventByGuestCodeApi(guest_code) {
-  console.log('hit getEventByGuestCodeApi', guest_code)
   return request.get(`${wishlistURL}/${guest_code}/event`).then((res) => {
     return res.body
   })
