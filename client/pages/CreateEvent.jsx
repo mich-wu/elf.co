@@ -91,7 +91,7 @@ const Event = () => {
             <button onClick={copyLink}>Copy Link</button>
           </div>
           <img
-            src='/server/public/assets/bear.png'
+            src='/server/public/assets/rudolph-v2.png'
             alt='santa hushing'
             className={styles.rudolphImg}
           />

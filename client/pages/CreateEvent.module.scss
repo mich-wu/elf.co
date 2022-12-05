@@ -159,7 +159,24 @@
       width: 4.5rem;
       top: 0;
       right: -2.8rem;
+      // make it rotate left and right on hover
+      animation: rotate 1s infinite;
+      //rotate 360 degrees
+      // transform: rotate(360deg);
+
+      @keyframes rotate {
+        0% {
+          transform: rotate(0deg);
+        }
+        50% {
+          transform: rotate(10deg);
+        }
+        100% {
+          transform: rotate(0deg);
+        }
+      }
     }
+
     button {
       justify-self: center;
       align-self: center;
@@ -172,13 +189,6 @@
     }
   }
 
-  .rudolfImg {
-    width: 10rem;
-    height: auto;
-    position: absolute;
-    bottom: 0rem;
-    left: 0rem;
-  }
   h4 {
     color: $text-black;
     font-family: $heading-font-family;
@@ -197,12 +207,23 @@
     text-align: center;
     text-decoration: none;
     width: fit-content;
-    background-color: #ff8372;
+    background-color: $headerSecondary;
     border-radius: 8px;
     color: $text-white;
     cursor: pointer;
     font-family: $body-font-family;
     font-size: 1.6rem;
     font-weight: 900;
+  }
+
+  .rudolphImg {
+    width: 5rem;
+    height: 5rem;
+    height: auto;
+    position: absolute;
+    top: 19rem;
+    left: -5rem;
+    //rotate to the left
+    transform: rotate(-10deg);
   }
 }
