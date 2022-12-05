@@ -45,13 +45,9 @@ export function deleteWishlistApi(id) {
   })
 }
 
-export function createGuestApi(newGuest) {
-  const person = newGuest.event_id
-  //console.log(newGuest)
-  return request.post(`${wishlistURL}/${person}`).then((res) => {
-    // console.log(res.body[0])
-    return res.body
-  })
+export async function createGuestApi(newGuest) {
+  const res = await request.post('/api/v1/wishlist', newGuest)
+  return res.body[0]
 }
 
 export function getAssignedWishlist(guest_code) {
@@ -59,10 +55,6 @@ export function getAssignedWishlist(guest_code) {
     return res.body
   })
 }
-// export const createGuestApi = async (newGuest) => {
-//   const res = await request.post('/api/v1/wishlist', newGuest)
-//   return res.body[0]
-// }
 
 // export const getAssignedWishlist = async (guest_code) => {
 //   const res = await request.get(`/api/v1/wishlist/${guest_code}/assigned`)
