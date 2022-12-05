@@ -1,18 +1,21 @@
-@import url("https://fonts.googleapis.com/css?family=Poor+Story");
+@use '../styles/_theme' as theme;
 
-* {
-  box-sizing: border-box;
-}
 
-body {
-  font-family: 'Poor Story', cursive;
-  background: #e0c3a5;
-}
+// * {
+//   box-sizing: border-box;
+// }
+
+// body {
+//   font-family: 'Poor Story', cursive;
+//   background: #e0c3a5;
+// }
+
 
 .wrapper {
   width: 100%;
   padding: 0 2rem;
   text-align: center;
+  background-color: rgb(232, 232, 232);
 }
 .polaroid {
   background: #fff;

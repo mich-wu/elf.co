@@ -26,4 +26,4 @@ router.get('/', (req, res) => {
 //     .catch((err) => console.error(err.message))
 // })
 
-// export default router
+export default router

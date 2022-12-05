@@ -18,7 +18,7 @@ export default function GalleryPage() {
 
   return (
     <>
-      <h1> Peets 🐾 </h1>
+      {/* <h1> Peets 🐾 </h1> */}
       <div className={styles['wrapper']}>
         {peets.map((peet) => {
           return (
