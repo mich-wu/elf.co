@@ -50,6 +50,8 @@ describe('<Drinks />', () => {
     screen.getByRole('heading', { name: /highball glass/i })
     screen.getByRole('heading', { name: /ordinary drink/i })
     screen.getByRole('heading', { name: /instructions/i })
+
+    // screen.logTestingPlaygroundURL()
   })
 
   it('has a link to the home route', async () => {

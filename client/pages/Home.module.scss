@@ -1,4 +1,6 @@
-@use '../styles/theme';
+@use '../styles/_theme' as theme;
+
+
 
 .home {
   display: flex;
@@ -6,10 +8,8 @@
   place-content: center;
   max-width: 100%;
   min-height: 100vh;
-  margin: 0 auto;
   background-color: rgb(239, 239, 239);
   body {
-    margin: 0px;
     text-align: center;
   }
 }
@@ -18,12 +18,10 @@
   display: flex;
   flex-direction: row;
   place-items: center;
-  // margin: 5rem 0;
 }
 
 .imageWrapper {
   width: fit-content;
-  // padding: 1rem;
   margin: 0 1.5rem;
 }
 
@@ -34,6 +32,8 @@
   justify-content: center;
   text-decoration: none;
   font-size: 2.6rem;
+  font-family: theme.$body-font-family;
+  color: theme.$bodyRed
 }
 
 .image {
@@ -41,19 +41,18 @@
   height: 100%;
   margin-bottom: 20px;
   margin-top: 0px;
-  // padding: 1rem;
+  transition: transform .5s;
 }
 
-// nav a {
-//   text-decoration: none;
-//   color: black;
-//   font-size: larger;
-// }
+.image:hover {
+  transform: scale(1.1);
+}
+
 
 .homepageButtons {
   border: 2px solid black;
   background-color: white;
-  color: black;
+  color: theme.$bodyRed;
   padding: 5px 24px;
   font-size: 26px;
   cursor: pointer;
@@ -61,10 +60,11 @@
   color: #000000;
   border-radius: 10px;
   transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+  font-family: theme.$body-font-family;
 }
 
 .homepageButtons a {
-  color: #000000;
+  color: theme.$bodyRed;
   border-radius: 10px;
   font-size: 26px;
 
@@ -82,22 +82,4 @@
   color: rgb(255, 255, 255);
 
 }
-
-// .homepageButtons, .homepageButtons a {
-//   background-color: #D08C54;
-//   padding: 10px;
-//   color: rgb(0, 0, 0);
-//   margin: 0px, 20px, 20px, 20px;
-//   font-size: 24px;
-//   font-family: 'Roboto', sans-serif;
-//   border-radius: 20px;
-//   box-shadow: inset;
-
-// }
-
-// .homepageButtons:hover {
-//   background-color: #9c683e;
-//   box-shadow: inset 0 0 0 var(--border-size) currentcolor;
-// }
-
 

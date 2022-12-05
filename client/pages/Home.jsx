@@ -16,11 +16,10 @@ const Home = () => {
                 className={styles.image}
               />
             </a>
-            <button className={styles.homepageButtons}>
-              <Link to='/event' className={styles.links}>
-                Secret Santa
-              </Link>
-            </button>
+
+            <Link to='/event' className={styles.links}>
+              SECRET SANTA
+            </Link>
           </div>
           <div className={styles.imageWrapper}>
             <a href='/peets'>
@@ -30,11 +29,9 @@ const Home = () => {
                 className={styles.image}
               />
             </a>
-            <button className={styles.homepageButtons}>
-              <Link to='/peets' className={styles.links}>
-                OnlyPeets
-              </Link>
-            </button>
+            <Link to='/peets' className={styles.links}>
+              ONLYPEETS
+            </Link>
           </div>
           <div className={styles.imageWrapper}>
             <a href='/drinks'>
@@ -44,11 +41,9 @@ const Home = () => {
                 className={styles.image}
               />
             </a>
-            <button className={styles.homepageButtons}>
-              <Link to='/drinks' className={styles.links}>
-                Drunk Santa
-              </Link>
-            </button>
+            <Link to='/drinks' className={styles.links}>
+              DRUNK SANTA
+            </Link>
           </div>
         </div>
       </div>
