@@ -72,14 +72,16 @@ const Event = () => {
           />
         </div>
       ) : (
-        <div className='event-created'>
-          <h2>Event Created</h2>
-          <p>Share this link with your guests</p>
-          <a href={`http://localhost:5173/invite/${link}`}>
-            http://elf.co/secret-santa/{link}
-          </a>
-          <button onClick={copyLink}>Copy Link</button>
-          <Link to='/dashboard'>Go to Dashboard</Link>
+        <div className={styles.createEventContainer}>
+          <h2 className={styles.secondaryHeading}>Your event:</h2>
+          <div className={styles.linkContainer}>
+            <p>Your Event Link:</p>
+            <a href={`http://localhost:5173/invite/${link}`}>
+              http://elf.co/secret-santa/{link}
+            </a>
+            <button onClick={copyLink}>Copy Link</button>
+          </div>
+          <Link to='/dashboard'>View your Participants</Link>
         </div>
       )}
     </div>
