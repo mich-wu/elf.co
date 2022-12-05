@@ -9,6 +9,8 @@ import {
   updateEventStatus,
 } from '../apiClient/event.js'
 
+// TODO: Refactor filterParticipants and findGifter to the backend
+
 const EventDetail = () => {
   const { event_id } = useParams()
   const [guestList, setGuestList] = useState([])
