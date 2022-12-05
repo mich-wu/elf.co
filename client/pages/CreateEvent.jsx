@@ -46,7 +46,7 @@ const Event = () => {
             />
             <label htmlFor='budget'>Budget:</label>
             <input
-              type='number'
+              type='numeric'
               name='budget'
               required
               value={budget}
@@ -74,14 +74,31 @@ const Event = () => {
       ) : (
         <div className={styles.createEventContainer}>
           <h2 className={styles.secondaryHeading}>Your event:</h2>
+          <h3>{name}</h3>
           <div className={styles.linkContainer}>
             <p>Your Event Link:</p>
             <a href={`http://localhost:5173/invite/${link}`}>
-              http://elf.co/secret-santa/{link}
+              http://elf.co/invite/{link}
             </a>
+          </div>
+          <div className={styles.copyLinkContainer}>
+            <p>Copy and Paste this link to send it to your friends</p>
+            <img
+              src='/server/public/assets/Secret-Santa-.png'
+              alt='santa hushing'
+              className={styles.santaCopyLinkImg}
+            />
             <button onClick={copyLink}>Copy Link</button>
           </div>
-          <Link to='/dashboard'>View your Participants</Link>
+          <img
+            src='/server/public/assets/bear.png'
+            alt='santa hushing'
+            className={styles.rudolphImg}
+          />
+          <h4>Event date: {date}</h4>
+          <Link to='/dashboard' className={styles.eventLink}>
+            View your Participants
+          </Link>
         </div>
       )}
     </div>
