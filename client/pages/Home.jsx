@@ -11,7 +11,7 @@ const Home = () => {
           <div className={styles.imageWrapper}>
             <a href='/event'>
               <img
-                src='../../server/public/secretSanta.png'
+                src='../../server/public/assets/Secret-Santa-.png'
                 alt='secret santa'
                 className={styles.image}
               />
@@ -25,7 +25,7 @@ const Home = () => {
           <div className={styles.imageWrapper}>
             <a href='/peets'>
               <img
-                src='../../server/public/onlyPeets.png'
+                src='../../server/public/assets/Only-Peets-.png'
                 alt='Santa with Animals'
                 className={styles.image}
               />
@@ -39,7 +39,7 @@ const Home = () => {
           <div className={styles.imageWrapper}>
             <a href='/drinks'>
               <img
-                src='../../server/public/drunkSanta.png'
+                src='../../server/public/assets/Drunk-Santa-.png'
                 alt='Drunk Santa'
                 className={styles.image}
               />

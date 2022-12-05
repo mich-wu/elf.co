@@ -14,8 +14,17 @@
   padding: 30px;
   background-color: rgb(232, 232, 232);
   border-radius: 0px 20px 20px 0px;
-  img {
-    border-radius: 20px 0px 0px 20px;
+  
+}
+
+.spinner{
+  margin-left: -40rem;
+  margin-top: 10rem;
+}
+
+
+img {
+  border-radius: 20px 0px 0px 20px;
   }
   h1 {
     font-size: 30px;
@@ -23,7 +32,7 @@
   h2 {
     font-size: 20px;
   }
-}
+
 
 .drinksButton {
   padding: 10px;
