@@ -7,9 +7,9 @@ vi.mock('../Spinner.jsx')
 import Spinner from '../Spinner'
 
 describe('<Spinner />', () => {
-  it.skip('Loads a Spinner when the page is loading', () => {
+  it('Loads a Spinner when the page is loading', () => {
     render(<Spinner />)
     const spinner = screen.queryByTestId('loader')
-    expect(spinner).not.toBeDefined()
+    expect(spinner).toBeDefined()
   })
 })
