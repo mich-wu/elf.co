@@ -16,7 +16,7 @@ const Drinks = () => {
         setDrink(currentDrink)
       })
       .catch((err) => {
-        err.message
+        console.log(err.message)
       })
   }, [])
 
@@ -60,14 +60,16 @@ const Drinks = () => {
             <>
               <div className={styles.infoContainer}>
                 <h1>{drink?.strDrink}</h1>
-                <h2>Ingredients:</h2>
-                {ingredients?.map((ingredient, key) => {
-                  return (
-                    <li key={key}>
-                      {measures[key] || 'Add'} {ingredient}
-                    </li>
-                  )
-                })}
+                <h2 id='ingredients'>Ingredients:</h2>
+                <ul aria-labelledby='ingredients'>
+                  {ingredients?.map((ingredient, key) => {
+                    return (
+                      <li key={key}>
+                        {measures[key] || 'Add'} {ingredient}
+                      </li>
+                    )
+                  })}
+                </ul>
                 <h2>Glass type: {drink?.strGlass}</h2>
                 <h2>Category: {drink?.strCategory}</h2>
                 <h2>Instructions:</h2> <p>{drink?.strInstructions}</p>
@@ -79,7 +81,7 @@ const Drinks = () => {
             </div>
           )}
         </div>
-        <button>
+        <button className={styles.drinksButton}>
           <Link to='/'>Go Home</Link>
         </button>
       </div>
