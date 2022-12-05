@@ -26,8 +26,8 @@ export default function GalleryPage() {
               <div className={styles.polaroid}>
                 <img src={`/images/${peet.image}`} alt='dog' />
                 <div className={styles['caption']}>
-                  <p>Owner: {peet.owner}</p>
-                  <p>Pet Name: {peet.petname}</p>
+                  {/* <p>Owner: {peet.owner}</p> */}
+                  <p>{peet.petname}</p>
                 </div>
               </div>
             </div>

@@ -12,4 +12,18 @@ router.get('/', (req, res) => {
       res.sendStatus(500)
     })
 })
+
+// ADD /api/v1/peets/:id
+router.post('/', (req, res) => {
+  const newPeet = req.body.name
+  db.addPeets(newPeet)
+    .then(() => {
+      return db.getPeet()
+    })
+    .then((newPeet) => {
+      return res.json(newPeet)
+    })
+    .catch((err) => console.error(err.message))
+})
+
 export default router

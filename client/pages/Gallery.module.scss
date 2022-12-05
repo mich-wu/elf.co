@@ -6,7 +6,7 @@
 
 body {
   font-family: 'Poor Story', cursive;
-  background: #bdffbd;
+  background: #e0c3a5;
 }
 
 .wrapper {
@@ -16,13 +16,17 @@ body {
 }
 .polaroid {
   background: #fff;
-  padding: 1rem;
+  padding: .5rem;
   box-shadow: 0 0.2rem 1.2rem rgba(0,0,0,0.2);
+  border-radius: 20px 20px;
   
 }
 .polaroid > img{
-  max-width: 100%;
-  height: auto;
+  width: 450px;
+  height: 450px;
+  border-radius: 20px 20px 20px 20px;
+  object-fit: cover;
+  object-position: 25% 25%; 
 }
 .caption {
   font-size: 1.8rem;
@@ -32,8 +36,8 @@ body {
 .item {
   width: 30%;
   display: inline-block;
-  margin-top: 2rem;
-  filter: grayscale(100%);
+  margin-top: 30px;
+  //filter: grayscale(100%);
 }
 .item .polaroid:before {
   content: '';
@@ -51,7 +55,7 @@ body {
   width: 47%;
   bottom: 30px;
   right: 12px;
-  box-shadow: 0 2.1rem 2rem rgba(0,0,0,0.4);
+  // box-shadow: 0 2.1rem 2rem rgba(0,0,0,0.4);
 }
 .item:nth-of-type(4n+2) {
   transform: scale(0.8, 0.8) rotate(-5deg);
@@ -63,7 +67,7 @@ body {
   width: 47%;
   bottom: 30px;
   left: 12px;
-  box-shadow: 0 2.1rem 2rem rgba(0,0,0,0.4);
+  // box-shadow: 0 2.1rem 2rem rgba(0,0,0,0.4);
 }
 .item:nth-of-type(4n+4) {
   transform: scale(0.8, 0.8) rotate(3deg);
@@ -75,7 +79,7 @@ body {
   width: 47%;
   bottom: 30px;
   right: 12px;
-  box-shadow: 0 2.1rem 2rem rgba(0,0,0,0.3);
+  // box-shadow: 0 2.1rem 2rem rgba(0,0,0,0.3);
 }
 .item:nth-of-type(4n+3) {
   transform: scale(0.8, 0.8) rotate(-3deg);
@@ -87,7 +91,7 @@ body {
   width: 47%;
   bottom: 30px;
   left: 12px;
-  box-shadow: 0 2.1rem 2rem rgba(0,0,0,0.3);
+  // box-shadow: 0 2.1rem 2rem rgba(0,0,0,0.3);
 }
 .item:hover {
   filter: none;
@@ -101,8 +105,9 @@ body {
   transform: rotate(0deg);
   height: 90%;
   width: 90%;
+  top: 5%;
   bottom: 0%;
   right: 5%;
-  box-shadow: 0 1rem 3rem rgba(0,0,0,0.2);
+  // box-shadow: 0 1rem 3rem rgba(0,0,0,0.2);
   transition: all 0.35s;
 }
