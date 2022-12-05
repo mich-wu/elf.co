@@ -87,19 +87,31 @@ describe('updateWishlist', () => {
   })
 })
 
-// describe('deleteWishlist', () => {
-//   it('deletes a guest based on the id', () => {
-//     const deletedPerson = {
-//       id: 3,
-//       guest_code: '6F81E9A7DA6AD157DD9C774D3289AC10',
-//       event_id: 2,
-//       name: 'Bella',
-//       wishlist: 'a new house',
-//     }
-//     return deleteWishlist(deletedPerson, testDb).then(() => {
-//       expect(testDb.del)
-//         .toHaveBeenCalledWith()
-//         .where('deletedPerson', deletedPerson)
-//     })
-//   })
-// })
+describe('deleteWishlist', () => {
+  it('deletes a guest based on the id', () => {
+    const id = '6F81E9A7DA6AD157DD9C774D3289AC10'
+    const deletedPerson = {
+      id: 3,
+      guest_code: '6F81E9A7DA6AD157DD9C774D3289AC10',
+      event_id: 2,
+      name: 'Bella',
+      wishlist: 'a new house',
+    }
+    return getWishlistById(id, testDb)
+      .then((wish) => {
+        expect(wish).toContain(deletedPerson)
+        return deleteWishlist(3, testDb)
+      })
+      .then((entryDeleted) => {
+        expect(entryDeleted).toBe(1)
+        return getWishlistById(id, testDb)
+      })
+      .then((guest) => {
+        expect(guest).toBeUndefined()
+      })
+  })
+})
+
+describe('updateWishlistGifter', () => {
+  it.todo('should update the users gifter_id with their partners id')
+})

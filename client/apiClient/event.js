@@ -54,7 +54,6 @@ export const getEventByInviteCode = async (invite_id) => {
 
 export async function updateEventStatus(event_id) {
   const res = await request.patch(`${baseUrl}/event/dashboard/${event_id}`)
-
   return res.body[0]
 }
 
