@@ -1,29 +1,31 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 
-import { getWishlistByIdApi, updatedWishlistApi } from '../apiClient/guest'
+import {
+  getAssignedWishlist,
+  getEventByGuestCodeApi,
+  getWishlistByIdApi,
+  updatedWishlistApi,
+} from '../apiClient/guest'
 
-export default function AddWishlist() {
+export default function Wishlist() {
   const [newWish, setNewWish] = useState(null)
   const { guest_code } = useParams()
   const [showForm, setShowForm] = useState(true)
   const [submitted, setSubmitted] = useState(false)
-
-  // place holder text
-  const partner = 'Mickey Mouse in da House'
-  const partnerWishlist = 'cheese and more cheese'
-
-  // completed is a placeholder for now. It will be status from Event table.
-  const completed = false
+  const [eventResult, setEventResult] = useState([])
+  const [assignedWishlist, setAssignedWishlist] = useState(null)
 
   useEffect(() => {
-    getWishlistByIdApi(guest_code)
-      .then((wishlist) => {
-        setNewWish(wishlist)
-      })
-      .catch((err) => {
-        err.message
-      })
+    async function fetchData() {
+      const wishlist = await getWishlistByIdApi(guest_code)
+      setNewWish(wishlist)
+      const event = await getEventByGuestCodeApi(guest_code)
+      setEventResult(event[0].status)
+      const assigned = await getAssignedWishlist(guest_code)
+      setAssignedWishlist(assigned)
+    }
+    fetchData()
   }, [])
 
   const handleEdit = () => {
@@ -49,31 +51,35 @@ export default function AddWishlist() {
     <div>
       <h1>Hi {newWish?.name}! </h1>
 
-      {showForm && (
-        <form onSubmit={handleSubmit}>
-          <label htmlFor='wishlist'>Add Wishlist:</label>
-          <input
-            type='text'
-            name='wishlist'
-            id='wishlist'
-            value={newWish?.wishlist}
-            onChange={handleChange}
-          />
-          <button type='submit'>Add Wishlist</button>
-        </form>
+      {eventResult === 1 ? (
+        <>
+          <h2>Here is your wishlist:</h2>
+          <p>Current Wishlist Item: {newWish?.wishlist}</p>
+          <h2>Here is your assigned wishlist:</h2>
+          <p>Assigned Person: {assignedWishlist?.name}</p>
+          <p>Their Wishlist: {assignedWishlist?.wishlist}</p>
+        </>
+      ) : (
+        <>
+          {showForm && (
+            <form onSubmit={handleSubmit}>
+              <label htmlFor='wishlist'>Add Wishlist:</label>
+              <input
+                type='text'
+                name='wishlist'
+                id='wishlist'
+                value={newWish?.wishlist}
+                onChange={handleChange}
+              />
+              <button type='submit'>Add Wishlist</button>
+            </form>
+          )}
+          <div>
+            <p>Current Wishlist Item: {newWish?.wishlist}</p>
+            {submitted && <button onClick={handleEdit}>Edit Wishlist</button>}
+          </div>
+        </>
       )}
-      <div>
-        <p>Current Wishlist Item: {newWish?.wishlist}</p>
-        {submitted && <button onClick={handleEdit}>Edit Wishlist</button>}
-      </div>
-      <div>
-        {/* This code is just a place holder */}
-        <h2>Partner Wishlist</h2>
-        <p>
-          {partner}: {partnerWishlist}
-        </p>
-        <p>Completed: {completed ? 'Yes' : 'No'}</p>
-      </div>
     </div>
   )
 }

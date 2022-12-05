@@ -8,7 +8,6 @@
   justify-content: center;
 }
 
-
 .infoContainer {
   display: flex;
   flex-direction: column;
@@ -16,15 +15,15 @@
   background-color: rgb(232, 232, 232);
   border-radius: 0px 20px 20px 0px;
   img {
-  border-radius: 20px 0px 0px 20px;
+    border-radius: 20px 0px 0px 20px;
   }
   h1 {
-  font-size: 30px;
+    font-size: 30px;
   }
   h2 {
-  font-size: 20px;
+    font-size: 20px;
   }
-  }
+}
 
 .drinksButton {
   padding: 10px;
