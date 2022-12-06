@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 
 import { getEventByInviteCode } from '../apiClient/event'
 import { createGuestApi } from '../apiClient/guest'
+import styles from './InvitePage.module.scss'
 
 export default function InvitePage() {
   const initialState = { name: '', guest_code: '', invite_id: '' }
@@ -37,23 +38,56 @@ export default function InvitePage() {
       err.message
     }
   }
+  const copyLink = () => {
+    navigator.clipboard.writeText(`localhost:5173/invite/${invite_id}`)
+  }
+
+  function formatDate(date) {
+    const eventDate = new Date(date)
+    const options = { year: 'numeric', month: 'long', day: 'numeric' }
+    return eventDate.toLocaleDateString('en-NZ', options)
+  }
 
   return (
     <>
-      <h1>InvitePage</h1>
-      <h2>{event?.event_name}</h2>
-      <h3>{event?.date}</h3>
-      <h3>Budget: ${event?.budget}</h3>
-      <form className='form' onSubmit={handleSubmit}>
-        <label htmlFor='name'>Name: </label>
-        <input
-          type='text'
-          value={guestName}
-          name='name'
-          onChange={(event) => setGuestName(event.target.value)}
-        />
-        <button type='submit'>Accept</button>
-      </form>
+      <div className={styles.inviteContainer}>
+        <h1 className={styles.header}>Secret Santa</h1>
+        <h2>You have been invited to: </h2>
+        <h3>{event?.event_name}</h3>
+        <p>
+          {' '}
+          Your budget is ${event?.budget}. Save the date! Have your gift ready
+          by the {formatDate(event?.date)}.
+        </p>
+        <form className={styles.inviteForm} onSubmit={handleSubmit}>
+          <label htmlFor='name'> </label>
+          <input
+            placeholder='Name'
+            type='text'
+            value={guestName}
+            name='name'
+            onChange={(event) => setGuestName(event.target.value)}
+          />
+          <button type='submit'>Create your wishlist →</button>
+        </form>
+      </div>
+      <div className={styles.eventLinkContainer}>
+        <div className={styles.linkContainer}>
+          <p>Your Event Link:</p>
+          <a href={`http://localhost:5173/invite/${invite_id}`}>
+            http://elf.co/invite/{invite_id}
+          </a>
+        </div>
+        <div className={styles.copyLinkContainer}>
+          <p>Copy and Paste this link to send it to your friends</p>
+          <img
+            src='/server/public/assets/Secret-Santa-.png'
+            alt='santa hushing'
+            className={styles.santaCopyLinkImg}
+          />
+          <button onClick={copyLink}>Copy Link</button>
+        </div>
+      </div>
     </>
   )
 }

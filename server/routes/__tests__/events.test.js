@@ -72,7 +72,7 @@ describe('POST/', () => {
 })
 
 describe('GET/dashboard/:event_id', () => {
-  it('Gets event by event_id', () => {
+  it.skip('Gets event by event_id', () => {
     return request(server)
       .get('/api/v1/event/dashboard/1')
       .then((res) => {
