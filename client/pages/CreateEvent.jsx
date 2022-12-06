@@ -37,6 +37,7 @@ const Event = () => {
           <form className={styles.eventForm} onSubmit={handleSubmit}>
             <label htmlFor='name'>Event Name:</label>
             <input
+              id='name'
               type='text'
               required
               value={name}
@@ -46,6 +47,7 @@ const Event = () => {
             />
             <label htmlFor='budget'>Budget:</label>
             <input
+              id='budget'
               type='numeric'
               name='budget'
               required
@@ -55,6 +57,7 @@ const Event = () => {
             />
             <label htmlFor='date'>Draw Date:</label>
             <input
+              id='date'
               type='date'
               name='date'
               required
@@ -62,7 +65,6 @@ const Event = () => {
               onChange={(e) => setDate(e.target.value)}
               placeholder='Draw Date'
             />
-
             <button>Create Your Event</button>
           </form>
           <img
