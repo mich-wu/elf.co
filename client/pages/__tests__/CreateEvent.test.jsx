@@ -1,12 +1,16 @@
 import '@testing-library/jest-dom'
 
-import { fireEvent, render, screen } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import React from 'react'
 import { MemoryRouter } from 'react-router-dom'
 import { describe, expect, test } from 'vitest'
+import { vi } from 'vitest'
 
+import { createEvent } from '../../apiClient/event.js'
 import CreateEvent from '../CreateEvent'
+
+vi.mock('../../apiClient/event.js')
 
 describe('CreateEvent component test', () => {
   it('renders', () => {
@@ -25,18 +29,22 @@ describe('CreateEvent component test', () => {
       screen.getByLabelText('Event Budget:', { selector: 'input' })
     ).toBeInTheDocument()
   })
-
-  it('has onchange', () => {
-    render(<CreateEvent />, { wrapper: MemoryRouter })
-    const input = screen.getByLabelText('Event Name:', { selector: 'input' })
-    fireEvent.change(input, { target: { value: '' } })
-    fireEvent.change(input, { target: { value: 'Puppy Christmas Party' } })
-    expect(input.value).toBe('Puppy Christmas Party')
-  })
 })
 
 describe('test form use as a user', () => {
   test('type into input fields', async () => {
+    createEvent.mockReturnValue(
+      Promise.resolve({
+        budget: 2,
+        date: '2022-12-19',
+        event_id: 6,
+        event_name: 'Puppy Christmas Party',
+        host_id: 69,
+        invite_id: 'bde17bb3-b3db-4f8e-b468-e99dd4a5116a',
+        status: 0,
+      })
+    )
+
     render(<CreateEvent />, { wrapper: MemoryRouter })
 
     const inputName = screen.getByLabelText('Event Name:', {
@@ -56,5 +64,15 @@ describe('test form use as a user', () => {
     expect(inputName).toHaveValue('Puppy Christmas Party')
     expect(inputDate).toHaveValue('2022-12-19')
     expect(inputBudget).toHaveValue(50)
+
+    await userEvent.click(screen.getByRole('button', { name: 'Create Event' }))
+
+    expect(createEvent).toHaveBeenCalled()
+
+    const link = await screen.findByRole('link', {
+      name: /bde17bb3-b3db-4f8e-b468-e99dd4a5116a/,
+    })
+
+    expect(link.href).toMatch(/bde17bb3-b3db-4f8e-b468-e99dd4a5116a/)
   })
 })
