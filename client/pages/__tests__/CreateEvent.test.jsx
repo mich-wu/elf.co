@@ -21,7 +21,7 @@ describe('CreateEvent component test', () => {
     render(<CreateEvent />, { wrapper: MemoryRouter })
     expect(screen.getByLabelText('Event Name:')).toBeInTheDocument()
     expect(screen.getByLabelText('Draw Date:')).toBeInTheDocument()
-    expect(screen.getByLabelText('Event Budget:')).toBeInTheDocument()
+    expect(screen.getByLabelText('Budget:')).toBeInTheDocument()
   })
 })
 
@@ -43,7 +43,7 @@ describe('test form use as a user', () => {
 
     const inputName = screen.getByLabelText('Event Name:')
     const inputDate = screen.getByLabelText('Draw Date:')
-    const inputBudget = screen.getByLabelText('Event Budget:')
+    const inputBudget = screen.getByLabelText('Budget:')
 
     await userEvent.type(inputName, 'Puppy Christmas Party')
     await userEvent.type(inputDate, '2022-12-19')
@@ -51,7 +51,7 @@ describe('test form use as a user', () => {
 
     expect(inputName).toHaveValue('Puppy Christmas Party')
     expect(inputDate).toHaveValue('2022-12-19')
-    expect(inputBudget).toHaveValue(50)
+    expect(inputBudget).toHaveValue('50')
 
     await userEvent.click(
       screen.getByRole('button', { name: 'Create Your Event' })

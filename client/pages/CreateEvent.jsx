@@ -47,6 +47,7 @@ const Event = () => {
             />
             <label htmlFor='budget'>Budget:</label>
             <input
+              id='budget'
               type='numeric'
               name='budget'
               required
