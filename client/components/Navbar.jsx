@@ -28,11 +28,11 @@ export default function Navbar() {
           <Link to='/'>HOME</Link>
         </button>
         <button className={styles.login}>
-          <Link to='/'>LOG IN</Link>
+          <Link to='/dashboard'>DASHBOARD</Link>
         </button>
-        <button className={styles.signup}>
+        {/* <button className={styles.signup}>
           <Link to='/'>SIGN UP</Link>
-        </button>
+        </button> */}
 
         {/* <IfAuthenticated>
           <div className={styles.auth}>
