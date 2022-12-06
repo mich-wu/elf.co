@@ -48,10 +48,12 @@ const Drinks = () => {
   return (
     <>
       <div>
+        <h1 className={styles.drunkTitle}>DRUNK SANTA</h1>
         <div className={styles.drinksContainer}>
           <img
             src={drink?.strDrinkThumb}
-            width='600'
+            width='50%'
+            height='50%'
             alt={drink?.srtDrink}
             onLoad={handleLoad}
           ></img>

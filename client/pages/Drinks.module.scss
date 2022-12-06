@@ -2,12 +2,15 @@
 @use '../styles/_theme' as theme;
 
 .drinksContainer {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  box-shadow: theme.$shadow;
   display: flex;
-  border: solid;
-  border-color: black;
-  border-width: 1px;
+  // border: solid;
+  // border-color: black;
+  // border-width: 1px;
   background-color: white;
-  border-radius: 20px;
+  // border-radius: 20px;
   flex-direction: row;
   padding: 60px;
   margin: 75px 75px 40px 75px;
@@ -73,10 +76,25 @@
 }
 
 .spinner{
-  margin-left: -40rem;
-  margin-top: 1rem;
+  // margin-left: -55rem;
+  // margin-top: -30rem;
+  position: relative;
+  right: 25%;
+  bottom: 200px;
 }
 
+.drunkTitle {
+  text-align: center;
+  font-size: 3rem;
+  font-family: theme.$body-font-family;
+  color: theme.$bodyRed;
+  text-decoration: none;
+  margin-top: 50px;
+
+  hr {
+    
+  }
+}
 
 .drinksButton {
   padding: 20px;

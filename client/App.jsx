@@ -1,7 +1,9 @@
 import './styles/index.scss'
+import './styles/_theme.scss'
 
 import { Route, Routes } from 'react-router-dom'
 
+import Footer from './components/Footer'
 import Navbar from './components/Navbar'
 import CreateEvent from './pages/CreateEvent'
 import Dashboard from './pages/Dashboard'
@@ -27,6 +29,7 @@ function App() {
         <Route path='/wishlist/:guest_code' element={<Wishlist />} />
         <Route path='/invite/:invite_id' element={<InvitePage />} />
       </Routes>
+      <Footer />
     </>
   )
 }
