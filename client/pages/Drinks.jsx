@@ -100,7 +100,7 @@ const Drinks = () => {
             <Link to='/drinks'>RANDOMISE DRINK</Link>
           </button>
           <img
-            src='../../server/public/tree.PNG'
+            src='../../server/public/assets/tree.PNG'
             alt='christmas tree'
             width='80'
             className={styles.treeImage}
