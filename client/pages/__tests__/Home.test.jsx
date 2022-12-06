@@ -7,11 +7,11 @@ import { describe, expect, it } from 'vitest'
 
 import Home from '../Home'
 
-describe('CreateEvent component test', async () => {
+describe('Home component test', async () => {
   it('renders', () => {
     render(<Home />, { wrapper: MemoryRouter })
     expect(screen.getByText(/SECRET SANTA/i)).toBeInTheDocument()
-    expect(screen.getByText(/ONLYPEETS/i)).toBeInTheDocument()
+    expect(screen.getByText(/ONLY PEETS/i)).toBeInTheDocument()
     expect(screen.getByText(/DRUNK SANTA/i)).toBeInTheDocument()
   })
   it('has images', () => {
@@ -30,7 +30,7 @@ describe('CreateEvent component test', async () => {
   it('has a link to onlypeets', async () => {
     render(<Home />, { wrapper: MemoryRouter })
     const link = await screen.findAllByRole('link', {
-      name: /ONLYPEETS/i,
+      name: /ONLY PEETS/i,
     })
     expect(link[0].href).toContain('peets')
   })
