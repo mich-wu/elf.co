@@ -4,7 +4,9 @@
 
 .home {
   display: flex;
+  margin-top: 10%;
   flex-direction: row;
+  align-items: flex-start;
   place-content: center;
   max-width: 100%;
   min-height: 100vh;
@@ -39,6 +41,7 @@
 .image {
   width: 100%;
   height: 100%;
+  max-width: 600px;
   margin-bottom: 20px;
   margin-top: 0px;
   transition: transform .5s;
