@@ -83,6 +83,18 @@
   bottom: 200px;
 }
 
+.drunkTitle {
+  text-align: center;
+  font-size: 3rem;
+  font-family: theme.$body-font-family;
+  color: theme.$bodyRed;
+  text-decoration: none;
+  margin-top: 50px;
+
+  hr {
+    
+  }
+}
 
 .drinksButton {
   padding: 20px;
