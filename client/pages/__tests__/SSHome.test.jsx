@@ -5,7 +5,6 @@ import userEvent from '@testing-library/user-event'
 import React from 'react'
 import { MemoryRouter } from 'react-router-dom'
 import { describe, expect, it } from 'vitest'
-import { vi } from 'vitest'
 
 import SSHome from '../SSHome'
 
