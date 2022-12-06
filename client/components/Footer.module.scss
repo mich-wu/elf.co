@@ -1,0 +1,44 @@
+@use '../styles/_theme' as theme;
+
+.footer {
+margin-top: 15%;
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+background-color: theme.$headerSecondary;
+color: theme.$white;
+padding: 20px;
+a {
+  color: theme.$white;
+}
+h2 {
+  text-align: right;
+}
+
+}
+
+.links {
+font-size: 20px;
+padding: 10px;
+}
+
+.footerList {
+ padding: 5px;
+}
+
+.copyright {
+  
+font-size: 22px;
+p {
+  font-size: 16px;
+  position: relative;
+  bottom: 20px;
+}
+}
+
+.created {
+  background-color: theme.$headerSecondary;
+  color: theme.$white;
+  padding: 20px;
+    text-align: center;
+}
