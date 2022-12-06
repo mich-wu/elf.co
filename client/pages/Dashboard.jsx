@@ -23,9 +23,6 @@ const Dashboard = () => {
     return events.filter((event) => event.host_id === MOCK_AUTHID)
   }
 
-  // Word wrap this for big guest lists
-  // alphabetical order
-
   return (
     <div className={styles.dashboard}>
       <h1>Secret Santa</h1>
