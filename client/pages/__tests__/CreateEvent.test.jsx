@@ -15,19 +15,13 @@ vi.mock('../../apiClient/event.js')
 describe('CreateEvent component test', () => {
   it('renders', () => {
     render(<CreateEvent />, { wrapper: MemoryRouter })
-    expect(screen.getByText(/Create a New Event/i)).toBeInTheDocument()
+    expect(screen.getByText(/Secret Santa/i)).toBeInTheDocument()
   })
   it('has input field', () => {
     render(<CreateEvent />, { wrapper: MemoryRouter })
-    expect(
-      screen.getByLabelText('Event Name:', { selector: 'input' })
-    ).toBeInTheDocument()
-    expect(
-      screen.getByLabelText('Event Date:', { selector: 'input' })
-    ).toBeInTheDocument()
-    expect(
-      screen.getByLabelText('Event Budget:', { selector: 'input' })
-    ).toBeInTheDocument()
+    expect(screen.getByLabelText('Event Name:')).toBeInTheDocument()
+    expect(screen.getByLabelText('Draw Date:')).toBeInTheDocument()
+    expect(screen.getByLabelText('Event Budget:')).toBeInTheDocument()
   })
 })
 
@@ -47,15 +41,9 @@ describe('test form use as a user', () => {
 
     render(<CreateEvent />, { wrapper: MemoryRouter })
 
-    const inputName = screen.getByLabelText('Event Name:', {
-      selector: 'input',
-    })
-    const inputDate = screen.getByLabelText('Event Date:', {
-      selector: 'input',
-    })
-    const inputBudget = screen.getByLabelText('Event Budget:', {
-      selector: 'input',
-    })
+    const inputName = screen.getByLabelText('Event Name:')
+    const inputDate = screen.getByLabelText('Draw Date:')
+    const inputBudget = screen.getByLabelText('Event Budget:')
 
     await userEvent.type(inputName, 'Puppy Christmas Party')
     await userEvent.type(inputDate, '2022-12-19')
@@ -65,7 +53,9 @@ describe('test form use as a user', () => {
     expect(inputDate).toHaveValue('2022-12-19')
     expect(inputBudget).toHaveValue(50)
 
-    await userEvent.click(screen.getByRole('button', { name: 'Create Event' }))
+    await userEvent.click(
+      screen.getByRole('button', { name: 'Create Your Event' })
+    )
 
     expect(createEvent).toHaveBeenCalled()
 

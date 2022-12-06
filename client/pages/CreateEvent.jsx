@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 import { createEvent } from '../apiClient/event.js'
+import styles from './CreateEvent.module.scss'
 
 const Event = () => {
   const [name, setName] = useState('')
@@ -28,11 +29,12 @@ const Event = () => {
   }
 
   return (
-    <div className='event'>
+    <div className={styles.eventContainer}>
+      <h1 className={styles.header}>Secret Santa</h1>
       {!eventCreated ? (
-        <div className='create-event'>
-          <h2>Create a New Event</h2>
-          <form onSubmit={handleSubmit}>
+        <div className={styles.createEventContainer}>
+          <h2 className={styles.secondaryHeading}>Create your Event</h2>
+          <form className={styles.eventForm} onSubmit={handleSubmit}>
             <label htmlFor='name'>Event Name:</label>
             <input
               id='name'
@@ -41,8 +43,18 @@ const Event = () => {
               value={name}
               name='name'
               onChange={(e) => setName(e.target.value)}
+              placeholder='Event Name'
             />
-            <label htmlFor='date'>Event Date:</label>
+            <label htmlFor='budget'>Budget:</label>
+            <input
+              type='numeric'
+              name='budget'
+              required
+              value={budget}
+              onChange={(e) => setBudget(e.target.value)}
+              placeholder='Event Budget'
+            />
+            <label htmlFor='date'>Draw Date:</label>
             <input
               id='date'
               type='date'
@@ -50,6 +62,7 @@ const Event = () => {
               required
               value={date}
               onChange={(e) => setDate(e.target.value)}
+              placeholder='Draw Date'
             />
             <label htmlFor='budget'>Event Budget:</label>
             <input
@@ -60,18 +73,42 @@ const Event = () => {
               value={budget}
               onChange={(e) => setBudget(e.target.value)}
             />
-            <button>Create Event</button>
+            <button>Create Your Event</button>
           </form>
+          <img
+            src='/server/public/assets/santa-small.PNG'
+            alt='cartoon of santa'
+            className={styles.santaImg}
+          />
         </div>
       ) : (
-        <div className='event-created'>
-          <h2>Event Created</h2>
-          <p>Share this link with your guests</p>
-          <a href={`http://localhost:5173/invite/${link}`}>
-            http://elf.co/secret-santa/{link}
-          </a>
-          <button onClick={copyLink}>Copy Link</button>
-          <Link to='/dashboard'>Go to Dashboard</Link>
+        <div className={styles.createEventContainer}>
+          <h2 className={styles.secondaryHeading}>Your event:</h2>
+          <h3>{name}</h3>
+          <div className={styles.linkContainer}>
+            <p>Your Event Link:</p>
+            <a href={`http://localhost:5173/invite/${link}`}>
+              http://elf.co/invite/{link}
+            </a>
+          </div>
+          <div className={styles.copyLinkContainer}>
+            <p>Copy and Paste this link to send it to your friends</p>
+            <img
+              src='/server/public/assets/Secret-Santa-.png'
+              alt='santa hushing'
+              className={styles.santaCopyLinkImg}
+            />
+            <button onClick={copyLink}>Copy Link</button>
+          </div>
+          <img
+            src='/server/public/assets/rudolph-v2.png'
+            alt='santa hushing'
+            className={styles.rudolphImg}
+          />
+          <h4>Event date: {date}</h4>
+          <Link to='/dashboard' className={styles.eventLink}>
+            View your Participants
+          </Link>
         </div>
       )}
     </div>
