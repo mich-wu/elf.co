@@ -1,10 +1,11 @@
-import nock from 'nock'
+//import nock from 'nock'
 import request from 'supertest'
 
+import * as db from '../../db/functions/peets.js'
 import server from '../../server.js'
 
 beforeEach(() => {
-  vi.restAllMocks()
+  vi.resetAllMocks()
 })
 
 describe('GET/api/v1/peets', () => {
@@ -22,4 +23,12 @@ describe('GET/api/v1/peets', () => {
       image: 'PEET-12.jpg',
     },
   ]
+  test.skip('returns an array of peets', () => {
+    db.getPeets.mockReturnValue(Promise.resolve(mockData))
+    return request(server)
+      .get('/api/v1/peets')
+      .then((res) => {
+        expect(res.body).toHaveLength(2)
+      })
+  })
 })
