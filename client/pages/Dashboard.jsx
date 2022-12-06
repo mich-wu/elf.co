@@ -37,15 +37,17 @@ const Dashboard = () => {
               Event Date: {event.date} | Guest{' '}
               {event.status === 0 ? 'Submissions Open' : 'Submissions Closed'}
             </p>
-            <button>
-              <Link to={`/dashboard/${event.invite_id}`}>View Event</Link>
-            </button>
-            <img
-              src='../../server/public/tree.PNG'
-              alt='christmas tree'
-              width='40'
-              className={styles.treeImage}
-            ></img>
+            <div>
+              <button>
+                <Link to={`/dashboard/${event.invite_id}`}>View Event</Link>
+              </button>
+              <img
+                src='../../server/public/assets/tree.PNG'
+                alt='christmas tree'
+                width='40'
+                className={styles.treeImage}
+              ></img>
+            </div>
           </div>
         ))}
       </div>

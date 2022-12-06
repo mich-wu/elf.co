@@ -3,15 +3,16 @@
 .eventContainer {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+
+  place-content: center;
   gap: 2rem;
   background-color: $white;
   padding: 5rem;
 
-  width: 80rem;
+  height: 50rem;
+  width: 90rem;
   margin: 0 auto;
-  margin-top: 9.6rem;
+
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   box-shadow: $shadow;
@@ -41,7 +42,7 @@
     margin: 0 auto;
     padding: 1rem;
     width: fit-content;
-    // gap: 5rem;
+
     position: relative;
 
     .secondaryHeading {
@@ -60,6 +61,7 @@
       margin: 0 auto;
       gap: 2rem;
       margin-top: 5rem;
+      height: 20rem;
 
       label {
         font-size: 1.6rem;
@@ -74,6 +76,14 @@
         font-size: 1.6rem;
         height: 2.6rem;
         font-family: $body-font-family;
+        border: none;
+
+        &::placeholder {
+          color: $text-white;
+        }
+        &:focus {
+          outline: $text-white;
+        }
       }
 
       button {
@@ -89,14 +99,21 @@
         white-space: nowrap;
         margin-top: 4.2rem;
         font-family: $body-font-family;
+        border: none;
+
+        &:hover {
+          cursor: pointer;
+          background-color: $lighterMainGreen;
+          border: 1px solid $headerTertiary;
+        }
       }
     }
     img {
-      width: 10rem;
+      width: 12rem;
       height: auto;
       position: absolute;
-      bottom: 5rem;
-      right: -8rem;
+      bottom: 2rem;
+      right: -10rem;
     }
     h3 {
       color: $bodyRed;
@@ -144,7 +161,7 @@
     width: 7.5rem;
     background-color: $bodyRed;
     position: absolute;
-    border-radius: 35px;
+    border-radius: 15px;
     bottom: 13.5rem;
     right: -3rem;
     padding: 1rem;

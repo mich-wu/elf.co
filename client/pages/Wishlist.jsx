@@ -90,7 +90,9 @@ export default function Wishlist() {
           <div className={styles.createEventContainer}>
             <h2 className={styles.secondaryHeading}>Your Buddy</h2>
             <p>
-              For the "{newWish.name}" secret Santa, you have been assigned:
+              For the {"'"}
+              {newWish.name}
+              {"'"} secret Santa, you have been assigned:
             </p>
             <div className={styles.assignedName}>
               {assignedWishlist?.name}

@@ -3,18 +3,21 @@
 .dashboard {
   text-align: center;
   font-family: theme.$body-font-family;
+  max-width: 120rem;
+  width: 90rem;
+  height: 100%;
 
   h1 {
-  color:theme.$bodyRed;
-  font-size: 50px;
-  margin-bottom: 0px;
+    color: theme.$bodyRed;
+    font-size: 9.6rem;
+    margin-bottom: 0px;
   }
 
-  hr  {
-  width: 40%;
-  border: 0;          
-  background-color: theme.$bodyGold;
-  height: 3px;
+  hr {
+    width: 40%;
+    border: 0;
+    background-color: theme.$bodyGold;
+    height: 3px;
   }
 
   ul {
@@ -23,18 +26,19 @@
 
   li {
     list-style-type: none;
-    font-size: 18px;
+    font-size: 1.6rem;
     position: relative;
-    right:20px;
+    right: 20px;
   }
 
   h2 {
-    font-size: 24px;
+    font-size: 4.8rem;
     text-align: center;
   }
 
   button {
-    padding: 10px 20px 10px 20px;
+    // padding: 10px 20px 10px 20px;
+    padding: 1rem 2rem;
     background-color: theme.$bodyGold;
     margin: 10px;
     text-decoration: none;
@@ -44,8 +48,8 @@
     border-radius: 5px;
     border-color: theme.$bodyGold;
     border-style: solid;
-    font-size: 20px;
-    
+    font-size: 2rem;
+
     a {
       text-decoration: none;
       color: theme.$white;
@@ -56,39 +60,63 @@
   }
   button:hover {
     color: theme.$black;
-    background-color: theme.$white;
-    border-color: theme.$bodyGold;
-    border-width: 4px;
+    // background-color: theme.$white;
+    // border-color: theme.$bodyGold;
+    // border-width: 4px;
     border-style: solid;
-    
   }
 }
-.event {
-  background-color: white;
-  padding: 40px;
-  margin: 30px 50px 0px 50px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 5px;
-  box-shadow: theme.$shadow;
-}
 
-.title {
-  color: theme.$bodyRed;
-}
+.events {
+  display: flex;
+  flex-direction: column;
 
-.statusClosed {
-  color: theme.$bodyRed;
-}
+  margin: 0 auto;
+  width: 100%;
 
-.statusOpen {
-  color: green;
-}
+  gap: 5rem;
+  margin-top: 9.6rem;
+  margin-bottom: 9.6rem;
 
+  .event {
+    background-color: white;
 
-.treeImage {
-  position: relative;
-  right: 30px;
-  bottom: -20px;
-  rotate:calc(350deg);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    box-shadow: theme.$shadow;
+    display: flex;
+    height: 30rem;
+    gap: 2rem;
+    width: 100%;
+    margin-bottom: 5rem;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    display: relative;
+    padding: 2.4rem;
+
+    p {
+      font-size: 2.4rem;
+    }
+
+    .title {
+      color: theme.$bodyRed;
+    }
+
+    .statusClosed {
+      color: theme.$bodyRed;
+    }
+
+    .statusOpen {
+      color: green;
+    }
+
+    .treeImage {
+      position: relative;
+      right: 3rem;
+      bottom: -2rem;
+      rotate: calc(350deg);
+    }
   }
-   
+}

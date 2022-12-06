@@ -60,12 +60,16 @@ const EventDetail = () => {
   }
 
   const trim = (name) => {
-    if (!name.includes(' ')) {
+    if (!name.includes(' ') || name === null || name === undefined) {
       return name
     }
 
     const regex = /(\w+)\s(\w{1})/
     const trimmedName = name.match(regex)[1] + ' ' + name.match(regex)[2]
+    console.log(
+      '🚀 ~ file: EventDetail.jsx:71 ~ trim ~ trimmedName',
+      trimmedName
+    )
     return trimmedName
   }
 
@@ -78,8 +82,7 @@ const EventDetail = () => {
             guestList.length > 6 ? styles.sortedGuestsGrid : styles.sortedGuests
           }
         >
-          {/* <h2 className={styles.secondaryHeading}>Secret Santa Buddies</h2> */}
-          {guestList.map((participant, i) => {
+          {guestList?.map((participant, i) => {
             return (
               <div key={i} className={styles.assignedGuestWrapper}>
                 <p>{trim(participant.name)}</p>
