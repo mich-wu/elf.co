@@ -3,7 +3,7 @@ import { vi } from 'vitest'
 
 import connection from '../../db/connection.js'
 import server from '../../server.js'
-import {getEvent} from '../../db/functions/events.js'
+// import {getEvent} from '../../db/functions/events.js'
 // import {
 //   createEvent,
 //   getEvent,
@@ -13,7 +13,6 @@ import {getEvent} from '../../db/functions/events.js'
 //   getGuestsByEventId,
 //   updateStatus,
 // } from '../events.js'
-
 
 beforeEach(() => {
   vi.resetAllMocks()
@@ -76,20 +75,53 @@ describe('POST/', () => {
 describe('GET/dashboard/:event_id', () => {
   it('Gets event by event_id', () => {
     const mockData = {
-        event_id: 1,
-        host_id: 1,
-        invite_id: '57D6F81',
-        event_name: 'Trade Me Christmas Party',
-        budget: 30,
-        date: '19-12-2022',
-        status: 0,
-      }
-    
+      event_id: 1,
+      host_id: 1,
+      invite_id: '57D6F81',
+      event_name: 'Trade Me Christmas Party',
+      budget: 30,
+      date: '19-12-2022',
+      status: 0,
+    }
+
     return request(server)
       .get('/api/v1/event/dashboard/57D6F81')
       .then((res) => {
         expect(res.status).toBe(200)
         expect(res.body).toStrictEqual(mockData)
+      })
+  })
+})
+
+describe('PATCH /dashboard/:event_id', () => {
+  it('Updates the event status from false to true', () => {
+    const mockData = {
+      event_id: 1,
+      host_id: 1,
+      invite_id: '57D6F81',
+      event_name: 'Trade Me Christmas Party',
+      budget: 30,
+      date: '19-12-2022',
+      status: 0,
+    }
+    return request(server)
+      .patch('/api/v1/event/dashboard/57D6F81')
+      .send(mockData)
+      .then((res) => {
+        expect(res.status).toBe(200)
+        expect(res.body[0].status).toStrictEqual(1)
+      })
+  })
+})
+
+describe('GET/dashboard/:event_id/assign', () => {
+  it('Get assigned gifters', () => {
+    return request(server)
+      .get('/api/v1/event/dashboard/1/assign')
+      .then((res) => {
+        console.log(res.body)
+        expect(res.status).toBe(200)
+        expect(res.body.length).toBe(2)
       })
   })
 })
