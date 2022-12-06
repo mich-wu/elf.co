@@ -30,7 +30,7 @@ const Home = () => {
               />
             </a>
             <Link to='/peets' className={styles.links}>
-              ONLYPEETS
+              ONLY PEETS
             </Link>
           </div>
           <div className={styles.imageWrapper}>

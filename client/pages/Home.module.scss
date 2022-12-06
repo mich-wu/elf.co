@@ -1,15 +1,12 @@
 @use '../styles/_theme' as theme;
 
-
-
 .home {
   display: flex;
   margin-top: 10%;
   flex-direction: row;
   align-items: flex-start;
-  place-content: center;
   max-width: 100%;
-  min-height: 100vh;
+  min-height: 55vh;
   background-color: theme.$lightBackground;
   body {
     text-align: center;
