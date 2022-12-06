@@ -48,13 +48,13 @@ export default function GalleryPage() {
       <div className={styles.littleguys}>
         <img
           className={styles.reindeer}
-          src={'server/public/reindeer-guy.png'}
+          src={'server/public/assets/rudolph-v2.png'}
           alt='reindeer-guy'
         />
         <img
           className={styles.meow}
           src={'server/public/meow-guy.png'}
-          alt='reindeer-guy'
+          alt='meow-guy'
         />
       </div>
     </>
