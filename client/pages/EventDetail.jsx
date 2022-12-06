@@ -26,7 +26,8 @@ const EventDetail = () => {
   const findGifter = (gifter_id) => {
     const gifter = guestList.find((participant) => participant.id === gifter_id)
 
-    return gifter?.name
+    const name = trim(gifter?.name)
+    return name
   }
 
   const handleDelete = async (guest_id) => {
@@ -74,15 +75,15 @@ const EventDetail = () => {
       {assigned ? (
         <div
           className={
-            guestList.length > 8 ? styles.sortedGuests : styles.sortedGuestsGrid
+            guestList.length > 6 ? styles.sortedGuestsGrid : styles.sortedGuests
           }
         >
+          {/* <h2 className={styles.secondaryHeading}>Secret Santa Buddies</h2> */}
           {guestList.map((participant, i) => {
             return (
               <div key={i} className={styles.assignedGuestWrapper}>
-                {/* <p>{participant.name}</p> */}
-                <p>{trim(participant?.name)}</p>
-                {/* <p>Wishlist: {participant.wishlist}</p> */}
+                <p>{trim(participant.name)}</p>
+
                 <p className={styles.arrowThing}>→</p>
                 <p>{findGifter(participant.gifter_id)}</p>
 
@@ -99,16 +100,16 @@ const EventDetail = () => {
         <>
           <div
             className={
-              guestList.length > 8
-                ? styles.unsortedGuests
-                : styles.unsortedGuestsGrid
+              guestList.length > 6
+                ? styles.unsortedGuestsGrid
+                : styles.unsortedGuests
             }
           >
             {guestList.map((participant, i) => {
               return (
                 <div key={i}>
                   <div className={styles.guestWrapper}>
-                    <p>{participant.name}</p>
+                    <p>{trim(participant?.name)}</p>
 
                     <button onClick={() => handleDelete(participant.id)}>
                       Delete

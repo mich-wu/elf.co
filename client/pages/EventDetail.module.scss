@@ -138,7 +138,7 @@
   }
   .sortedGuests {
     border-radius: 1rem;
-    background-color: plum;
+    // background-color: plum;
 
     display: flex;
     flex-direction: column;
@@ -198,7 +198,7 @@
   .sortedGuestsGrid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(auto, 1fr);
+    grid-template-rows: repeat(2, 1fr);
     margin: 0 auto;
     padding: 1rem;
     width: 100%;
@@ -209,6 +209,18 @@
     max-width: 60rem;
     margin-top: 3rem;
 
+    // .secondaryHeading {
+    //   color: $black;
+    //   font-family: $heading-font-family;
+    //   font-size: 3.2rem;
+    //   font-weight: 900;
+    //   text-align: center;
+    //   width: 100%;
+    //   margin: 0 auto;
+    //   grid-column: 1 /4;
+    //   margin-bottom: 2rem;
+    // }
+
     .assignedGuestWrapper {
       display: flex;
       flex-direction: row;
@@ -216,9 +228,10 @@
       align-items: center;
       background-color: $headerPrimary;
       border-radius: 10px;
+      height: 4rem;
 
       padding: 1rem 2rem;
-      width: 20rem;
+      width: 25rem;
       gap: 1rem;
       margin-bottom: 2rem;
 
@@ -226,8 +239,9 @@
         font-size: 2.2rem;
         word-wrap: break-word;
         color: $text-white;
-        width: 5rem;
+        width: fit-content;
         text-align: center;
+        text-transform: capitalize;
       }
 
       button {
@@ -275,5 +289,3 @@
     border: 1px solid $headerTertiary;
   }
 }
-
-// http://localhost:5173/dashboard/0f9d7304-5b76-4bfa-b2c7-820d784224ed
