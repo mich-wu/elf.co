@@ -21,11 +21,7 @@ export default function GalleryPage() {
   console.log(peets)
 
   if (loading) {
-    return (
-      <div className={styles.spinner}>
-        <Spinner loading={loading} />
-      </div>
-    )
+    return <Spinner />
   }
 
   return (
