@@ -64,15 +64,6 @@ const Event = () => {
               onChange={(e) => setDate(e.target.value)}
               placeholder='Draw Date'
             />
-            <label htmlFor='budget'>Event Budget:</label>
-            <input
-              id='budget'
-              type='number'
-              name='budget'
-              required
-              value={budget}
-              onChange={(e) => setBudget(e.target.value)}
-            />
             <button>Create Your Event</button>
           </form>
           <img
