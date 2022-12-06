@@ -17,9 +17,11 @@ describe('CreateEvent component test', async () => {
     render(<SSHome />, { wrapper: MemoryRouter })
     expect(screen.getByAltText(/secret santa/i))
   })
-  it('has an link', () => {
+  it('has an link', async () => {
     render(<SSHome />, { wrapper: MemoryRouter })
-    userEvent.click(screen.getByText(/LET'S GET STARTED!/i))
-    expect(screen.getByText(/Secret Santa/i)).toBeInTheDocument()
+    const link = await screen.findByRole('link', {
+      name: /LET'S GET STARTED!/i,
+    })
+    expect(link.href).toMatch('event')
   })
 })
