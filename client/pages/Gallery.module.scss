@@ -4,6 +4,23 @@ ul { list-style: none; margin: 0; padding: 0;}
 figure { margin: 0; }
 figcaption { font-style: italic; font-size: 0.8em; color: grey; line-height: 1.4; }
 
+.wrapper{
+background-color: theme.$lightBackground;
+h1{
+  font-family: theme.$heading-font-family;
+  font-size: 3rem;
+  font-family: theme.$body-font-family;
+  color: theme.$bodyRed;
+  text-decoration: none;
+  margin-top: 50px;
+  text-align: center;
+    }
+    // a {
+    //   text-decoration: none;
+    // }
+}
+
+
 .spinner{
   position: absolute;
   margin: 25% 50%;

@@ -30,20 +30,21 @@ export default function GalleryPage() {
 
   return (
     <>
-      {/* <h1> Peets 🐾 </h1> */}
-      <ul className={styles.grid}>
-        {peets.map((peet) => {
-          return (
-            <li key={peet.id}>
-              <figure className={styles.grid__figure}>
-                <img src={`/images/${peet.image}`} alt='doggo' />
-                <figcaption>{peet.petname}</figcaption>
-              </figure>
-            </li>
-          )
-        })}
-      </ul>
-
+      <div className={styles.wrapper}>
+        <h1> PEETS</h1>
+        <ul className={styles.grid}>
+          {peets.map((peet) => {
+            return (
+              <li key={peet.id}>
+                <figure className={styles.grid__figure}>
+                  <img src={`/images/${peet.image}`} alt='doggo' />
+                  <figcaption>{peet.petname}</figcaption>
+                </figure>
+              </li>
+            )
+          })}
+        </ul>
+      </div>
       <div className={styles.littleguys}>
         <img
           className={styles.reindeer}

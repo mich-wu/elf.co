@@ -5,12 +5,24 @@ export const seed = (knex) => {
       return knex('peets').insert([
         {
           id: 1,
+          petname: 'Croissant',
+          owner: 'Rohan',
+          image: 'PEET-18.jpg',
+        },
+        {
+          id: 2,
+          petname: 'Frank',
+          owner: 'Ben',
+          image: 'PEET-12.jpg',
+        },
+        {
+          id: 3,
           petname: 'George',
           owner: 'James',
           image: 'PEET-29.jpg',
         },
         {
-          id: 2,
+          id: 4,
           petname: 'Lary',
           owner: 'James',
           image: 'PEET-28.jpg',
@@ -116,6 +128,18 @@ export const seed = (knex) => {
           petname: 'Stormy',
           owner: 'EQ',
           image: 'PEET-21.jpg',
+        },
+        {
+          id: 22,
+          petname: 'Sugar',
+          owner: 'EQ',
+          image: 'PEET-22.jpg',
+        },
+        {
+          id: 23,
+          petname: 'Lightning',
+          owner: 'Michelle',
+          image: 'lightening.png',
         },
       ])
     })
