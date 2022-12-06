@@ -16,14 +16,31 @@
   border-radius: 5px;
   box-shadow: $shadow;
 
+  h2{
+    font-size: 3.2rem;
+  }
+
   h3 {
     color: $bodyRed;
     font-family: $heading-font-family;
+    margin-top: -2rem;
     font-size: 3.4rem;
     font-weight: 900;
     text-align: center;
     text-shadow: $shadow;
     width: 100%;
+  }
+  p {
+    color: $headerTertiary;
+    font-family: $body-font-family;
+    font-size: 2rem;
+    font-weight: 400;
+    text-align: center;
+    width: 100%;
+    margin: 2rem auto;
+    max-width: 40ch;
+    word-wrap: break-word;
+  
   }
 
   .header {
@@ -46,6 +63,8 @@
   .inviteForm {
       display: flex;
       flex-direction: column;
+      height: 8rem;
+
       // grid-template-columns: 1fr 3fr;
       margin: 0 auto;
       // gap: 2rem;
@@ -61,6 +80,8 @@
         border-radius: 10px;
         color: $text-white;
         font-size: 1.6rem;
+        padding: 0.8rem;
+        text-align: center;
         height: 2.6rem;
         width: 30rem;
         font-family: $body-font-family;
@@ -73,6 +94,7 @@
 
       button {
         background-color: $headerTertiary;
+        border-color:$headerTertiary;
         border-radius: 10px;
         color: $text-white;
         font-size: 1.4rem;
@@ -82,7 +104,12 @@
         margin-top: 4.2rem;
         font-family: $body-font-family;
         cursor: pointer;
+        border:none;
 
+        &:hover {
+          background-color:$lighterMainGreen;
+        }
+        
     }
   }
   
@@ -91,11 +118,13 @@
 
 .eventLinkContainer{
   
-  background-color: lawngreen;
+  // background-color: lawngreen;
   display: flex;
   flex-direction: row;
   position: relative;
-  width: fit-content;
+  // width: 87rem;
+  margin-top: 3.4rem;
+  margin-bottom: 3.4rem;
   
   
 .linkContainer {
@@ -103,6 +132,8 @@
   flex-direction: column;
   gap: 0.4rem;
   background-color: $bodyGold;
+  margin: 0 auto;
+ 
   border-radius: 1rem;
   color: $white;
   padding: 2rem;
@@ -123,7 +154,7 @@
     text-decoration: none;
     text-align: center;
     font-family: $body-font-family;
-    // padding: 0rem 5rem;
+
 
     &:hover {
       text-decoration: underline;
@@ -137,8 +168,8 @@
   background-color: $bodyRed;
   position: absolute;
   border-radius: 35px;
-  bottom:2rem;
-  right: 10rem;
+  top: -2rem;
+  right: 20rem;
   padding: 1rem;
   display: flex;
   flex-direction: column;

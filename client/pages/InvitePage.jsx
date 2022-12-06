@@ -62,7 +62,7 @@ export default function InvitePage() {
         <form className={styles.inviteForm} onSubmit={handleSubmit}>
           <label htmlFor='name'> </label>
           <input
-            placeholder='Enter your name'
+            placeholder='Name'
             type='text'
             value={guestName}
             name='name'
