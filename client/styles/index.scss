@@ -1,12 +1,5 @@
 @import './_theme.scss';
 
-html,
-body {
-  font-family: $body-font-family;
-  color: $text-black;
-  background-color: $lightBackground;
-}
-
 p {
   margin: 0px;
 }
@@ -15,4 +8,10 @@ a {
   text-decoration: none;
   color: $text-black;
   cursor: pointer;
+}
+
+html {
+  font-family: $body-font-family;
+  color: $text-black;
+  background-color: $lightBackground;
 }
