@@ -45,9 +45,9 @@ const Drinks = () => {
     setShowText(true)
   }
 
-  // if (loading) {
+  // if (!drink.strDrinkThumb === undefined) {
   //   return (
-  //     <div className={styles.container}>
+  //     <div className={styles.spinner}>
   //       <Spinner loading={loading} />
   //     </div>
   //   )
