@@ -80,7 +80,7 @@
         width: 100%;
         resize: none;
         height: 15rem;
-        border-radius: 50px;
+        border-radius: 25px;
         background-color: $headerTertiary;
         color: $text-white;
         font-family: $body-font-family;
@@ -100,7 +100,8 @@
       button {
         width: 15rem;
         height: 4rem;
-        border-radius: 15px;
+        border-radius: 11px;
+        border: none;
         background-color: $headerSecondary;
         color: $text-white;
         font-family: $body-font-family;
