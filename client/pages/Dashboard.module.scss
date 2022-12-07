@@ -1,6 +1,7 @@
 @use '../styles/_theme' as theme;
 
 .dashboard {
+  min-height: 60vh;
   text-align: center;
   font-family: theme.$body-font-family;
 
@@ -63,6 +64,9 @@
     color: theme.$black;
 
     border-style: solid;
+  }
+  p {
+    font-size: 20px;
   }
 }
 
