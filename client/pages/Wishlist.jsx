@@ -101,7 +101,7 @@ export default function Wishlist() {
             <h2 className={styles.secondaryHeading}>Your Buddy</h2>
             <p>
               For the {"'"}
-              {newWish.name}
+              {event[0].event_name}
               {"'"} event, your buddy is:
             </p>
             <div className={styles.assignedName}>
@@ -117,7 +117,7 @@ export default function Wishlist() {
             <div className={styles.assignedWishlist}>
               <p>Their wish list: {assignedWishlist?.wishlist}.</p>
               <p>
-                Make sure you have your gift sorted by the{' '}
+                Make sure you have your gift sorted by{' '}
                 {formatDate(event[0].date)}, the budget is ${event[0].budget}{' '}
               </p>
               <img
