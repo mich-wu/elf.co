@@ -60,7 +60,7 @@ const Event = () => {
               required
               value={budget}
               onChange={(e) => setBudget(e.target.value)}
-              placeholder='Event Budget'
+              placeholder='$'
             />
             <label htmlFor='date'>Draw Date:</label>
             <input
