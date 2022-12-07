@@ -90,19 +90,6 @@ export default function Wishlist() {
     return eventDate.toLocaleDateString('en-NZ', options)
   }
 
-  const handleText = (text) => {
-    const regex = /\r?\n|\r/
-    const checkText = regex.test(text)
-
-    if (checkText) {
-      return text.split(regex).map((item, i) => {
-        return <li key={i}>{item}</li>
-      })
-    } else {
-      return <li>{text}</li>
-    }
-  }
-
   return (
     <div>
       <div className={styles.eventContainer}>
@@ -173,7 +160,7 @@ export default function Wishlist() {
                     <h2 className={styles.secondaryHeading}>Your Wishlist</h2>
 
                     <h3 className={styles.wishlistItem}>
-                      {handleText(newWish.wishlist)}
+                      {/* handleText */ newWish.wishlist}
                     </h3>
 
                     <button className={styles.editBtn} onClick={handleEdit}>

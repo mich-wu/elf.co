@@ -29,7 +29,7 @@ export function updatedWishlist(id, wish, db = connection) {
 }
 
 export function updateWishlistGifter(assigned, db = connection) {
-  const { gifter_id, guest_code, id } = assigned
+  const { gifter_id, guest_code } = assigned
   return db('guest').where({ guest_code }).update({ gifter_id })
 }
 

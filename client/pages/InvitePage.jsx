@@ -38,9 +38,6 @@ export default function InvitePage() {
       err.message
     }
   }
-  const copyLink = () => {
-    navigator.clipboard.writeText(`localhost:5173/invite/${invite_id}`)
-  }
 
   function formatDate(date) {
     const eventDate = new Date(date)

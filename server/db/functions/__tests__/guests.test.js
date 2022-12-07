@@ -7,7 +7,6 @@ import {
   getWishlist,
   getWishlistById,
   updatedWishlist,
-  updateWishlistGifter,
 } from '../guest.js'
 
 const testDb = knex(config.test)

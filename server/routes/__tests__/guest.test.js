@@ -44,16 +44,6 @@ describe('GET /:id', () => {
 
 describe('GET :id/event', () => {
   it('Gets event from guest_code', () => {
-    const expectedEvent = {
-      event_id: 1,
-      host_id: 1,
-      invite_id: '57D6F81',
-      event_name: 'Trade Me Christmas Party',
-      budget: 30,
-      date: '19-12-2022',
-      status: false,
-    }
-
     return request(server)
       .get('/api/v1/wishlist/9ACE6AD157D6F81D9C774D39A287DA10/event')
       .then((res) => {
@@ -64,13 +54,6 @@ describe('GET :id/event', () => {
 
 describe('GET /:guest_code/assigned', () => {
   it('Gets wishlist of assigned buddy', async () => {
-    const expectedBuddyWishlist = {
-      id: 3,
-      guest_code: '6F81E9A7DA6AD157DD9C774D3289AC10',
-      event_id: 2,
-      name: 'Bella',
-      wishlist: 'a new house',
-    }
     await request(server).get('/api/v1/event/dashboard/2/assign')
     return request(server)
       .get('/api/v1/wishlist/6F81E9A7DA6AD157DD9C774D3289AC10/assigned')
