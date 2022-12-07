@@ -94,6 +94,7 @@
 }
 
 .drunkTitle {
+  text-transform: uppercase;
   text-align: center;
   font-size: 9.6rem;
   font-family: theme.$body-font-family;
@@ -115,6 +116,7 @@
   a {
     color: theme.$white;
     text-decoration: none;
+    text-transform: uppercase;
   }
 }
 
