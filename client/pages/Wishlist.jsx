@@ -184,13 +184,13 @@ export default function Wishlist() {
                         http://elf.co/invite/{guest_code}
                       </a>
                       <div className={styles.copyLinkContainer}>
-                        <p>Save this link to come back to your wishlist.</p>
+                        <p>Save this link to come back to your wishlist</p>
                         <img
                           src='/server/public/assets/Secret-Santa-.png'
                           alt='santa hushing'
                           className={styles.santaCopyLinkImg}
                         />
-                        <button onClick={copyLink}>Copy Link</button>
+                        <button onClick={copyLink}>Copy link</button>
                       </div>
                     </div>
                   </div>
