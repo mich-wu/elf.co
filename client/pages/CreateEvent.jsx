@@ -91,7 +91,7 @@ const Event = () => {
             </a>
           </div>
           <div className={styles.copyLinkContainer}>
-            <p>Copy and Paste this link to send it to your friends</p>
+            <p>Copy and Paste this link to your friends</p>
             <img
               src='/server/public/assets/Secret-Santa-.png'
               alt='santa hushing'
