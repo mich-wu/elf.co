@@ -89,7 +89,6 @@ export default {
       const wishlist = await db.getWishListByGuestCode(id)
 
       const event = await db.getEventById(wishlist[0].event_id)
-
       res.status(200).json(event)
     } catch (err) {
       console.error(err.message)
