@@ -12,7 +12,6 @@ import { MemoryRouter } from 'react-router-dom'
 import { vi } from 'vitest'
 
 import { getRandomDrink } from '../../apiClient/drinks.js'
-// import Spinner from '../../components/Spinner.jsx'
 import Drinks from '../Drinks'
 
 vi.mock('../../apiClient/drinks.js')
@@ -58,7 +57,6 @@ describe('<Drinks />', () => {
     getRandomDrink.mockReturnValue(Promise.resolve(randomDrinkResponse))
     render(<Drinks />, { wrapper: MemoryRouter })
     waitFor(() => getRandomDrink.mock.calls.length > 0).then(async () => {
-      // fireEvent.load(await screen.getAllByRole('img'))
       const link = await screen.getByRole('link')
       expect(link).toHaveAttribute('href', '/drinks')
     })

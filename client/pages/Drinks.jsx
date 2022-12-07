@@ -45,14 +45,6 @@ const Drinks = () => {
     setShowText(true)
   }
 
-  // if (!drink.strDrinkThumb === undefined) {
-  //   return (
-  //     <div className={styles.spinner}>
-  //       <Spinner loading={loading} />
-  //     </div>
-  //   )
-  // }
-
   return (
     <div className={styles.container}>
       <h1 className={styles.drunkTitle}>DRUNK SANTA</h1>

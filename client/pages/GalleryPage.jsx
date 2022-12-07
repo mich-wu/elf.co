@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 
 import { getPeets } from '../apiClient/peets'
 import Spinner from '../components/Spinner'
-// import peets from '../data/peets'
 import styles from './Gallery.module.scss'
 
 export default function GalleryPage() {

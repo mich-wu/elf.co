@@ -18,7 +18,6 @@ export default function Wishlist() {
   const [eventResult, setEventResult] = useState([])
   const [assignedWishlist, setAssignedWishlist] = useState(null)
 
-  //TODO: Refactor this to 1 function call fetchData, which stores a joined table of event and wishlist
   useEffect(() => {
     async function fetchData() {
       const wishlist = await getWishlistByIdApi(guest_code)
@@ -31,7 +30,7 @@ export default function Wishlist() {
       setAssignedWishlist(assigned)
     }
     fetchData()
-  }, [guest_code]) //changed guest_code
+  }, [guest_code])
 
   const handleEdit = () => {
     setShowForm(!showForm)

@@ -17,7 +17,6 @@ const Dashboard = () => {
 
   const MOCK_AUTHID = 69
 
-  // todo: hostId should be auth0_id but setup after.
   const filterEvents = (events) => {
     return events.filter((event) => event.host_id === MOCK_AUTHID)
   }

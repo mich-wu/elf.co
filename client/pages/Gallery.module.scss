@@ -32,10 +32,6 @@
   }
 }
 
-// a {
-//   text-decoration: none;
-// }
-
 .grid {
   display: grid;
 
@@ -46,7 +42,6 @@
   overflow-x: scroll;
   -webkit-overflow-scrolling: touch;
   padding: 2em 1em;
-  // background-color: rgb(232, 232, 232);
 
   &__figure {
     display: grid;
@@ -65,7 +60,6 @@
 .littleguys {
   position: relative;
   height: 30rem;
-  // background-color: rgb(232, 232, 232);
 }
 .reindeer {
   position: absolute;

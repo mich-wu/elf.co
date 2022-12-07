@@ -10,8 +10,6 @@ import {
 } from '../apiClient/event.js'
 import styles from './EventDetail.module.scss'
 
-// TODO: Refactor filterParticipants and findGifter to the backend
-
 const EventDetail = () => {
   const { event_id } = useParams()
   const [guestList, setGuestList] = useState([])

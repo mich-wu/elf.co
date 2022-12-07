@@ -11,7 +11,7 @@
 
   width: 80rem;
   margin: 0 auto;
-  // margin-top: 9.6rem;
+
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   box-shadow: $shadow;
@@ -121,7 +121,7 @@
   display: flex;
   flex-direction: row;
   position: relative;
-  // width: 87rem;
+
   margin-top: 3.4rem;
   margin-bottom: 3.4rem;
 
@@ -204,8 +204,7 @@
       align-self: center;
       border: none;
       padding: 0.5rem;
-      // margin-top: -7rem;
-      // margin-right: -11rem;
+
       background-color: $headerTertiary;
       border-radius: 5px;
       color: $text-white;

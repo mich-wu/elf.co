@@ -8,10 +8,9 @@
   background-color: $white;
   padding: 5rem;
 
-  // height: 50rem;
   width: 80rem;
   margin: 0 auto;
-  // margin-top: 9.6rem;
+
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   box-shadow: $shadow;
@@ -29,7 +28,7 @@
 
     border-bottom: 8px solid $bodyGold;
     margin: 0 auto;
-    // padding-bottom: 0.5rem;
+
     position: relative;
     width: fit-content;
   }
@@ -295,7 +294,7 @@
       justify-self: center;
       align-self: center;
       border: 1px solid $white;
-      // padding: 0.5rem;
+
       background-color: #b44e41be;
       border-radius: 5px;
       color: $text-white;

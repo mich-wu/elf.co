@@ -3,15 +3,6 @@ import { vi } from 'vitest'
 
 import connection from '../../db/connection.js'
 import server from '../../server.js'
-// import {
-//   createEvent,
-//   getEvent,
-//   getEventById,
-//   getEventByInviteCode,
-//   getEvents,
-//   getGuestsByEventId,
-//   updateStatus,
-// } from '../events.js'
 
 beforeEach(() => {
   vi.resetAllMocks()

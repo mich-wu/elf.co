@@ -90,7 +90,6 @@ export default {
   },
 
   getEventById: async (req, res) => {
-    //get wishlist by guest_code and then get event by event_id
     const { id } = req.params
 
     try {
@@ -99,7 +98,6 @@ export default {
       const event = await db.getEventById(wishlist[0].event_id)
 
       res.status(200).json(event)
-      // res.json(event)
     } catch (err) {
       console.error(err.message)
       res
