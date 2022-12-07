@@ -61,10 +61,10 @@
       margin: 0 auto;
       gap: 2rem;
       margin-top: 5rem;
-      height: 20rem;
+      height: 34rem;
 
       label {
-        font-size: 1.6rem;
+        font-size: 2.4rem;
 
         color: $headerTertiary;
         font-family: $body-font-family;
@@ -73,16 +73,18 @@
         background-color: $headerTertiary;
         border-radius: 10px;
         color: $text-white;
-        font-size: 1.6rem;
-        height: 2.6rem;
+        font-size: 2.4rem;
+        height: 3.6rem;
         font-family: $body-font-family;
-        border: none;
+        border: 2px solid $headerTertiary;
 
         &::placeholder {
           color: $text-white;
+          font-size: 2.4rem;
         }
         &:focus {
-          outline: $text-white;
+          outline: none;
+          border: 2px solid $bodyGold;
         }
       }
 
@@ -99,12 +101,12 @@
         white-space: nowrap;
         margin-top: 4.2rem;
         font-family: $body-font-family;
-        border: none;
+        border: 2px solid $headerTertiary;
 
         &:hover {
           cursor: pointer;
           background-color: $lighterMainGreen;
-          border: 1px solid $headerTertiary;
+          border: 2px solid $bodyGold;
         }
       }
     }
