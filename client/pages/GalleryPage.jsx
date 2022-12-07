@@ -25,7 +25,7 @@ export default function GalleryPage() {
   return (
     <>
       <div className={styles.wrapper}>
-        <h1> PEETS</h1>
+        <h1> onlypeets</h1>
         <ul className={styles.grid}>
           {peets.map((peet) => {
             return (

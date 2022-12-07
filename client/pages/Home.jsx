@@ -18,7 +18,7 @@ const Home = () => {
             </a>
 
             <Link to='/secretsanta' className={styles.links}>
-              SECRET SANTA
+              secret santa
             </Link>
           </div>
           <div className={styles.imageWrapper}>
@@ -30,7 +30,7 @@ const Home = () => {
               />
             </a>
             <Link to='/peets' className={styles.links}>
-              ONLY PEETS
+              onlypeets
             </Link>
           </div>
           <div className={styles.imageWrapper}>
@@ -42,7 +42,7 @@ const Home = () => {
               />
             </a>
             <Link to='/drinks' className={styles.links}>
-              DRUNK SANTA
+              drunk santa
             </Link>
           </div>
         </div>
