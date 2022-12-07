@@ -1,5 +1,4 @@
 import nock from 'nock'
-import { send } from 'vite'
 
 import {
   createGuestApi,

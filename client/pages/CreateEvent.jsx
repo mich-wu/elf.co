@@ -60,7 +60,7 @@ const Event = () => {
               required
               value={budget}
               onChange={(e) => setBudget(e.target.value)}
-              placeholder='Event Budget'
+              placeholder='$'
             />
             <label htmlFor='date'>Draw Date:</label>
             <input
@@ -91,7 +91,7 @@ const Event = () => {
             </a>
           </div>
           <div className={styles.copyLinkContainer}>
-            <p>Copy and Paste this link to send it to your friends</p>
+            <p>Copy and Paste this link to your friends</p>
             <img
               src='/server/public/assets/Secret-Santa-.png'
               alt='santa hushing'
@@ -106,7 +106,7 @@ const Event = () => {
           />
           <h4>Event date: {formatDate(date)}</h4>
           <Link to='/dashboard' className={styles.eventLink}>
-            View your Participants
+            view my events
           </Link>
         </div>
       )}

@@ -109,7 +109,6 @@ describe('GET/dashboard/:event_id/assign', () => {
     return request(server)
       .get('/api/v1/event/dashboard/1/assign')
       .then((res) => {
-        // console.log(res.body)
         expect(res.status).toBe(200)
         expect(res.body.length).toBe(2)
       })

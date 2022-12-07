@@ -38,9 +38,6 @@ export default function InvitePage() {
       err.message
     }
   }
-  const copyLink = () => {
-    navigator.clipboard.writeText(`localhost:5173/invite/${invite_id}`)
-  }
 
   function formatDate(date) {
     const eventDate = new Date(date)
@@ -57,7 +54,7 @@ export default function InvitePage() {
         <p>
           {' '}
           Your budget is ${event?.budget}. Save the date! Have your gift ready
-          by the {formatDate(event?.date)}.
+          by {formatDate(event?.date)}.
         </p>
         <form className={styles.inviteForm} onSubmit={handleSubmit}>
           <label htmlFor='name'> </label>
@@ -72,23 +69,11 @@ export default function InvitePage() {
           />
           <button type='submit'>Create your wishlist →</button>
         </form>
-      </div>
-      <div className={styles.eventLinkContainer}>
-        <div className={styles.linkContainer}>
-          <p>Your Event Link:</p>
-          <a href={`http://localhost:5173/invite/${invite_id}`}>
-            http://elf.co/invite/{invite_id}
-          </a>
-        </div>
-        <div className={styles.copyLinkContainer}>
-          <p>Copy this link to send to your friends</p>
-          <img
-            src='/server/public/assets/Secret-Santa-.png'
-            alt='santa hushing'
-            className={styles.santaCopyLinkImg}
-          />
-          <button onClick={copyLink}>Copy link</button>
-        </div>
+        <img
+          src='/server/public/assets/Secret-Santa-.png'
+          alt='santa hushing'
+          className={styles.santaCopyLinkImg}
+        />
       </div>
     </>
   )

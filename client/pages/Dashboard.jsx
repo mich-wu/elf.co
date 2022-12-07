@@ -38,9 +38,13 @@ const Dashboard = () => {
               {event.status === 0 ? 'Submissions Open' : 'Submissions Closed'}
             </p>
             <div>
-              <button>
-                <Link to={`/dashboard/${event.invite_id}`}>View Event</Link>
-              </button>
+              <Link
+                className={styles.link}
+                to={`/dashboard/${event.invite_id}`}
+              >
+                View Event
+              </Link>
+
               <img
                 src='../../server/public/assets/tree.PNG'
                 alt='christmas tree'

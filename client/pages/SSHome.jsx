@@ -7,7 +7,7 @@ const SSHome = () => {
   return (
     <div className={styles.SSHomeContainer}>
       <div className={styles.SSHomeWrapper}>
-        <h1>SECRET SANTA</h1>
+        <h1>secret santa</h1>
         <a href='/event'>
           <img
             src='../../server/public/assets/Secret-Santa-.png'
@@ -17,7 +17,7 @@ const SSHome = () => {
         </a>
 
         <Link to='/event' className={styles.links}>
-          LET{"'"}S GET STARTED!
+          let{"'"}s get started!
         </Link>
       </div>
     </div>

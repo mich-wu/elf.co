@@ -53,24 +53,23 @@ export default {
     const shuffle = (array) => {
       for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1))
-        ;[array[i], array[j]] = [array[j], array[i]]
+        let temp = array[i]
+        array[i] = array[j]
+        array[j] = temp
       }
-
-      return array
     }
 
     const assign = (array) => {
-      const shuffledArray = shuffle(array)
-      const assignments = shuffledArray.map((participant, i) => {
-        return {
-          id: participant.id,
-          gifter_id:
-            i === shuffledArray.length - 1
-              ? shuffledArray[0].id
-              : shuffledArray[i + 1].id,
-          guest_code: participant.guest_code,
-        }
-      })
+      shuffle(array)
+
+      const assignments = []
+      for (let i = 0; i < array.length; i++) {
+        assignments.push({
+          id: array[i].id,
+          gifter_id: array[(i + 1) % array.length].id,
+          guest_code: array[i].guest_code,
+        })
+      }
 
       return assignments
     }

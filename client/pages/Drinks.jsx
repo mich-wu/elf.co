@@ -47,7 +47,7 @@ const Drinks = () => {
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.drunkTitle}>DRUNK SANTA</h1>
+      <h1 className={styles.drunkTitle}>drunk santa</h1>
       <div className={styles.drinksContainer}>
         <img
           src={drink.strDrinkThumb}
@@ -94,12 +94,10 @@ const Drinks = () => {
         )}
       </div>
       <div className={styles.centerButton}>
-        <button
-          onClick='window.location.reload()'
-          className={styles.drinksButton}
-        >
-          <Link to='/drinks'>RANDOMISE DRINK</Link>
-        </button>
+        <Link className={styles.drinksButton} to='/drinks'>
+          randomise drink
+        </Link>
+
         <img
           src='../../server/public/assets/tree.PNG'
           alt='christmas tree'

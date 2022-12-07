@@ -94,6 +94,7 @@
 }
 
 .drunkTitle {
+  text-transform: uppercase;
   text-align: center;
   font-size: 9.6rem;
   font-family: theme.$body-font-family;
@@ -112,9 +113,15 @@
   color: theme.$white;
   text-decoration: none;
   border-radius: 2rem;
-  a {
-    color: theme.$white;
-    text-decoration: none;
+  border: 5px theme.$bodyGold solid;
+  text-align: center;
+  text-transform: uppercase;
+
+  transition: all 0.4s ease-in-out;
+
+  &:hover {
+    background-color: theme.$bodyGold;
+    border: 5px theme.$headerSecondary solid;
   }
 }
 

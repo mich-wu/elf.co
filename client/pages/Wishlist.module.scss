@@ -11,6 +11,8 @@
   width: 80rem;
   margin: 0 auto;
 
+  position: relative;
+
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   box-shadow: $shadow;
@@ -80,14 +82,16 @@
         width: 100%;
         resize: none;
         height: 15rem;
-        border-radius: 50px;
+        border-radius: 25px;
         background-color: $headerTertiary;
         color: $text-white;
         font-family: $body-font-family;
         font-size: 2rem;
         padding: 3rem 1rem;
         border: none;
-
+        &::placeholder {
+          color: #f7f7f78f;
+        }
         &:focus {
           outline: 4px solid $bodyGold;
         }
@@ -96,7 +100,8 @@
       button {
         width: 15rem;
         height: 4rem;
-        border-radius: 15px;
+        border-radius: 11px;
+        border: none;
         background-color: $headerSecondary;
         color: $text-white;
         font-family: $body-font-family;
@@ -126,7 +131,8 @@
     .editBtn {
       width: 15rem;
       height: 4rem;
-      border-radius: 15px;
+      border-radius: 11px;
+      border: none;
       background-color: $headerSecondary;
       color: $text-white;
       font-family: $body-font-family;
@@ -154,10 +160,12 @@
   }
   .treeImg {
     position: absolute;
-    bottom: 2rem;
-    left: -20rem;
+    bottom: -5rem;
+    left: -18rem;
     width: auto;
-    height: 20rem;
+    height: 25rem;
+    z-index: 2;
+    transform: rotate(-9deg);
   }
 
   .catImg {
@@ -226,6 +234,9 @@
     color: $white;
     padding: 2rem;
     height: 4rem;
+    position: absolute;
+    bottom: 7rem;
+    right: 12rem;
 
     p {
       text-align: center;
@@ -293,12 +304,20 @@
     button {
       justify-self: center;
       align-self: center;
-      border: 1px solid $white;
 
-      background-color: #b44e41be;
+      font-size: 1.1rem;
+      padding: 0.5rem;
+
+      background-color: $headerPrimary;
       border-radius: 5px;
       color: $text-white;
       cursor: pointer;
+      border: none;
+
+      &:hover {
+        background-color: $bodyGold;
+        border: none;
+      }
     }
   }
 
@@ -342,13 +361,4 @@
     left: -5rem;
     transform: rotate(-10deg);
   }
-}
-
-.notFound {
-  width: auto;
-  height: 30rem;
-}
-
-.notFoundHeading {
-  font-size: 3.4rem;
 }
