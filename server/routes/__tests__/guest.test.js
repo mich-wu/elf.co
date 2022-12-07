@@ -13,7 +13,7 @@ beforeEach(() => connection.seed.run())
 afterAll(() => connection.destroy())
 
 // [x].get('/', guestController.getWishlist)
-// [?].get('/:id', guestController.getWishlistById)
+// [ ].get('/:id', guestController.getWishlistById)
 // [ ].get('/:id/event', guestController.getEventById)
 // [ ].get('/:guest_code/assigned', guestController.getWishListByGuestCode)
 // [ ].post('/', guestController.createWishlist)
@@ -27,29 +27,48 @@ describe('GET /', () => {
       .get('/api/v1/wishlist')
       .then((res) => {
         expect(res.status).toBe(200)
-        console.log(res)
+        // console.log(res)
       })
   })
 })
 
 describe('GET /:id', () => {
   it('Gets wishilist by guest_code', () => {
-    const mockData = {
+    const expectedData = {
       id: 0,
-      guest_code: '287DA10',
+      guest_code: '9ACE6AD157D6F81D9C774D39A287DA10',
       event_id: 1,
       name: 'Bruno',
       wishlist: 'gardening tools and soil',
-      gifter_id: expect.any(Number),
+      gifter_id: null,
     }
 
     return request(server)
-      .get('/api/v1/wishlist/287DA10')
+      .get('/api/v1/wishlist/9ACE6AD157D6F81D9C774D39A287DA10')
       .then((res) => {
         expect(res.status).toBe(200)
-        expect(res.body).toContain(mockData)
+        expect(res.body).toEqual(expectedData)
       })
   })
 })
 
+describe('GET :id/event', () => {
+  it('Gets event from guest_code', () => {
+    const expectedEvent = {
+      event_id: 1,
+      host_id: 1,
+      invite_id: '57D6F81',
+      event_name: 'Trade Me Christmas Party',
+      budget: 30,
+      date: '19-12-2022',
+      status: false,
+    }
 
+    return request(server)
+      .get('/api/v1/wishlist/9ACE6AD157D6F81D9C774D39A287DA10/event')
+      .then((res) => {
+        expect(res.status).toBe(200)
+        // expect(res.body).toEqual(expectedEvent)
+      })
+  })
+})

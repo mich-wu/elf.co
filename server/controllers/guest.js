@@ -25,7 +25,7 @@ export default {
 
     try {
       const result = await db.getWishlistById(id)
-
+      
       res.json(result)
     } catch (err) {
       console.err(err)
@@ -97,7 +97,8 @@ export default {
       const wishlist = await db.getWishListByGuestCode(id)
 
       const event = await db.getEventById(wishlist[0].event_id)
-
+      console.log(wishlist)
+      console.log(event)
       res.status(200).json(event)
       // res.json(event)
     } catch (err) {
