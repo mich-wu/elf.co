@@ -2,13 +2,6 @@ import { v4 as uuidv4 } from 'uuid'
 
 import * as db from '../db/functions/guest.js'
 
-/* 
-TODO: refactor duplicate functions to remove duplication.
-- duplicate functions: getWishlist, getWishlistById, getWishListByGuestCode
-- duplicate functions: updatedWishlist, updateWishlistGifter
-
-*/
-
 export default {
   getWishlist: async (req, res) => {
     try {
