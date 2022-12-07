@@ -57,7 +57,7 @@ export default function InvitePage() {
         <p>
           {' '}
           Your budget is ${event?.budget}. Save the date! Have your gift ready
-          by the {formatDate(event?.date)}.
+          by {formatDate(event?.date)}.
         </p>
         <form className={styles.inviteForm} onSubmit={handleSubmit}>
           <label htmlFor='name'> </label>
