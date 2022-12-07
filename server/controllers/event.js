@@ -50,43 +50,18 @@ export default {
 
     const event = await getGuestsByEventId(event_id)
 
-    // const shuffle = (array) => {
-    //   for (let i = array.length - 1; i > 0; i--) {
-    //     const j = Math.floor(Math.random() * (i + 1))
-    //     let temp = array[i]
-    //     array[i] = array[j]
-    //     array[j] = temp
-    //   }
-
-    //   return array
-    // }
-
-    // const assign = (array) => {
-    //   const shuffledArray = shuffle(array)
-    //   const assignments = shuffledArray.map((participant, i) => {
-    //     return {
-    //       id: participant.id,
-    //       gifter_id:
-    //         i === shuffledArray.length - 1
-    //           ? shuffledArray[0].id
-    //           : shuffledArray[i + 1].id,
-    //       guest_code: participant.guest_code,
-    //     }
-    //   })
-
-    //   return assignments
-    // }
-
-    const assign = (array) => {
-      // Shuffle the array in place
+    const shuffle = (array) => {
       for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1))
         let temp = array[i]
         array[i] = array[j]
         array[j] = temp
       }
+    }
 
-      // Calculate assignments
+    const assign = (array) => {
+      shuffle(array)
+
       const assignments = []
       for (let i = 0; i < array.length; i++) {
         assignments.push({
