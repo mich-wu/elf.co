@@ -7,15 +7,15 @@ export default function Navbar() {
   return (
     <nav className={styles.navbar}>
       <Link to='/'>
-        <div className={styles.title}>ELF.CO</div>
+        <div className={styles.title}>elf.co</div>
       </Link>
       <div className={styles.links}>
-        <button className={styles.signup}>
-          <Link to='/'>HOME</Link>
-        </button>
-        <button className={styles.login}>
-          <Link to='/dashboard'>DASHBOARD</Link>
-        </button>
+        <Link className={styles.signup} to='/'>
+          home
+        </Link>
+        <Link className={styles.login} to='/dashboard'>
+          dashboard
+        </Link>
       </div>
     </nav>
   )

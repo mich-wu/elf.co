@@ -26,6 +26,7 @@
 
 .title {
   font-size: 3.4em;
+  text-transform: uppercase;
 }
 
 .links {
@@ -33,6 +34,7 @@
   justify-content: space-around;
   gap: 4.8rem;
   margin-left: 4.8rem;
+  text-transform: uppercase;
 }
 
 .signup {
@@ -45,14 +47,18 @@
   border-style: solid;
   font-size: 20px;
   font-family: theme.$heading-font-family;
-  a {
-    color: theme.$text-white;
+  // a {
+  //   color: theme.$text-white;
+  // }
+
+  &:hover {
+    background-color: theme.$lighterMainGreen;
   }
 }
 
 .login {
   padding: 1rem 3rem 1rem 3rem;
-  background-color: theme.$lightBackground;
+  background-color: transparent;
   border-color: theme.$headerTertiary;
   border-width: 4px;
   border-radius: 10px;
@@ -61,9 +67,11 @@
   font-family: theme.$heading-font-family;
   font-size: 20px;
 
-  a {
-    color: theme.$text-black;
+  &:hover {
+    background-color: theme.$lighterMainGreen;
   }
+
+   
 }
 
 .login:hover {

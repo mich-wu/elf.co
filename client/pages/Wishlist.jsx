@@ -81,7 +81,7 @@ export default function Wishlist() {
   }
 
   const copyLink = () => {
-    navigator.clipboard.writeText(`localhost:5173/invite/${guest_code}`)
+    navigator.clipboard.writeText(`localhost:5173/wishlist/${guest_code}`)
   }
 
   function formatDate(date) {
@@ -132,10 +132,7 @@ export default function Wishlist() {
             {showForm && (
               <div className={styles.createEventContainer}>
                 <h2 className={styles.secondaryHeading}>Your Wishlist</h2>
-                <p>
-                  Create your wish list to help your secret Santa get something
-                  that you like with a budget of ${event[0].budget}
-                </p>
+                <p>Add to your wishlist! The budget is ${event[0].budget}</p>
                 <form className={styles.eventForm} onSubmit={handleSubmit}>
                   <textarea
                     type='text'
@@ -180,17 +177,17 @@ export default function Wishlist() {
                   <div className={styles.eventLinkContainer}>
                     <div className={styles.linkContainer}>
                       <p>Your Event Link:</p>
-                      <a href={`http://localhost:5173/invite/${guest_code}`}>
-                        http://elf.co/invite/{guest_code}
+                      <a href={`http://localhost:5173/wishlist/${guest_code}`}>
+                        http://elf.co/wishlist/{guest_code}
                       </a>
                       <div className={styles.copyLinkContainer}>
-                        <p>Save this link to come back to your wishlist.</p>
+                        <p>Save this link to come back to your wishlist</p>
                         <img
                           src='/server/public/assets/Secret-Santa-.png'
                           alt='santa hushing'
                           className={styles.santaCopyLinkImg}
                         />
-                        <button onClick={copyLink}>Copy Link</button>
+                        <button onClick={copyLink}>Copy link</button>
                       </div>
                     </div>
                   </div>
