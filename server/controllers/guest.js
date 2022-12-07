@@ -97,7 +97,6 @@ export default {
       const wishlist = await db.getWishListByGuestCode(id)
 
       const event = await db.getEventById(wishlist[0].event_id)
-
       res.status(200).json(event)
       // res.json(event)
     } catch (err) {
@@ -110,7 +109,7 @@ export default {
 
   getWishListByGuestCode: async (req, res) => {
     const { guest_code } = req.params
-    console.log(guest_code, '^&^^^^^^^^^^')
+
     try {
       const wishlist = await db.getWishListByGuestCode(guest_code)
 
