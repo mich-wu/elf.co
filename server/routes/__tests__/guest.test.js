@@ -13,7 +13,7 @@ beforeEach(() => connection.seed.run())
 afterAll(() => connection.destroy())
 
 // [x].get('/', guestController.getWishlist)
-// [ ].get('/:id', guestController.getWishlistById)
+// [?].get('/:id', guestController.getWishlistById)
 // [ ].get('/:id/event', guestController.getEventById)
 // [ ].get('/:guest_code/assigned', guestController.getWishListByGuestCode)
 // [ ].post('/', guestController.createWishlist)
@@ -51,3 +51,5 @@ describe('GET /:id', () => {
       })
   })
 })
+
+
