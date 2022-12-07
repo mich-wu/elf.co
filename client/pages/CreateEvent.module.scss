@@ -199,9 +199,9 @@
     button {
       justify-self: center;
       align-self: center;
-      border: none;
-      padding: 0.5rem;
-      background-color: #ff8372;
+      border: 1px solid $white;
+      // padding: 0.5rem;
+      background-color: #b44e41be;
       border-radius: 5px;
       color: $text-white;
       cursor: pointer;
