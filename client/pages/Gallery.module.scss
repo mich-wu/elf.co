@@ -1,94 +1,107 @@
 @use '../styles/_theme' as theme;
 
-ul { list-style: none; margin: 0; padding: 0;}
-figure { margin: 0; }
-figcaption { font-style: italic; font-size: 0.8em; color: grey; line-height: 1.4; }
+.wrapper {
+  background-color: theme.$lightBackground;
+  width: 120rem;
+  h1 {
+    font-family: theme.$heading-font-family;
+    font-size: 9.6rem;
+    font-family: theme.$body-font-family;
+    color: theme.$bodyRed;
+    text-decoration: none;
+    margin-top: 50px;
+    text-align: center;
+  }
 
-.wrapper{
-background-color: theme.$lightBackground;
-h1{
-  font-family: theme.$heading-font-family;
-  font-size: 3rem;
-  font-family: theme.$body-font-family;
-  color: theme.$bodyRed;
-  text-decoration: none;
-  margin-top: 50px;
-  text-align: center;
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  li {
+    figure {
+      margin: 0;
     }
-    // a {
-    //   text-decoration: none;
-    // }
+    figcaption {
+      font-style: italic;
+      font-size: 0.8em;
+      color: grey;
+      line-height: 1.4;
+      font-family: theme.$body-font-family;
+    }
+  }
 }
+
+// a {
+//   text-decoration: none;
+// }
 
 .grid {
   display: grid;
 
-  grid-auto-flow: initial; 
-  grid-template-columns: repeat(auto-fit, minmax(auto,20em)); 
-  justify-content: center; 
+  grid-auto-flow: initial;
+  grid-template-columns: repeat(auto-fit, minmax(auto, 20em));
+  justify-content: center;
   grid-gap: 1em;
   overflow-x: scroll;
-  -webkit-overflow-scrolling: touch; 
+  -webkit-overflow-scrolling: touch;
   padding: 2em 1em;
-  background-color: rgb(232, 232, 232);
-  
+  // background-color: rgb(232, 232, 232);
+
   &__figure {
     display: grid;
-    grid-template-rows: 15em 1fr; 
+    grid-template-rows: 15em 1fr;
     grid-gap: 1em;
-    
+
     img {
       width: 100%;
       height: 100%;
-      object-fit: cover; 
+      object-fit: cover;
       border-radius: 20px;
     }
   }
 }
 
-.littleguys{
- position: relative;
- height: 300px;
- background-color: rgb(232, 232, 232);
- 
+.littleguys {
+  position: relative;
+  height: 30rem;
+  // background-color: rgb(232, 232, 232);
 }
-.reindeer{
+.reindeer {
   position: absolute;
   top: 0px;
   bottom: 5px;
   right: 5px;
   animation: rotate1 1s infinite;
 
-      @keyframes rotate1 {
-        0% {
-          transform: rotate(0deg);
-        }
-        50% {
-          transform: rotate(10deg);
-        }
-        100% {
-          transform: rotate(0deg);
-        }
-      }      
+  @keyframes rotate1 {
+    0% {
+      transform: rotate(0deg);
+    }
+    50% {
+      transform: rotate(10deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }
 }
-.meow{
-
+.meow {
   position: absolute;
   top: 0px;
   bottom: 5px;
   left: 5px;
   animation: rotate2 1s infinite;
 
-      @keyframes rotate2 {
-        0% {
-          transform: rotate(0deg);
-        }
-        50% {
-          transform: rotate(-10deg);
-        }
-        100% {
-          transform: rotate(0deg);
-        }
-      }      
+  @keyframes rotate2 {
+    0% {
+      transform: rotate(0deg);
+    }
+    50% {
+      transform: rotate(-10deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }
 }
-
