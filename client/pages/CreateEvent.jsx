@@ -106,7 +106,7 @@ const Event = () => {
           />
           <h4>Event date: {formatDate(date)}</h4>
           <Link to='/dashboard' className={styles.eventLink}>
-            View your Participants
+            view my events
           </Link>
         </div>
       )}

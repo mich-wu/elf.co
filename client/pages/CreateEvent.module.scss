@@ -164,31 +164,37 @@
       }
     }
   }
-  .copyLinkContainer {
+  .copyLinkContainer {    
     height: 7.5rem;
     width: 7.5rem;
     background-color: $bodyRed;
     position: absolute;
     border-radius: 15px;
     bottom: 13.5rem;
-    right: -3rem;
-    padding: 1rem;
+    right: -5rem;
+    padding: 1rem 2rem;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
     box-shadow: $shadow;
+    justify-content: space-evenly;
+   
+
+   
 
     p {
       color: $white;
       font-family: $body-font-family;
       font-size: 1.2rem;
+      word-wrap: break-word;
+      
     }
 
     img {
-      height: 4.5rem;
-      width: 4.5rem;
-      top: 0;
-      right: -2.8rem;
+      height: 7rem;
+      width: auto;
+      top:5.1rem;
+      right: -2.2rem;
       animation: rotate 1s infinite;
 
       @keyframes rotate {
@@ -206,13 +212,22 @@
 
     button {
       justify-self: center;
-      align-self: center;
-      border: 1px solid $white;
+      align-self: flex-start;
+    
+      font-size: 1.1rem;
+      padding: 0.5rem;
 
-      background-color: #b44e41be;
+
+      background-color: $headerPrimary;
       border-radius: 5px;
       color: $text-white;
       cursor: pointer;
+      border:none;
+
+      &:hover {
+        background-color: $bodyGold;
+        border:none
+      }
     }
   }
 
@@ -227,6 +242,7 @@
 
   .eventLink {
     color: $bodyRed;
+    text-transform: capitalize;
 
     margin: 0 auto;
 
@@ -243,7 +259,7 @@
     font-weight: 900;
 
     &:hover {
-      background-color: $bodyRed;
+      background-color: $bodyGold;
     }
   }
 
