@@ -16,7 +16,7 @@
   border-radius: 5px;
   box-shadow: $shadow;
 
-  h2{
+  h2 {
     font-size: 3.2rem;
   }
 
@@ -40,7 +40,6 @@
     margin: 2rem auto;
     max-width: 40ch;
     word-wrap: break-word;
-  
   }
 
   .header {
@@ -61,156 +60,146 @@
   }
 
   .inviteForm {
-      display: flex;
-      flex-direction: column;
-      height: 8rem;
+    display: flex;
+    flex-direction: column;
+    height: 8rem;
 
-      // grid-template-columns: 1fr 3fr;
+    margin: 0 auto;
+
+    margin-top: 5rem;
+
+    label {
+      font-size: 1.6rem;
+      color: $headerTertiary;
+      font-family: $body-font-family;
+    }
+    input {
+      background-color: $headerTertiary;
+      border-radius: 10px;
+      color: $text-white;
+      font-size: 1.6rem;
+      padding: 0.8rem;
+      text-align: center;
+      height: 2.6rem;
+      width: 30rem;
+      font-family: $body-font-family;
+      &::placeholder {
+        text-align: center;
+        color: #f7f7f78f;
+      }
+    }
+
+    button {
+      background-color: $headerTertiary;
+      border-color: $headerTertiary;
+      border-radius: 10px;
+      color: $text-white;
+      font-size: 1.4rem;
+      padding: 1rem;
+      width: 15rem;
       margin: 0 auto;
-      // gap: 2rem;
-      margin-top: 5rem;
+      margin-top: 4.2rem;
+      font-family: $body-font-family;
+      cursor: pointer;
+      border: none;
 
-      label {
-        font-size: 1.6rem;
-        color: $headerTertiary;
-        font-family: $body-font-family;
+      &:hover {
+        background-color: $lighterMainGreen;
       }
-      input {
-        background-color: $headerTertiary;
-        border-radius: 10px;
-        color: $text-white;
-        font-size: 1.6rem;
-        padding: 0.8rem;
-        text-align: center;
-        height: 2.6rem;
-        width: 30rem;
-        font-family: $body-font-family;
-      &::placeholder{
-        text-align: center;
-        color:#f7f7f78f
-        ;
-      }
-      }
-
-      button {
-        background-color: $headerTertiary;
-        border-color:$headerTertiary;
-        border-radius: 10px;
-        color: $text-white;
-        font-size: 1.4rem;
-        padding: 1rem;
-        width: 15rem; 
-        margin: 0 auto;
-        margin-top: 4.2rem;
-        font-family: $body-font-family;
-        cursor: pointer;
-        border:none;
-
-        &:hover {
-          background-color:$lighterMainGreen;
-        }
-        
     }
   }
-  
 }
 
-
-.eventLinkContainer{
-  
-  // background-color: lawngreen;
+.eventLinkContainer {
   display: flex;
   flex-direction: row;
   position: relative;
   // width: 87rem;
   margin-top: 3.4rem;
   margin-bottom: 3.4rem;
-  
-  
-.linkContainer {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-  background-color: $bodyGold;
-  margin: 0 auto;
- 
-  border-radius: 1rem;
-  color: $white;
-  padding: 2rem;
-  width: 70rem;
-  
 
-  p {
-    text-align: center;
-    font-weight: 900;
-    font-size: 2.2rem;
+  .linkContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    background-color: $bodyGold;
+    margin: 0 auto;
+
+    border-radius: 1rem;
     color: $white;
-    font-family: $body-font-family;
-  }
-  a {
-    color: $white;
-    font-size: 2.2rem;
-    font-weight: 900;
-    text-decoration: none;
-    text-align: center;
-    font-family: $body-font-family;
+    padding: 2rem;
+    width: 70rem;
 
-
-    &:hover {
-      text-decoration: underline;
-      color: $lightBackground;
+    p {
+      text-align: center;
+      font-weight: 900;
+      font-size: 2.2rem;
+      color: $white;
+      font-family: $body-font-family;
     }
-  }
-}
-.copyLinkContainer {
-  height: 7.5rem;
-  width: 7.5rem;
-  background-color: $bodyRed;
-  position: absolute;
-  border-radius: 35px;
-  top: -2rem;
-  right: 20rem;
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  box-shadow: $shadow;
+    a {
+      color: $white;
+      font-size: 2.2rem;
+      font-weight: 900;
+      text-decoration: none;
+      text-align: center;
+      font-family: $body-font-family;
 
-  p {
-    color: $white;
-    font-family: $body-font-family;
-    font-size: 1.2rem;
-  }
-
-  img {
-    height: 4.5rem;
-    width: 4.5rem;
-    top: 0;
-    right: -2.8rem;
-    animation: rotate 1s infinite;
-
-    @keyframes rotate {
-      0% {
-        transform: rotate(0deg);
-      }
-      50% {
-        transform: rotate(10deg);
-      }
-      100% {
-        transform: rotate(0deg);
+      &:hover {
+        text-decoration: underline;
+        color: $lightBackground;
       }
     }
   }
+  .copyLinkContainer {
+    height: 7.5rem;
+    width: 7.5rem;
+    background-color: $bodyRed;
+    position: absolute;
+    border-radius: 35px;
+    top: -2rem;
+    right: 20rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    box-shadow: $shadow;
 
-  button {
-    justify-self: center;
-    align-self: center;
-    border: none;
-    padding: 0.5rem;
-    background-color: #ff8372;
-    border-radius: 5px;
-    color: $text-white;
-    cursor: pointer;
+    p {
+      color: $white;
+      font-family: $body-font-family;
+      font-size: 1.2rem;
+    }
+
+    img {
+      height: 4.5rem;
+      width: 4.5rem;
+      top: 0;
+      right: -2.8rem;
+      animation: rotate 1s infinite;
+
+      @keyframes rotate {
+        0% {
+          transform: rotate(0deg);
+        }
+        50% {
+          transform: rotate(10deg);
+        }
+        100% {
+          transform: rotate(0deg);
+        }
+      }
+    }
+
+    button {
+      justify-self: center;
+      align-self: center;
+      border: none;
+      padding: 0.5rem;
+      background-color: #ff8372;
+      border-radius: 5px;
+      color: $text-white;
+      cursor: pointer;
+    }
   }
-}
 }
