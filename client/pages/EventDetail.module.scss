@@ -10,11 +10,12 @@
 
   width: 80rem;
   margin: 0 auto;
-  margin-top: 9.6rem;
+  // margin-top: 9.6rem;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   box-shadow: $shadow;
-  min-height: 50rem;
+  height: 60rem;
+
   position: relative;
 
   .header {
@@ -32,6 +33,16 @@
     padding-bottom: 0.5rem;
     position: relative;
     width: fit-content;
+  }
+
+  .secondaryHeading {
+    color: $black;
+    font-family: $heading-font-family;
+    font-size: 3.4rem;
+    font-weight: 900;
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
   }
 
   .unsortedGuests {
@@ -84,6 +95,8 @@
         border-radius: 5px;
         color: $text-white;
         cursor: pointer;
+        padding: 0.3rem 0.5rem;
+        height: 2.5rem;
 
         &:hover {
           background-color: $lighterMainGreen;
@@ -94,7 +107,7 @@
   }
 
   .unsortedGuestsGrid {
-    margin-top: 2rem;
+    margin-top: 1rem;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(auto, 1fr);
@@ -108,10 +121,10 @@
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
-      padding: 1rem;
+      padding: 2rem 1rem;
       border-radius: 10px;
       width: 10rem;
-      margin: 1rem 0;
+      margin: 1rem 0rem;
       height: 1.5rem;
 
       p {
@@ -180,8 +193,8 @@
         border-radius: 5px;
         color: $text-white;
         cursor: pointer;
-        padding: 0.3rem 0.5rem;
-        width: 4rem;
+        padding: 0.3rem 1rem;
+        width: 8rem;
 
         &:hover {
           background-color: $lighterMainGreen;
@@ -208,18 +221,6 @@
     position: relative;
     max-width: 60rem;
     margin-top: 3rem;
-
-    // .secondaryHeading {
-    //   color: $black;
-    //   font-family: $heading-font-family;
-    //   font-size: 3.2rem;
-    //   font-weight: 900;
-    //   text-align: center;
-    //   width: 100%;
-    //   margin: 0 auto;
-    //   grid-column: 1 /4;
-    //   margin-bottom: 2rem;
-    // }
 
     .assignedGuestWrapper {
       display: flex;
@@ -252,7 +253,7 @@
         color: $text-white;
         cursor: pointer;
         padding: 0.3rem 0.5rem;
-        width: 4rem;
+        width: 8rem;
 
         &:hover {
           background-color: $lighterMainGreen;

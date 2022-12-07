@@ -80,10 +80,11 @@ const EventDetail = () => {
   return (
     <div className={styles.guestContainer}>
       <h1 className={styles.header}>Secret Santa</h1>
+      <h2 className={styles.secondaryHeading}>Participants</h2>
       {assigned ? (
         <div
           className={
-            guestList.length > 6 ? styles.sortedGuestsGrid : styles.sortedGuests
+            guestList.length > 7 ? styles.sortedGuestsGrid : styles.sortedGuests
           }
         >
           {guestList?.map((participant, i) => {
@@ -107,7 +108,7 @@ const EventDetail = () => {
         <>
           <div
             className={
-              guestList.length > 6
+              guestList.length > 7
                 ? styles.unsortedGuestsGrid
                 : styles.unsortedGuests
             }
