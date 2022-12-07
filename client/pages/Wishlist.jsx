@@ -85,6 +85,12 @@ export default function Wishlist() {
     navigator.clipboard.writeText(`localhost:5173/invite/${guest_code}`)
   }
 
+  function formatDate(date) {
+    const eventDate = new Date(date)
+    const options = { year: 'numeric', month: 'long', day: 'numeric' }
+    return eventDate.toLocaleDateString('en-NZ', options)
+  }
+
   return (
     <div>
       <div className={styles.eventContainer}>
@@ -111,8 +117,8 @@ export default function Wishlist() {
             <div className={styles.assignedWishlist}>
               <p>Their wish list: {assignedWishlist?.wishlist}.</p>
               <p>
-                Make sure you have your gift sorted by the {event[0].date}, the
-                budget is ${event[0].budget}{' '}
+                Make sure you have your gift sorted by the{' '}
+                {formatDate(event[0].date)}, the budget is ${event[0].budget}{' '}
               </p>
               <img
                 src='/server/public/assets/tree.PNG'
