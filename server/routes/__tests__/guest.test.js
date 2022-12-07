@@ -13,8 +13,8 @@ beforeEach(() => connection.seed.run())
 afterAll(() => connection.destroy())
 
 // [x].get('/', guestController.getWishlist)
-// [ ].get('/:id', guestController.getWishlistById)
-// [ ].get('/:id/event', guestController.getEventById)
+// [x].get('/:id', guestController.getWishlistById)
+// [?].get('/:id/event', guestController.getEventById)
 // [ ].get('/:guest_code/assigned', guestController.getWishListByGuestCode)
 // [ ].post('/', guestController.createWishlist)
 // [ ].patch('/:id', guestController.updatedWishlist)
@@ -69,6 +69,24 @@ describe('GET :id/event', () => {
       .then((res) => {
         expect(res.status).toBe(200)
         // expect(res.body).toEqual(expectedEvent)
+      })
+  })
+})
+
+describe('GET /:guest_code/assigned', () => {
+  it('Gets wishlist of assigned buddy', () => {
+    const expectedBuddyWishlist = {
+      id: 3,
+      guest_code: '6F81E9A7DA6AD157DD9C774D3289AC10',
+      event_id: 2,
+      name: 'Bella',
+      wishlist: 'a new house',
+    }
+
+    return request(server)
+      .get('/api/v1/wishlist/6F81E9A7DA6AD157DD9C774D3289AC10/assigned')
+      .then((res) => {
+        expect(res.status).toBe(200)
       })
   })
 })

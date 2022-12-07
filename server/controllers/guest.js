@@ -25,7 +25,7 @@ export default {
 
     try {
       const result = await db.getWishlistById(id)
-      
+
       res.json(result)
     } catch (err) {
       console.err(err)
@@ -116,7 +116,7 @@ export default {
       const wishlist = await db.getWishListByGuestCode(guest_code)
 
       const gifter = await db.getById(wishlist[0]?.gifter_id)
-
+      console.log(wishlist, 'check controller')
       res.status(200).json(gifter)
     } catch (err) {
       console.error(err.message)
