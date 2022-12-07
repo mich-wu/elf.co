@@ -87,7 +87,11 @@
         font-size: 2rem;
         padding: 3rem 1rem;
         border: none;
+        &::placeholder {
 
+          color: #f7f7f78f;
+          
+          }
         &:focus {
           outline: 4px solid $bodyGold;
         }
