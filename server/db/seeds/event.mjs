@@ -1,8 +1,6 @@
 export const seed = async (knex) => {
-  // Deletes ALL existing entries
   await knex('event').del()
 
-  // Inserts seed entries
   await knex('event').insert([
     {
       event_id: 1,

@@ -8,13 +8,12 @@ import {
   getEvent,
   updateEventStatus,
 } from '../apiClient/event.js'
-
-// TODO: Refactor filterParticipants and findGifter to the backend
+import styles from './EventDetail.module.scss'
 
 const EventDetail = () => {
   const { event_id } = useParams()
   const [guestList, setGuestList] = useState([])
-  const [assigned, setAssigned] = useState(null)
+  const [assigned, setAssigned] = useState([])
 
   const filterParticipants = (participants) => {
     return participants.filter(
@@ -25,7 +24,8 @@ const EventDetail = () => {
   const findGifter = (gifter_id) => {
     const gifter = guestList.find((participant) => participant.id === gifter_id)
 
-    return gifter?.name
+    const name = trim(gifter?.name)
+    return name
   }
 
   const handleDelete = async (guest_id) => {
@@ -57,16 +57,41 @@ const EventDetail = () => {
     setAssigned(updatedStatus.status)
   }
 
+  if (guestList === undefined) {
+    return <h1>Loading...</h1>
+  }
+
+  const trim = (name) => {
+    if (name === undefined) return
+
+    if (name.includes(' ')) {
+      return (
+        <span className={styles.nameWrapper}>
+          {name.split(' ')[0]}
+          <span className={styles.nameTooltip}>{name}</span>
+        </span>
+      )
+    }
+    return name
+  }
+
   return (
-    <div className='event-details'>
+    <div className={styles.guestContainer}>
+      <h1 className={styles.header}>Secret Santa</h1>
+      <h2 className={styles.secondaryHeading}>Participants</h2>
       {assigned ? (
-        guestList.map((participant, i) => {
-          return (
-            <div key={i}>
-              <div>
-                <p>Name: {participant.name}</p>
-                <p>Wishlist: {participant.wishlist}</p>
-                <p>Gifter: {findGifter(participant.gifter_id)}</p>
+        <div
+          className={
+            guestList.length > 7 ? styles.sortedGuestsGrid : styles.sortedGuests
+          }
+        >
+          {guestList?.map((participant, i) => {
+            return (
+              <div key={i} className={styles.assignedGuestWrapper}>
+                <p>{trim(participant.name)}</p>
+
+                <p className={styles.arrowThing}>→</p>
+                <p>{findGifter(participant.gifter_id)}</p>
 
                 <div>
                   <button onClick={() => handleDelete(participant.id)}>
@@ -74,31 +99,43 @@ const EventDetail = () => {
                   </button>
                 </div>
               </div>
-            </div>
-          )
-        })
+            )
+          })}
+        </div>
       ) : (
-        <div>
-          {guestList.map((participant, i) => {
-            return (
-              <div key={i}>
-                <div>
-                  <p>Name: {participant.name}</p>
-                  <p>Wishlist: {participant.wishlist}</p>
-                  <div>
+        <>
+          <div
+            className={
+              guestList.length > 7
+                ? styles.unsortedGuestsGrid
+                : styles.unsortedGuests
+            }
+          >
+            {guestList?.map((participant, i) => {
+              return (
+                <div key={i}>
+                  <div className={styles.guestWrapper}>
+                    <p>{trim(participant.name)}</p>
+
                     <button onClick={() => handleDelete(participant.id)}>
                       Delete
                     </button>
                   </div>
                 </div>
-              </div>
-            )
-          })}
-          <div>
-            <button onClick={handleDraw}>Draw</button>
+              )
+            })}
           </div>
-        </div>
+          <button className={styles.drawBtn} onClick={handleDraw}>
+            Draw
+          </button>
+        </>
       )}
+      <img
+        src='/server/public/assets/tree.PNG'
+        alt='a cartoon of a person dressed as a christmas tree'
+        draggable='false'
+        className={styles.treeImg}
+      />
     </div>
   )
 }

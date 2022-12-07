@@ -153,7 +153,6 @@ describe('updateGuest', () => {
   })
 })
 
-//NEED HELP
 describe('updateWishlistGifterApi', () => {
   it('updates a secret santa guests wishlist', () => {
     const assignment = {

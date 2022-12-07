@@ -1,10 +1,19 @@
 @use '../styles/_theme' as theme;
 
-
 .navbar {
-  display: flex; justify-content: space-between; align-items: center;
-  gap: 8px; padding: 50px; background-color: theme.$headerPrimary; color: theme.$white;
-  font-size: 1.2rem; font-family: theme.$heading-font-family; font-weight: bolder; white-space: nowrap;  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  gap: 8px;
+  padding: 2rem;
+  background-color: theme.$headerPrimary;
+  color: theme.$white;
+
+  font-family: theme.$heading-font-family;
+  font-weight: bolder;
+  white-space: nowrap;
+
   a {
     color: theme.$white;
     text-decoration: none;
@@ -15,29 +24,34 @@
   }
 }
 
-.title { font-size: 3rem; }
+.title {
+  font-size: 3.4em;
+}
 
 .links {
-  display: flex; justify-content: space-around; gap: 48px;
-  margin-left: 48px;
+  display: flex;
+  justify-content: space-around;
+  gap: 4.8rem;
+  margin-left: 4.8rem;
 }
 
 .signup {
-padding: 10px 30px 10px 30px;
-background-color: theme.$headerTertiary;
-border-color: theme.$headerTertiary;
-border-width: 4px;
-border-radius: 10px;
-border-style: solid;
-font-size: 20px;
-font-family: theme.$heading-font-family;
-a {
-  color: theme.$text-white;
-}
+  padding: 10px 30px 10px 30px;
+
+  background-color: theme.$headerTertiary;
+  border-color: theme.$headerTertiary;
+  border-width: 4px;
+  border-radius: 10px;
+  border-style: solid;
+  font-size: 20px;
+  font-family: theme.$heading-font-family;
+  a {
+    color: theme.$text-white;
+  }
 }
 
 .login {
-  padding: 10px 30px 10px 30px;
+  padding: 1rem 3rem 1rem 3rem;
   background-color: theme.$lightBackground;
   border-color: theme.$headerTertiary;
   border-width: 4px;
@@ -56,5 +70,5 @@ a {
   background-color: theme.$lighterMainGreen;
 }
 .signup:hover {
-background-color: theme.$lighterMainGreen;
+  background-color: theme.$lighterMainGreen;
 }

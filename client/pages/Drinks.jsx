@@ -46,70 +46,68 @@ const Drinks = () => {
   }
 
   return (
-    <>
-      <div>
-        <h1 className={styles.drunkTitle}>DRUNK SANTA</h1>
-        <div className={styles.drinksContainer}>
-          <img
-            src={drink?.strDrinkThumb}
-            width='50%'
-            height='50%'
-            alt={drink?.srtDrink}
-            onLoad={handleLoad}
-          ></img>
+    <div className={styles.container}>
+      <h1 className={styles.drunkTitle}>DRUNK SANTA</h1>
+      <div className={styles.drinksContainer}>
+        <img
+          src={drink.strDrinkThumb}
+          alt={drink.srtDrink}
+          onLoad={handleLoad}
+          height='50%'
+          width='50%'
+        ></img>
 
-          {showText ? (
-            <>
-              <div className={styles.infoContainer}>
-                <h1>{drink?.strDrink}</h1>
-                <hr></hr>
-                <div className={styles.catGlassContainer}>
-                  <h2 className={styles.catGlasschild1}>
-                    Category: <span>{drink?.strCategory}</span>
-                  </h2>
-                  <h2 className={styles.catGlasschild2}>
-                    Glass type: <span>{drink?.strGlass}</span>{' '}
-                  </h2>
-                </div>
-
-                <hr />
-                <h2 id='ingredients'>Ingredients:</h2>
-                <ul aria-labelledby='ingredients'>
-                  {ingredients?.map((ingredient, key) => {
-                    return (
-                      <li key={key}>
-                        {measures[key] || 'Add'} {ingredient}
-                      </li>
-                    )
-                  })}
-                </ul>
-                <div className={styles.instructions}>
-                  <h2>Instructions:</h2> <p>{drink?.strInstructions}</p>
-                </div>
+        {showText ? (
+          <div className={styles.content}>
+            <div className={styles.infoContainer}>
+              <h1>{drink.strDrink}</h1>
+              <hr></hr>
+              <div className={styles.catGlassContainer}>
+                <h2 className={styles.catGlasschild1}>
+                  Category: <span>{drink.strCategory}</span>
+                </h2>
+                <h2 className={styles.catGlasschild2}>
+                  Glass type: <span>{drink.strGlass}</span>{' '}
+                </h2>
               </div>
-            </>
-          ) : (
-            <div className={styles.spinner}>
-              <Spinner loading={loading} />
+
+              <hr />
+              <h2 id='ingredients'>Ingredients:</h2>
+              <ul aria-labelledby='ingredients'>
+                {ingredients?.map((ingredient, key) => {
+                  return (
+                    <li key={key}>
+                      {measures[key] || 'Add'} {ingredient}
+                    </li>
+                  )
+                })}
+              </ul>
+              <div className={styles.instructions}>
+                <h2>Instructions:</h2> <p>{drink.strInstructions}</p>
+              </div>
             </div>
-          )}
-        </div>
-        <div className={styles.centerButton}>
-          <button
-            onClick='window.location.reload()'
-            className={styles.drinksButton}
-          >
-            <Link to='/drinks'>RANDOMISE DRINK</Link>
-          </button>
-          <img
-            src='../../server/public/tree.PNG'
-            alt='christmas tree'
-            width='80'
-            className={styles.treeImage}
-          ></img>
-        </div>
+          </div>
+        ) : (
+          <div className={styles.spinner}>
+            <Spinner loading={loading} />
+          </div>
+        )}
       </div>
-    </>
+      <div className={styles.centerButton}>
+        <button
+          onClick='window.location.reload()'
+          className={styles.drinksButton}
+        >
+          <Link to='/drinks'>RANDOMISE DRINK</Link>
+        </button>
+        <img
+          src='../../server/public/assets/tree.PNG'
+          alt='christmas tree'
+          width='80'
+          className={styles.treeImage}
+        ></img>
+      </div>
+    </div>
   )
 }
 

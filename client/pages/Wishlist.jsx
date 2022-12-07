@@ -18,7 +18,6 @@ export default function Wishlist() {
   const [eventResult, setEventResult] = useState([])
   const [assignedWishlist, setAssignedWishlist] = useState(null)
 
-  //TODO: Refactor this to 1 function call fetchData, which stores a joined table of event and wishlist
   useEffect(() => {
     async function fetchData() {
       const wishlist = await getWishlistByIdApi(guest_code)
@@ -31,7 +30,7 @@ export default function Wishlist() {
       setAssignedWishlist(assigned)
     }
     fetchData()
-  }, [guest_code]) //changed guest_code
+  }, [guest_code])
 
   const handleEdit = () => {
     setShowForm(!showForm)
@@ -81,6 +80,16 @@ export default function Wishlist() {
     )
   }
 
+  const copyLink = () => {
+    navigator.clipboard.writeText(`localhost:5173/invite/${guest_code}`)
+  }
+
+  function formatDate(date) {
+    const eventDate = new Date(date)
+    const options = { year: 'numeric', month: 'long', day: 'numeric' }
+    return eventDate.toLocaleDateString('en-NZ', options)
+  }
+
   return (
     <div>
       <div className={styles.eventContainer}>
@@ -90,7 +99,9 @@ export default function Wishlist() {
           <div className={styles.createEventContainer}>
             <h2 className={styles.secondaryHeading}>Your Buddy</h2>
             <p>
-              For the "{newWish.name}" secret Santa, you have been assigned:
+              For the {"'"}
+              {event[0].event_name}
+              {"'"} event, your buddy is:
             </p>
             <div className={styles.assignedName}>
               {assignedWishlist?.name}
@@ -105,8 +116,8 @@ export default function Wishlist() {
             <div className={styles.assignedWishlist}>
               <p>Their wish list: {assignedWishlist?.wishlist}.</p>
               <p>
-                Make sure you have your gift sorted by the {event[0].date}, the
-                budget is ${event[0].budget}{' '}
+                Make sure you have your gift sorted by{' '}
+                {formatDate(event[0].date)}, the budget is ${event[0].budget}{' '}
               </p>
               <img
                 src='/server/public/assets/tree.PNG'
@@ -165,6 +176,23 @@ export default function Wishlist() {
                       className={styles.treeImg}
                       draggable='false'
                     />
+                  </div>
+                  <div className={styles.eventLinkContainer}>
+                    <div className={styles.linkContainer}>
+                      <p>Your Event Link:</p>
+                      <a href={`http://localhost:5173/invite/${guest_code}`}>
+                        http://elf.co/invite/{guest_code}
+                      </a>
+                      <div className={styles.copyLinkContainer}>
+                        <p>Save this link to come back to your wishlist.</p>
+                        <img
+                          src='/server/public/assets/Secret-Santa-.png'
+                          alt='santa hushing'
+                          className={styles.santaCopyLinkImg}
+                        />
+                        <button onClick={copyLink}>Copy Link</button>
+                      </div>
+                    </div>
                   </div>
                 </>
               )}

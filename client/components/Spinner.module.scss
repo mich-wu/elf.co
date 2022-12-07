@@ -4,7 +4,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+
+  position: fixed;
+  left: 0;
+
+  height: 55vh;
+
+  width: 100%;
 }
 
 .spinner__circle {

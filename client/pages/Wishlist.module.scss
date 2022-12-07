@@ -10,7 +10,7 @@
 
   width: 80rem;
   margin: 0 auto;
-  margin-top: 9.6rem;
+
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   box-shadow: $shadow;
@@ -28,7 +28,7 @@
 
     border-bottom: 8px solid $bodyGold;
     margin: 0 auto;
-    padding-bottom: 0.5rem;
+
     position: relative;
     width: fit-content;
   }
@@ -40,9 +40,11 @@
     flex-direction: column;
     margin: 0 auto;
     padding: 1rem;
+    gap: 1rem;
     width: fit-content;
 
     position: relative;
+    height: 25em;
     width: 40rem;
 
     .secondaryHeading {
@@ -84,6 +86,11 @@
         font-family: $body-font-family;
         font-size: 2rem;
         padding: 3rem 1rem;
+        border: none;
+
+        &:focus {
+          outline: 4px solid $bodyGold;
+        }
       }
 
       button {
@@ -108,12 +115,12 @@
     }
 
     .wishlistItem {
-      font-size: 2.4rem;
+      font-size: 3.4rem;
       font-weight: 400;
       color: $headerPrimary;
       margin: 0 auto;
 
-      margin-top: 3rem;
+      margin-top: 2rem;
     }
 
     .editBtn {
@@ -131,6 +138,7 @@
       margin: 0 auto;
       transition: all 0.2s ease-in-out;
       margin-top: 4.8rem;
+      margin-bottom: 2rem;
 
       &:hover {
         background-color: $bodyGold;
@@ -141,7 +149,7 @@
       font-weight: 400;
       color: $headerPrimary;
 
-      margin-top: 9.6rem;
+      margin-top: 2rem;
     }
   }
   .treeImg {
@@ -149,7 +157,7 @@
     bottom: 2rem;
     left: -20rem;
     width: auto;
-    height: 15rem;
+    height: 20rem;
   }
 
   .catImg {
@@ -161,7 +169,8 @@
   }
 
   .assignedName {
-    font-size: 2.4rem;
+    font-size: 3.4rem;
+    text-transform: capitalize;
     font-weight: 400;
     background: $headerTertiary;
     color: $text-white;
@@ -201,11 +210,137 @@
     }
     .treeImAssigned {
       position: absolute;
-      bottom: -3rem;
+      bottom: 3rem;
       right: -5rem;
       width: auto;
-      height: 12rem;
+      height: 15rem;
+      transform: rotate(3deg);
     }
+  }
+  .linkContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    background-color: $bodyGold;
+    border-radius: 1rem;
+    color: $white;
+    padding: 2rem;
+    height: 4rem;
+
+    p {
+      text-align: center;
+      font-weight: 900;
+      font-size: 2.2rem;
+      color: $white;
+      font-family: $body-font-family;
+    }
+    a {
+      color: $white;
+      font-size: 1.8rem;
+      font-weight: 900;
+      text-decoration: none;
+      text-align: center;
+      font-family: $body-font-family;
+      padding: 0rem 5rem;
+
+      &:hover {
+        text-decoration: underline;
+        color: $lightBackground;
+      }
+    }
+  }
+  .copyLinkContainer {
+    height: 7.5rem;
+    width: 7.5rem;
+    background-color: $bodyRed;
+    position: relative;
+    border-radius: 15px;
+    bottom: 4.5rem;
+    right: -57rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    box-shadow: $shadow;
+
+    p {
+      color: $white;
+      font-family: $body-font-family;
+      font-size: 1.2rem;
+    }
+
+    img {
+      position: absolute;
+      height: 4.5rem;
+      width: 4.5rem;
+      top: 1rem;
+      right: -2.8rem;
+      animation: rotate 1s infinite;
+
+      @keyframes rotate {
+        0% {
+          transform: rotate(0deg);
+        }
+        50% {
+          transform: rotate(10deg);
+        }
+        100% {
+          transform: rotate(0deg);
+        }
+      }
+    }
+
+    button {
+      justify-self: center;
+      align-self: center;
+      border: 1px solid $white;
+
+      background-color: #b44e41be;
+      border-radius: 5px;
+      color: $text-white;
+      cursor: pointer;
+    }
+  }
+
+  h4 {
+    color: $text-black;
+    font-family: $heading-font-family;
+    font-size: 3.4rem;
+    font-weight: 900;
+    text-align: center;
+    text-shadow: $shadow;
+  }
+
+  .eventLink {
+    color: $bodyRed;
+
+    margin: 0 auto;
+
+    padding: 1rem;
+    text-align: center;
+    text-decoration: none;
+    width: fit-content;
+    background-color: $headerSecondary;
+    border-radius: 8px;
+    color: $text-white;
+    cursor: pointer;
+    font-family: $body-font-family;
+    font-size: 1.6rem;
+    font-weight: 900;
+
+    &:hover {
+      background-color: $bodyRed;
+    }
+  }
+
+  .rudolphImg {
+    width: 5rem;
+    height: 5rem;
+    height: auto;
+    position: absolute;
+    top: 19rem;
+    left: -5rem;
+    transform: rotate(-10deg);
   }
 }
 

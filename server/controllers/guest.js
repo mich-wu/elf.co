@@ -2,13 +2,6 @@ import { v4 as uuidv4 } from 'uuid'
 
 import * as db from '../db/functions/guest.js'
 
-/* 
-TODO: refactor duplicate functions to remove duplication.
-- duplicate functions: getWishlist, getWishlistById, getWishListByGuestCode
-- duplicate functions: updatedWishlist, updateWishlistGifter
-
-*/
-
 export default {
   getWishlist: async (req, res) => {
     try {
@@ -90,7 +83,6 @@ export default {
   },
 
   getEventById: async (req, res) => {
-    //get wishlist by guest_code and then get event by event_id
     const { id } = req.params
 
     try {
@@ -98,7 +90,6 @@ export default {
 
       const event = await db.getEventById(wishlist[0].event_id)
       res.status(200).json(event)
-      // res.json(event)
     } catch (err) {
       console.error(err.message)
       res

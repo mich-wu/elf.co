@@ -1,5 +1,3 @@
-//DRINKS API BELOW//
-
 import express from 'express'
 const router = express.Router()
 import request from 'superagent'

@@ -3,15 +3,16 @@
 .eventContainer {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+
+  place-content: center;
   gap: 2rem;
   background-color: $white;
   padding: 5rem;
 
-  width: 80rem;
+  height: 50rem;
+  width: 90rem;
   margin: 0 auto;
-  margin-top: 9.6rem;
+
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   box-shadow: $shadow;
@@ -41,7 +42,7 @@
     margin: 0 auto;
     padding: 1rem;
     width: fit-content;
-    // gap: 5rem;
+
     position: relative;
 
     .secondaryHeading {
@@ -60,9 +61,10 @@
       margin: 0 auto;
       gap: 2rem;
       margin-top: 5rem;
+      height: 34rem;
 
       label {
-        font-size: 1.6rem;
+        font-size: 2.4rem;
 
         color: $headerTertiary;
         font-family: $body-font-family;
@@ -71,9 +73,19 @@
         background-color: $headerTertiary;
         border-radius: 10px;
         color: $text-white;
-        font-size: 1.6rem;
-        height: 2.6rem;
+        font-size: 2.4rem;
+        height: 3.6rem;
         font-family: $body-font-family;
+        border: 2px solid $headerTertiary;
+
+        &::placeholder {
+          color: $text-white;
+          font-size: 2.4rem;
+        }
+        &:focus {
+          outline: none;
+          border: 2px solid $bodyGold;
+        }
       }
 
       button {
@@ -89,14 +101,21 @@
         white-space: nowrap;
         margin-top: 4.2rem;
         font-family: $body-font-family;
+        border: 2px solid $headerTertiary;
+
+        &:hover {
+          cursor: pointer;
+          background-color: $lighterMainGreen;
+          border: 2px solid $bodyGold;
+        }
       }
     }
     img {
-      width: 10rem;
+      width: 12rem;
       height: auto;
       position: absolute;
-      bottom: 5rem;
-      right: -8rem;
+      bottom: 2rem;
+      right: -10rem;
     }
     h3 {
       color: $bodyRed;
@@ -144,7 +163,7 @@
     width: 7.5rem;
     background-color: $bodyRed;
     position: absolute;
-    border-radius: 35px;
+    border-radius: 15px;
     bottom: 13.5rem;
     right: -3rem;
     padding: 1rem;
@@ -182,9 +201,9 @@
     button {
       justify-self: center;
       align-self: center;
-      border: none;
-      padding: 0.5rem;
-      background-color: #ff8372;
+      border: 1px solid $white;
+
+      background-color: #b44e41be;
       border-radius: 5px;
       color: $text-white;
       cursor: pointer;

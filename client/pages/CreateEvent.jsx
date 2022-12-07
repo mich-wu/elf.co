@@ -28,6 +28,13 @@ const Event = () => {
     navigator.clipboard.writeText(`localhost:5173/invite/${link}`)
   }
 
+  const formatDate = (date) => {
+    const newDate = new Date(date)
+    const options = { year: 'numeric', month: 'long', day: 'numeric' }
+
+    return newDate.toLocaleDateString('en-NZ', options)
+  }
+
   return (
     <div className={styles.eventContainer}>
       <h1 className={styles.header}>Secret Santa</h1>
@@ -97,7 +104,7 @@ const Event = () => {
             alt='santa hushing'
             className={styles.rudolphImg}
           />
-          <h4>Event date: {date}</h4>
+          <h4>Event date: {formatDate(date)}</h4>
           <Link to='/dashboard' className={styles.eventLink}>
             View your Participants
           </Link>

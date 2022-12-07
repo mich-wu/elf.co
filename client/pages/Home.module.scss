@@ -1,18 +1,18 @@
 @use '../styles/_theme' as theme;
 
-
 .home {
   display: flex;
-  margin-top: 10%;
-  flex-direction: row;
+
+  flex-direction: column;
   align-items: flex-start;
-  min-height: 55vh;
-  max-width: 100%;
+  place-content: center;
+  height: 100%;
+  max-width: 150rem;
+  padding: 1rem;
+
   background-color: theme.$lightBackground;
-  body {
-    text-align: center;
-   
-  }
+  margin-top: 0;
+  margin: 0 auto;
 }
 
 .imageContainer {
@@ -34,29 +34,28 @@
   text-decoration: none;
   font-size: 2.6rem;
   font-family: theme.$body-font-family;
-  color: theme.$bodyRed
+  color: theme.$bodyRed;
 }
 
 .image {
   width: 100%;
   height: 100%;
-  max-width: 600px;
-  margin-bottom: 20px;
+  max-width: 60rem;
+  margin-bottom: 2rem;
   margin-top: 0px;
-  transition: transform .5s;
+  transition: transform 0.5s;
 }
 
 .image:hover {
   transform: scale(1.1);
 }
 
-
 .homepageButtons {
   border: 2px solid black;
   background-color: white;
   color: theme.$bodyRed;
-  padding: 5px 24px;
-  font-size: 26px;
+  padding: 0.5rem 2.4rem;
+  font-size: 2.6rem;
   cursor: pointer;
   border-color: #020202;
   color: #000000;
@@ -69,19 +68,14 @@
   color: theme.$bodyRed;
   border-radius: 10px;
   font-size: 26px;
-
 }
 
 .homepageButtons:hover {
-  background-color: #D08C54;
+  background-color: #d08c54;
   color: rgb(255, 255, 255);
-
-
 }
 
 .homepageButtons:hover a {
-  background-color: #D08C54;
+  background-color: #d08c54;
   color: rgb(255, 255, 255);
-
 }
-

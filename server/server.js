@@ -14,8 +14,6 @@ const server = express()
 server.use(express.urlencoded({ extended: true }))
 server.use(express.json())
 
-// api-routes go here
-
 server.get('/api/hello-world', (req, res) => {
   res.json({ message: 'Hello World' })
 })
@@ -25,9 +23,6 @@ server.use('/api/v1/event', eventRoute)
 server.use('/api/v1/wishlist', guestRoute)
 server.use('/api/v1/invite', inviteRoute)
 server.use('/api/v1/peets', peetsRoute)
-
-// example:
-// server.use('/api/dracula', draculaRoutes)
 
 server.use('/api/*', (req, res) => {
   res.sendStatus(404)
