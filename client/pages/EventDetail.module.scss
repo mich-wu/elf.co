@@ -289,3 +289,28 @@
     border: 1px solid $headerTertiary;
   }
 }
+
+.nameWrapper {
+  position: relative;
+  display: inline-block;
+
+  .nameTooltip {
+    visibility: hidden;
+    width: 12rem;
+    background-color: $headerTertiary;
+    border: 1px solid $headerSecondary;
+
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+
+    position: absolute;
+    z-index: 1;
+    bottom: 150%;
+  }
+
+  &:hover .nameTooltip {
+    visibility: visible;
+  }
+}

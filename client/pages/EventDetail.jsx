@@ -15,7 +15,7 @@ import styles from './EventDetail.module.scss'
 const EventDetail = () => {
   const { event_id } = useParams()
   const [guestList, setGuestList] = useState([])
-  const [assigned, setAssigned] = useState(null)
+  const [assigned, setAssigned] = useState([])
 
   const filterParticipants = (participants) => {
     return participants.filter(
@@ -59,18 +59,22 @@ const EventDetail = () => {
     setAssigned(updatedStatus.status)
   }
 
-  const trim = (name) => {
-    if (!name.includes(' ') || name === null || name === undefined) {
-      return name
-    }
+  if (guestList === undefined) {
+    return <h1>Loading...</h1>
+  }
 
-    const regex = /(\w+)\s(\w{1})/
-    const trimmedName = name.match(regex)[1] + ' ' + name.match(regex)[2]
-    console.log(
-      '🚀 ~ file: EventDetail.jsx:71 ~ trim ~ trimmedName',
-      trimmedName
-    )
-    return trimmedName
+  const trim = (name) => {
+    if (name === undefined) return
+
+    if (name.includes(' ')) {
+      return (
+        <span className={styles.nameWrapper}>
+          {name.split(' ')[0]}
+          <span className={styles.nameTooltip}>{name}</span>
+        </span>
+      )
+    }
+    return name
   }
 
   return (
@@ -108,11 +112,11 @@ const EventDetail = () => {
                 : styles.unsortedGuests
             }
           >
-            {guestList.map((participant, i) => {
+            {guestList?.map((participant, i) => {
               return (
                 <div key={i}>
                   <div className={styles.guestWrapper}>
-                    <p>{trim(participant?.name)}</p>
+                    <p>{trim(participant.name)}</p>
 
                     <button onClick={() => handleDelete(participant.id)}>
                       Delete
