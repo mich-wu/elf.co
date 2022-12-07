@@ -12,22 +12,12 @@ beforeAll(() => connection.migrate.latest())
 beforeEach(() => connection.seed.run())
 afterAll(() => connection.destroy())
 
-// [x].get('/', guestController.getWishlist)
-// [x].get('/:id', guestController.getWishlistById)
-// [?].get('/:id/event', guestController.getEventById)
-// [x].get('/:guest_code/assigned', guestController.getWishListByGuestCode)
-// [ ].post('/', guestController.createWishlist)
-// [ ].patch('/:id', guestController.updatedWishlist)
-// [ ].put('/:id', guestController.updateWishlistGifter)
-// [ ].delete('/:id', guestController.deleteWishlist)
-
 describe('GET /', () => {
   it('Renders the getWishlist db info', () => {
     return request(server)
       .get('/api/v1/wishlist')
       .then((res) => {
         expect(res.status).toBe(200)
-        // console.log(res)
       })
   })
 })
@@ -68,7 +58,6 @@ describe('GET :id/event', () => {
       .get('/api/v1/wishlist/9ACE6AD157D6F81D9C774D39A287DA10/event')
       .then((res) => {
         expect(res.status).toBe(200)
-        // expect(res.body).toEqual(expectedEvent)
       })
   })
 })
