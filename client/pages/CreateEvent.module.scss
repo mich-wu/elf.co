@@ -86,29 +86,35 @@
           outline: none;
           border: 2px solid $bodyGold;
         }
+        
       }
 
       button {
-        background-color: $headerTertiary;
-        border-radius: 10px;
+        width: 20rem;
+        
+        height: 4.5rem;
+        border-radius: 11px;
+        border: none;
+        background-color: $headerSecondary;
         color: $text-white;
-        font-size: 1.4rem;
-        padding: 1rem;
-
-        grid-column: 1 / -1;
-        justify-self: center;
-
-        white-space: nowrap;
-        margin-top: 4.2rem;
         font-family: $body-font-family;
-        border: 2px solid $headerTertiary;
+        font-size: 2rem;
+        font-weight: 900;
+        text-align: center;
+        text-shadow: $shadow;
+        cursor: pointer;
+        margin: 0 auto;
+
+        grid-column: auto / span 2;
+       
+        transition: all 0.2s ease-in-out;
 
         &:hover {
-          cursor: pointer;
-          background-color: $lighterMainGreen;
-          border: 2px solid $bodyGold;
+          background-color: $bodyGold;
         }
       }
+      
+     
     }
     img {
       width: 12rem;
