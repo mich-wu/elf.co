@@ -3,9 +3,11 @@
 .dashboard {
   text-align: center;
   font-family: theme.$body-font-family;
-  max-width: 120rem;
+
   width: 90rem;
   height: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
 
   h1 {
     color: theme.$bodyRed;
@@ -37,7 +39,6 @@
   }
 
   button {
-    // padding: 10px 20px 10px 20px;
     padding: 1rem 2rem;
     background-color: theme.$bodyGold;
     margin: 10px;
@@ -60,9 +61,7 @@
   }
   button:hover {
     color: theme.$black;
-    // background-color: theme.$white;
-    // border-color: theme.$bodyGold;
-    // border-width: 4px;
+
     border-style: solid;
   }
 }
