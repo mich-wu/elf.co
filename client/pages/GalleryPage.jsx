@@ -18,7 +18,6 @@ export default function GalleryPage() {
 
       .catch((e) => console.error(e))
   }, [])
-  console.log(peets)
 
   if (loading) {
     return <Spinner />

@@ -22,7 +22,6 @@ export function getWishlistById(id, db = connection) {
 
 // getting all
 export function getWishListByGuestCode(guest_code, db = connection) {
-  console.log(guest_code, 'guest_code')
   return db('guest').where('guest_code', guest_code).select()
 }
 
@@ -43,7 +42,6 @@ export function createWishlist(wish, db = connection) {
 // UPDATE WISHLIST
 
 export function updatedWishlist(id, wish, db = connection) {
-  console.log('id', id)
   return db('guest').where('guest_code', id).update(wish)
 }
 
@@ -61,11 +59,9 @@ export function deleteWishlist(id, db = connection) {
 // what are these doing here
 
 export function getEventByInviteId(invite_id, db = connection) {
-  console.log(invite_id)
   return db('event').where('invite_id', invite_id).first()
 }
 
 export function getEventById(invite_id, db = connection) {
-  console.log(invite_id)
   return db('event').where({ invite_id }).select()
 }

@@ -110,7 +110,7 @@ export default {
 
   getWishListByGuestCode: async (req, res) => {
     const { guest_code } = req.params
-    console.log(guest_code, '^&^^^^^^^^^^')
+
     try {
       const wishlist = await db.getWishListByGuestCode(guest_code)
 

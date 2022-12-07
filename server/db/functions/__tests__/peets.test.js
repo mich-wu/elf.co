@@ -20,7 +20,6 @@ describe('getPeets', () => {
 describe('addPeets', () => {
   it('adds the peets and returns new id', () => {
     return addPeets('petname', 'owner', 'image', testDb).then((newPeet) => {
-      console.log(newPeet)
       expect(newPeet[0]).toBe(4)
     })
   })
