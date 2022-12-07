@@ -67,6 +67,9 @@ export default function InvitePage() {
             value={guestName}
             name='name'
             onChange={(event) => setGuestName(event.target.value)}
+            // add patten to only allow characters and spaces, not numbers or symbols
+            pattern='[A-Za-z ]+'
+            required
           />
           <button type='submit'>Create your wishlist →</button>
         </form>
