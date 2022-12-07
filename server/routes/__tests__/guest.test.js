@@ -15,7 +15,7 @@ afterAll(() => connection.destroy())
 // [x].get('/', guestController.getWishlist)
 // [x].get('/:id', guestController.getWishlistById)
 // [?].get('/:id/event', guestController.getEventById)
-// [ ].get('/:guest_code/assigned', guestController.getWishListByGuestCode)
+// [x].get('/:guest_code/assigned', guestController.getWishListByGuestCode)
 // [ ].post('/', guestController.createWishlist)
 // [ ].patch('/:id', guestController.updatedWishlist)
 // [ ].put('/:id', guestController.updateWishlistGifter)
@@ -74,7 +74,7 @@ describe('GET :id/event', () => {
 })
 
 describe('GET /:guest_code/assigned', () => {
-  it('Gets wishlist of assigned buddy', () => {
+  it('Gets wishlist of assigned buddy', async () => {
     const expectedBuddyWishlist = {
       id: 3,
       guest_code: '6F81E9A7DA6AD157DD9C774D3289AC10',
@@ -82,11 +82,31 @@ describe('GET /:guest_code/assigned', () => {
       name: 'Bella',
       wishlist: 'a new house',
     }
-
+    await request(server).get('/api/v1/event/dashboard/2/assign')
     return request(server)
       .get('/api/v1/wishlist/6F81E9A7DA6AD157DD9C774D3289AC10/assigned')
       .then((res) => {
         expect(res.status).toBe(200)
+        expect(res.body.gifter_id).not.toBeNull()
+      })
+  })
+})
+
+describe('POST /', () => {
+  it('Creates a wishlist for user', () => {
+    const newData = {
+      event_id: 1,
+      name: 'Bob',
+      wishlist: '2 BBQs and another new lawnmower',
+    }
+    return request(server)
+      .post('/api/v1/wishlist')
+      .send(newData)
+      .then((res) => {
+        expect(res.status).toBe(201)
+        expect(res.body[0].wishlist).toContain(
+          '2 BBQs and another new lawnmower'
+        )
       })
   })
 })
