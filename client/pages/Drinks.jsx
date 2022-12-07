@@ -94,12 +94,10 @@ const Drinks = () => {
         )}
       </div>
       <div className={styles.centerButton}>
-        <button
-          onClick='window.location.reload()'
-          className={styles.drinksButton}
-        >
-          <Link to='/drinks'>randomise drink</Link>
-        </button>
+        <Link className={styles.drinksButton} to='/drinks'>
+          randomise drink
+        </Link>
+
         <img
           src='../../server/public/assets/tree.PNG'
           alt='christmas tree'
