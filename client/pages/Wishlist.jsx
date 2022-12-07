@@ -81,6 +81,10 @@ export default function Wishlist() {
     )
   }
 
+  const copyLink = () => {
+    navigator.clipboard.writeText(`localhost:5173/invite/${guest_code}`)
+  }
+
   return (
     <div>
       <div className={styles.eventContainer}>
@@ -92,7 +96,7 @@ export default function Wishlist() {
             <p>
               For the {"'"}
               {newWish.name}
-              {"'"} secret Santa, you have been assigned:
+              {"'"} event, your buddy is:
             </p>
             <div className={styles.assignedName}>
               {assignedWishlist?.name}
@@ -167,6 +171,25 @@ export default function Wishlist() {
                       className={styles.treeImg}
                       draggable='false'
                     />
+                  </div>
+                  <div className={styles.eventLinkContainer}>
+                    <div className={styles.linkContainer}>
+                      <p>Your Event Link:</p>
+                      <a href={`http://localhost:5173/invite/${guest_code}`}>
+                        http://elf.co/invite/{guest_code}
+                      </a>
+                      <div className={styles.copyLinkContainer}>
+                        <p>
+                          Copy and Paste this link to send it to your friends
+                        </p>
+                        <img
+                          src='/server/public/assets/Secret-Santa-.png'
+                          alt='santa hushing'
+                          className={styles.santaCopyLinkImg}
+                        />
+                        <button onClick={copyLink}>Copy Link</button>
+                      </div>
+                    </div>
                   </div>
                 </>
               )}
