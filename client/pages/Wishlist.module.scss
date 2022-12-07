@@ -90,10 +90,8 @@
         padding: 3rem 1rem;
         border: none;
         &::placeholder {
-
           color: #f7f7f78f;
-          
-          }
+        }
         &:focus {
           outline: 4px solid $bodyGold;
         }
@@ -306,20 +304,19 @@
     button {
       justify-self: center;
       align-self: center;
-    
+
       font-size: 1.1rem;
       padding: 0.5rem;
-
 
       background-color: $headerPrimary;
       border-radius: 5px;
       color: $text-white;
       cursor: pointer;
-      border:none;
+      border: none;
 
       &:hover {
         background-color: $bodyGold;
-        border:none
+        border: none;
       }
     }
   }
@@ -363,7 +360,5 @@
     top: 19rem;
     left: -5rem;
     transform: rotate(-10deg);
-
   }
 }
-

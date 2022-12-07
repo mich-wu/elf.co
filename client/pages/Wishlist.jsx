@@ -90,6 +90,19 @@ export default function Wishlist() {
     return eventDate.toLocaleDateString('en-NZ', options)
   }
 
+  const handleText = (text) => {
+    const regex = /\r?\n|\r/
+    const checkText = regex.test(text)
+
+    if (checkText) {
+      return text.split(regex).map((item, i) => {
+        return <li key={i}>{item}</li>
+      })
+    } else {
+      return <li>{text}</li>
+    }
+  }
+
   return (
     <div>
       <div className={styles.eventContainer}>
@@ -141,7 +154,7 @@ export default function Wishlist() {
                     value={newWish.wishlist}
                     onChange={handleChange}
                     placeholder='Type your wishlist here'
-                    maxLength={255}
+                    maxLength={100}
                   />
                   <button type='submit'>Submit</button>
                 </form>
@@ -159,7 +172,9 @@ export default function Wishlist() {
                   <div className={styles.createEventContainer}>
                     <h2 className={styles.secondaryHeading}>Your Wishlist</h2>
 
-                    <h3 className={styles.wishlistItem}>{newWish.wishlist}</h3>
+                    <h3 className={styles.wishlistItem}>
+                      {handleText(newWish.wishlist)}
+                    </h3>
 
                     <button className={styles.editBtn} onClick={handleEdit}>
                       Edit Wishlist

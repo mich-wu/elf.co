@@ -10,7 +10,6 @@
   background-color: theme.$headerPrimary;
   color: theme.$white;
 
-  // font-family: theme.$heading-font-family;
   font-family: theme.$secondary-font-family;
   letter-spacing: 0.9ch;
   font-weight: bolder;
@@ -50,9 +49,6 @@
   border-style: solid;
   font-size: 20px;
   font-family: theme.$heading-font-family;
-  // a {
-  //   color: theme.$text-white;
-  // }
 
   &:hover {
     background-color: theme.$lighterMainGreen;
