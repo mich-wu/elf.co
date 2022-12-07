@@ -18,15 +18,7 @@ describe('getPeets', () => {
 })
 
 describe('addPeets', () => {
-  it('adds the peets id, petname, owner and image', () => {
-    const rohanPeet = [
-      {
-        id: 1,
-        petname: 'Croissant',
-        owner: 'Rohan',
-        image: 'PEET-18.jpg',
-      },
-    ]
+  it('adds the peets and returns new id', () => {
     return addPeets('petname', 'owner', 'image', testDb).then((newPeet) => {
       console.log(newPeet)
       expect(newPeet[0]).toBe(4)
